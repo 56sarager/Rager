@@ -1,328 +1,258 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rager</title>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp"
+        crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
   <style>
     body {
-        background-image: url("./public/DarkRager.gif");
-        background-color: black;
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center;
+      background-image: url("./public/DarkRager.gif");
+      background-color: black;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
     }
-    /* Initially set the background to be transparent */
-/* Initially set the text color to white */
-/* Apply the gradient effect only to the link with the class 'gradient-text-link' */
-.gradient-text-link2 {
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 0.7 ;
-  text-decoration: none !important;
-  background: transparent !important;
-  transition: color 0.7s ease !important;
-  -webkit-background-clip: text !important; /* Ensures gradient is applied to the text */
-}
 
-/* On hover, apply the gradient to the text */
-.gradient-text-link2:hover {
-  color: transparent !important; /* Make text transparent */
-  background-image: linear-gradient(90deg, #FFF, #007AFF) !important; /* Gradient from left to right */
-  background-clip: text !important; /* Clip the background to the text */
-  -webkit-background-clip: text !important; /* For Safari */
-}
-    .border-top-gradient {
-  position: relative;
-}
+    .navbar,
+    .navbar-dark,
+    .container-fluid,
+    .navbar-nav {
+      background-color: #060606 !important;
+    }
 
-.border-top-gradient::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
-  opacity: 0.1;
-  z-index: 1;
-}
-
-.border-bottom-gradient {
-  position: relative;
-}
-
-.border-bottom-gradient::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
-  opacity: 0.1;
-  z-index: 1;
-}
-     .navbar{
-        background-color: #060606 !important;
-    }
-    .navbar-dark{
-        background-color: #060606 !important;
-    }
-    .container-fluid{
-        background-color: #060606 !important;
-    }
-    .navbar-nav{
-        background-color: #060606 !important;
-    }
     .navbar-nav .nav-link {
+      opacity: 0.3;
       transition: opacity 0.3s ease;
     }
+
     .navbar-nav .nav-link:hover {
       opacity: 0.7;
     }
-    .navbar-nav .nav-link {
-      opacity: 0.3;
-    }
+
     .text-light {
       opacity: 0.7;
     }
+
     .fw-bold {
-      opacity: 1.0 !important;
+      opacity: 1 !important;
     }
-    .feature-icon {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 0.75rem;
-    }
+
     .gradient-text {
-        font-family: "Roboto", sans-serif;
-        background: linear-gradient(to top, #c26628, #ffec84);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-    #offcanvasTopLabel{
       font-family: "Roboto", sans-serif;
+      background: linear-gradient(to top, #c26628, #ffec84);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-        #DarkRager {
+
+    .gradient-text-link {
+      display: inline-block !important;
+      opacity: 0.7;
+      text-decoration: none !important;
+      background: transparent !important;
+      transition: color 0.7s ease !important;
+      -webkit-background-clip: text !important;
+    }
+
+    .gradient-text-link:hover {
+      color: transparent !important;
+      background-image: linear-gradient(90deg, #ffffff, #ff0000) !important;
+      background-clip: text !important;
+      -webkit-background-clip: text !important;
+    }
+
+    .gradient-text-link2 {
+      position: relative !important;
+      display: inline-block !important;
+      opacity: 0.7 ;
+      text-decoration: none !important;
+      background: transparent !important;
+      transition: color 0.7s ease !important;
+      -webkit-background-clip: text !important;
+    }
+
+    .gradient-text-link2:hover {
+      color: transparent !important; 
+      background-image: linear-gradient(90deg, #8b5cf6,#e9d5ff ) !important; 
+      background-clip: text !important; 
+      -webkit-background-clip: text !important; 
+    }
+
+    .border-top-gradient,
+    .border-bottom-gradient {
+      position: relative;
+    }
+
+    .border-top-gradient::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #fff 52.07%, rgba(255,255,255,0) 100%);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    .border-bottom-gradient::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #fff 52.07%, rgba(255,255,255,0) 100%);
+      opacity: 0.1;
+      z-index: 1;
+    }
+
+    #DarkRager {
       display: block;
-}
+    }
+
     #LightRager {
       display: none;
-}
+    }
+
     .navbar-toggler-icon-light {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
 
     .navbar-toggler-icon-dark {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+    #featured-3 {
+      height: 200px;
+    }
+
     @media (prefers-color-scheme: light) {
       body {
         background-image: url("./public/LightRager.gif");
         background-color: white;
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position:center;
-    }
-    .navbar{
-        background-color: var(--bg-light) !important;
-    }
-    .navbar-dark{
-        background-color: var(--bg-light) !important;
-    }
-    .container-fluid{
-        background-color: var(--bg-light) !important;
-    }
-    .navbar-nav{
-        background-color: var(--bg-light) !important;
-    }
-    .nav-link{
-      color: var(--bg-dark) !important;
-    }
-    .text-light{
-      color: var(--bg-dark) !important;
-    }
-          #DarkRager {
-      display: none;
-}
-    #LightRager {
-      display: block;
-}
-.border-top-gradient::before {
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
-}
-.border-bottom-gradient::after {
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
-}
-}
-.gradient-text-link {
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 0.7 ;
-  text-decoration: none !important;
-  background: transparent !important;
-  transition: color 0.7s ease !important;
-  -webkit-background-clip: text !important; /* Ensures gradient is applied to the text */
-}
+      }
 
-/* On hover, apply the gradient to the text */
-.gradient-text-link:hover {
-  color: transparent !important; /* Make text transparent */
-  background-image: linear-gradient(90deg, #ffffff, #ff0000) !important; /* Gradient from left to right */
-  background-clip: text !important; /* Clip the background to the text */
-  -webkit-background-clip: text !important; /* For Safari */
-}
+      .navbar,
+      .navbar-dark,
+      .container-fluid,
+      .navbar-nav {
+        background-color: var(--bg-light) !important;
+      }
 
-#featured-3 {
-  height: 200px;
-}
+      .nav-link,
+      .text-light {
+        color: var(--bg-dark) !important;
+      }
+
+      #DarkRager {
+        display: none;
+      }
+
+      #LightRager {
+        display: block;
+      }
+
+      .border-top-gradient::before,
+      .border-bottom-gradient::after {
+        background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
+      }
+    }
   </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg bg-dark border-bottom-gradient">
-    <div class="container-fluid bg-dark">
-      <a class="navbar-brand navbar-dark bg-dark" href="./">
-        <img  src="./public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
-        <img  src="./public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30">
-      </a>
-      <button id="navbar-toggler" class="navbar-toggler navbar-dark bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-dark">
-          <li class="nav-item">
-            <!--<a class="nav-link active" aria-current="page" href="#">Home</a>-->
-          </li>
-          <li class="nav-item">
-            <a class="gradient-text-link nav-link" href="https://www.youtube.com/@rager-s">YouTube</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./travel">Travel</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>  
+<nav class="navbar navbar-expand-lg bg-dark border-bottom-gradient">
+  <div class="container-fluid bg-dark">
+    <a class="navbar-brand navbar-dark bg-dark" href="./">
+      <img src="./public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
+      <img src="./public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30">
+    </a>
 
-  <div class="px-4 pt-5 my-5 text-center">
-    <h1 class="gradient-text display-4 fw-bold text-light">Against the Dying of the Light</h1>
-    <div class="col-lg-6 mx-auto">
-      <!--<p class="lead mb-4 text-light">Where the impossible is possible
-      </p>-->
-      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
-       <!-- <button class="btn btn-outline-secondary btn-lg px-4" type="button" data-bs-toggle="offcanvas"
-         data-bs-target="#offcanvasTop" aria-controls="offcanvasTop">Contact</button>-->
-      </div>
-    </div>
-    <div class="overflow-hidden" style="max-height: 30vh;">
+    <button class="navbar-toggler navbar-dark bg-dark" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-dark">
+        <li class="nav-item"><a class="nav-link gradient-text-link2" href="./essays">Essays</a></li>
+        <li class="nav-item"><a class="nav-link" href="./travel">Travel</a></li>
+      </ul>
     </div>
   </div>
+</nav>
 
-  <div class="container px-4 py-5" id="featured-3">
-    
-  </div>
+<div class="px-4 pt-5 my-5 text-center">
+  <h1 class="gradient-text display-4 fw-bold text-light">Against the Dying of the Light</h1>
+</div>
 
-  <!--<div class="offcanvas offcanvas-top" 
-  style="height: 60px" tabindex="-1" id="offcanvasTop" aria-labelledby="offcanvasTopLabel">
-    <div class="offcanvas-header h-10">
-      <div class="col-3"></div>
-      <img src="./public/Instagram.png" alt="Instagram Logo" height="40"/>
-      <h3 id="offcanvasTopLabel"><a class="text-dark col-2" href="#"  style="text-decoration:none">serhodes99</a></h3>
-      <p class="text-dark">(Love a good pseudonym)</p>
-      <div class="col-2"></div>
-      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<div class="container px-4 py-5" id="featured-3"></div>
+
+<div class="container">
+  <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top-gradient">
+    <div class="col mb-3">
+      <p class="text-light">Designed by Samuel Rager</p>
     </div>
-  </div>-->
 
-  <div class="container">
-    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top-gradient">
-      <div class="col mb-3">
-        <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-          <svg class="bi me-2" width="40" height="32">
-            <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
-        <p class="text-light">Designed by Samuel Rager</p>
+    <div class="col mb-3"></div>
+    <div class="col mb-3"></div>
 
+    <div class="col mb-3">
+      <h5 class="text-light">Links</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="https://github.com/56sarager" class="nav-link p-0 text-light">GitHub</a>
+        </li>
+      </ul>
     </div>
 
     <div class="col mb-3">
-
+      <h5 class="text-light">Pages</h5>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2">
+          <a href="./travel" class="nav-link p-0 text-light">Travel</a>
+        </li>
+        <li class="nav-item">
+          <a href="./WA/index" class="nav-link gradient-text-link p-0">
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="col mb-3">
+  </footer>
+</div>
 
-    </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 
-      <div class="col mb-3">
-        <h5 class="text-light">Links</h5>
-        <ul class="nav flex-column">
-          <li class="nav-item mb-2"><a href="https://github.com/56sarager" class="nav-link p-0 text-light">GitHub</a></li>
-        </ul>
-      </div>
-
-      <div class="col mb-3">
-        <h5 class="text-light">Pages</h5>
-        <ul class="nav flex-column">
-          <!--<li class="nav-item mb-2"><a href="./split" class="nav-link p-0 text-light">Split</a></li>-->
-          <li class="nav-item mb-2"><a href="./travel" class="nav-link p-0 text-light">Travel</a></li>
-          <li class="nav-item">
-              <a href="./WA/index" class="nav-link gradient-text-link p-0" style="position: relative; z-index: 1;">
-                <svg height="50px" width="50px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.001 512.001" xml:space="preserve" stroke="#ffffff">
-                  <defs>
-                    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style="stop-color:#ff7f50;stop-opacity:1" />
-                      <stop offset="100%" style="stop-color:#00f;stop-opacity:1" />
-                    </linearGradient>
-                  </defs>
-                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                  <g id="SVGRepo_iconCarrier">
-                    <g>
-                      <g>
-                        <!-- Outer path with gradient -->
-                        <path d="M448.435,300.244c-0.001-0.015-0.001-0.031-0.002-0.046c-2.118-26.618-8.444-57.709-18.296-89.911 c-0.001-0.003-0.002-0.006-0.003-0.009c-5.669-18.534-12.325-36.849-19.784-54.434c0-0.001-0.001-0.003-0.001-0.005 c-18.372-43.418-40.64-80.426-64.398-107.021C317.014,16.423,286.749,0,256.002,0c-30.749,0-61.011,16.423-89.949,48.816 c-23.758,26.594-46.027,63.602-64.398,107.021c0,0.001-0.001,0.002-0.001,0.003c-7.461,17.593-14.12,35.911-19.789,54.446 c0,0.001,0,0.002-0.001,0.005c-9.85,32.198-16.175,63.291-18.294,89.918c0,0.002,0,0.003,0,0.006c0,0.001,0,0.002,0,0.003 c-0.516,6.557-0.779,12.807-0.779,18.574c0,106.537,86.673,193.209,193.209,193.209S449.21,425.329,449.21,318.792 C449.211,313.027,448.95,306.787,448.435,300.244z M256.002,23.208c43.872,0,91.409,48.755,128.346,131.054 c-4.211,2.636-7.554,5.723-10.506,8.447c-5.759,5.315-9.236,8.523-17.266,8.523c-8.037,0-11.515-3.21-17.276-8.528 c-6.713-6.195-15.907-14.68-33.016-14.68c-17.109,0-26.303,8.486-33.016,14.68c-5.761,5.318-9.239,8.528-17.276,8.528 c-8.029,0-11.504-3.209-17.262-8.524c-6.713-6.198-15.907-14.684-33.018-14.684c-17.112,0-26.305,8.486-33.018,14.684 c-5.758,5.316-9.235,8.524-17.262,8.524c-8.039,0-11.517-3.21-17.279-8.528c-2.95-2.722-6.288-5.804-10.495-8.44 C164.591,71.956,212.128,23.208,256.002,23.208z M118.388,176.193c1.237,1.023,2.537,2.196,4.021,3.566 c6.713,6.195,15.907,14.682,33.02,14.682c17.103,0,26.294-8.485,33.006-14.679c5.76-5.318,9.238-8.529,17.275-8.529 s11.515,3.211,17.276,8.529c6.711,6.195,15.902,14.679,33.005,14.679c17.109,0,26.303-8.486,33.016-14.68 c5.761-5.318,9.239-8.528,17.276-8.528s11.515,3.21,17.276,8.528c6.713,6.195,15.907,14.68,33.016,14.68 c17.102,0,26.294-8.483,33.005-14.676c1.49-1.375,2.793-2.549,4.034-3.576c3.763,9.486,7.279,19.155,10.518,28.926 c-7.494,2.907-12.794,7.356-17.368,11.193c-6.374,5.35-10.585,8.884-20.175,8.884c-9.601,0-13.814-3.536-20.191-8.888 c-7.602-6.38-17.062-14.321-35.113-14.321c-18.044,0-27.502,7.94-35.101,14.318c-6.376,5.353-10.59,8.89-20.192,8.89 c-9.594,0-13.805-3.535-20.18-8.885c-7.602-6.381-17.062-14.323-35.114-14.323c-18.046,0-27.504,7.941-35.103,14.322 c-6.374,5.351-10.584,8.886-20.18,8.886c-9.601,0-13.815-3.536-20.191-8.886c-4.57-3.835-9.867-8.281-17.353-11.188 C111.109,195.35,114.625,185.681,118.388,176.193z M101.008,227.424c3.199,1.544,5.925,3.831,9.296,6.658 c7.601,6.379,17.062,14.317,35.11,14.317c18.046,0,27.504-7.941,35.103-14.322c6.374-5.351,10.584-8.886,20.18-8.886 c9.602,0,13.816,3.537,20.192,8.89c7.6,6.379,17.057,14.318,35.101,14.318c18.053,0,27.513-7.942,35.114-14.323 c6.374-5.351,10.585-8.885,20.181-8.885c9.601,0,13.815,3.536,20.192,8.889c7.602,6.379,17.062,14.32,35.112,14.32 c18.039,0,27.496-7.938,35.094-14.316c3.376-2.834,6.104-5.122,9.31-6.667c6.909,24.352,11.597,47.673,13.727,68.313 l-29.479,22.099l-39.455-29.592c-4.125-3.094-9.8-3.094-13.925,0l-39.454,29.591l-39.454-29.591c-4.125-3.094-9.8-3.094-13.925,0 l-39.454,29.591l-39.454-29.591c-4.126-3.094-9.8-3.095-13.926,0.001l-39.443,29.589l-29.465-22.095 C89.415,275.089,94.1,251.77,101.008,227.424z M256.002,488.792c-92.051,0-167.248-73.545-169.928-164.959l23.715,17.783 c4.126,3.096,9.8,3.095,13.925-0.001l39.443-29.588l39.453,29.589c4.126,3.094,9.799,3.094,13.925,0l39.454-29.591l39.454,29.591 c4.125,3.094,9.8,3.094,13.925,0l39.454-29.591l39.454,29.591c4.126,3.092,9.796,3.096,13.923,0.001l23.728-17.788 C423.251,415.243,348.054,488.792,256.002,488.792z" fill="url(#gradient1)"></path>
-                      </g>
-                    </g>
-                  </g>
-                </svg>                                              
-              </a>
-          </li>
-        </ul>
-      </div>
-    </footer>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
-    crossorigin="anonymous">
-  </script>
-  <script>
+<script>
   function setTogglerIconColor() {
-            const togglerIcon = document.querySelector('.navbar-toggler-icon');
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-                togglerIcon.classList.remove('navbar-toggler-icon-light');
-                togglerIcon.classList.add('navbar-toggler-icon-dark');
-            } else {
-                togglerIcon.classList.remove('navbar-toggler-icon-dark');
-                togglerIcon.classList.add('navbar-toggler-icon-light');
-            }
-        }
+    const icon = document.querySelector('.navbar-toggler-icon');
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      icon.classList.add('navbar-toggler-icon-dark');
+      icon.classList.remove('navbar-toggler-icon-light');
+    } else {
+      icon.classList.add('navbar-toggler-icon-light');
+      icon.classList.remove('navbar-toggler-icon-dark');
+    }
+  }
 
-        // Initial check
-        setTogglerIconColor();
+  setTogglerIconColor();
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTogglerIconColor);
+</script>
 
-        // Listen for changes in dark mode preference
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTogglerIconColor);
-  </script>
 </body>
-
 </html>
+

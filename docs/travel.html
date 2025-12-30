@@ -14,266 +14,127 @@
 </head>
 
 <style>
-    body {
-      background-color: #060606 !important;
-    }
-    .gradient-text-link2 {
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 0.7 ;
-  text-decoration: none !important;
-  background: transparent !important;
-  transition: color 0.7s ease !important;
-  -webkit-background-clip: text !important; /* Ensures gradient is applied to the text */
-}
+  body {
+    background-color: #060606 !important;
+  }
 
-/* On hover, apply the gradient to the text */
-.gradient-text-link2:hover {
-  color: transparent !important; /* Make text transparent */
-  background-image: linear-gradient(90deg, #FFF, #007AFF) !important; /* Gradient from left to right */
-  background-clip: text !important; /* Clip the background to the text */
-  -webkit-background-clip: text !important; /* For Safari */
-}
-    .border-top-gradient {
-  position: relative;
-}
+  .gradient-text-link, .gradient-text-link2, .gradient-text-link3 {
+    position: relative !important;
+    display: inline-block !important;
+    opacity: 0.7;
+    text-decoration: none !important;
+    background: transparent !important;
+    transition: color 0.7s ease !important;
+    -webkit-background-clip: text !important;
+  }
 
-.border-top-gradient::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
-  opacity: 0.1;
-  z-index: 1;
-}
-.border {
-  background-color: #c26628 !important;
-}
+  .gradient-text-link:hover {
+    color: transparent !important;
+    background-image: linear-gradient(90deg, #ffffff, #ff0000) !important;
+    background-clip: text !important;
+    -webkit-background-clip: text !important;
+  }
 
-.border-bottom-gradient {
-  position: relative;
-}
+  .gradient-text-link2:hover {
+    color: transparent !important;
+    background-image: linear-gradient(90deg, #FFF, #007AFF) !important;
+  }
 
-.border-bottom-gradient::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 1px;
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
-  opacity: 0.1;
-  z-index: 1;
-}
-    .navbar{
-        background-color: #060606 !important;
-    }
-    .navbar-dark{
-        background-color: #060606 !important;
-    }
-    .container-fluid{
-        background-color: #060606 !important;
-    }
-    .navbar-nav{
-        background-color: #060606 !important;
-    }
-    .z-n1 {
-      background-color: #060606 
-    }
-    .total-count {
-      background-color: #060606 
-    }
-    .stotal-count {
-      background-color: #060606 
-    }
-    .container{
-        background-color: #060606 !important;
-    }
-    .bg-dark {
-      background-color: #060606 !important;
-    }
-    .navbar-nav .nav-link {
-      transition: opacity 0.3s ease;
-    }
-    .navbar-nav .nav-link:hover {
-      opacity: 0.7;
-    }
-    .navbar-nav .nav-link {
-      opacity: 0.3;
-    }
-    .text-light {
-      opacity: 0.7;
-    }
-  path{
-    fill:#141414;
+  .gradient-text-link3:hover {
+    color: transparent !important;
+    background-image: linear-gradient(90deg, #8b5cf6, #e9d5ff) !important;
+  }
+
+  .border-top-gradient, .border-bottom-gradient {
+    position: relative;
+  }
+
+  .border-top-gradient::before, .border-bottom-gradient::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    opacity: 0.1;
+    z-index: 1;
+    background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
+  }
+
+  .border-top-gradient::before { top: 0; left: 0; }
+  .border-bottom-gradient::after { bottom: 0; left: 0; }
+
+  .navbar, .navbar-dark, .container-fluid, .navbar-nav, .container, .bg-dark, .z-n1, .total-count, .stotal-count {
+    background-color: #060606 !important;
+  }
+
+  .navbar-nav .nav-link {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover { opacity: 0.7; }
+  .text-light { opacity: 0.7; }
+
+  path {
+    fill: #141414;
     stroke-width: 0.25;
     stroke: #000;
   }
-  path:hover{
+
+  path:hover {
     stroke-width: 1;
     stroke: #c26628;
   }
-  h1{
-    font-family: "Roboto", sans-serif;
-  }
-  .btn:focus {
-  outline: none;
-  box-shadow: none;
-  }
-      #DarkRager {
-      display: block;
-}
-    #LightRager {
-      display: none;
-}
-    .navbar-toggler-icon-light {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
 
-    .navbar-toggler-icon-dark {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-        }
-    .ag-canvas_svg path {
-    fill: #141414; /* Applies red to all paths */
+  h1 { font-family: "Roboto", sans-serif; }
+
+  .btn:focus { outline: none; box-shadow: none; }
+
+  #DarkRager { display: block; }
+  #LightRager { display: none; }
+
+  .navbar-toggler-icon-light {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='black' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
   }
+
+  .navbar-toggler-icon-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='white' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
   @media (prefers-color-scheme: light) {
-    .bg-dark{
-      background-color: var(--bg-light) !important;
+    body, .container, .z-n1, .total-count, .stotal-count { background-color: white !important; }
+    .navbar, .navbar-dark, .container-fluid, .navbar-nav { background-color: white !important; }
+    .nav-link, .text-light { color: black !important; opacity: 0.7; }
+    #DarkRager { display: none; }
+    #LightRager { display: block; }
+    path, .ag-canvas_svg path { fill: white; stroke-width: 0.25; stroke: #000; }
+    path:hover { stroke-width: 1; stroke: #ff9c5a; }
+    .border-top-gradient::before, .border-bottom-gradient::after {
+      background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
     }
-    .navbar{
-        background-color: var(--bg-light) !important;
-    }
-    .navbar-dark{
-        background-color: var(--bg-light) !important;
-    }
-    .container-fluid{
-        background-color: var(--bg-light) !important;
-    }
-    .navbar-nav{
-        background-color: var(--bg-light) !important;
-    }
-    .nav-link{
-      color: var(--bg-dark) !important;
-    }
-    .container{
-        background-color: white !important;
-    }
-    .navbar-nav{
-        background-color: white !important;
-    }
-    .z-n1 {
-      background-color: white
-    }
-    .total-count {
-      background-color: white
-    }
-    .stotal-count {
-      background-color: white
-    }
-    .text-light{
-      color: var(--bg-dark) !important;
-    }
-    #tooltip{
-      background-color: white !important;
-    }
-    #offcanvasRight{
-      background-color: white !important;
-    }
-    body {
-      background-color: white !important;
-    }
-        #DarkRager {
-      display: none;
-}
-    #LightRager {
-      display: block;
-}
-.ag-canvas_svg path {
-    fill: white; /* Applies red to all paths */
+    #tooltip, #offcanvasRight { background-color: white !important; }
   }
-  path{
-    fill:white;
-    stroke-width: 0.25;
-    stroke: #000;
-  }
-  path:hover{
-    stroke-width: 1;
-    stroke: #ff9c5a;
-  }
-  .border-top-gradient::before {
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
-}
-.border-bottom-gradient::after {
-  background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #000 52.07%, rgba(255,255,255,0) 100%);
-}
-    
-}
-
-.gradient-text-link {
-  position: relative !important;
-  display: inline-block !important;
-  opacity: 0.7 ;
-  text-decoration: none !important;
-  background: transparent !important;
-  transition: color 0.7s ease !important;
-  -webkit-background-clip: text !important; /* Ensures gradient is applied to the text */
-}
-
-/* On hover, apply the gradient to the text */
-.gradient-text-link:hover {
-  color: transparent !important; /* Make text transparent */
-  background-image: linear-gradient(90deg, #ffffff, #ff0000) !important; /* Gradient from left to right */
-  background-clip: text !important; /* Clip the background to the text */
-  -webkit-background-clip: text !important; /* For Safari */
-}
 </style>
 
 <body class="bg-dark">
   <nav class="navbar navbar-expand-lg bg-dark border-bottom-gradient">
-    <div class="container-fluid bg-dark">
-      <a class="navbar-brand navbar-dark bg-dark" href="./">
-        <img  src="./public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
-        <img  src="./public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./">
+        <img src="./public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
+        <img src="./public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse navbar-dark bg-dark" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 bg-dark">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <!--<a class="nav-link active" aria-current="page" href="#">Home</a>-->
+            <a class="nav-link gradient-text-link3" href="./essays">Essays</a>
           </li>
-          <li class="nav-item">
-            <a class="gradient-text-link nav-link" href="https://www.youtube.com/@rager-s">YouTube</a>
-          </li>
-         <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Links
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="https://www.fiverr.com/sarager56">Fiverr</a></li>
-              <li><a class="dropdown-item" href="https://github.com/56sarager">GitHub</a></li>
-              <li><a class="dropdown-item" href="https://www.linkedin.com/in/samuel-rager-abb41b327/">LinkedIn</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Instagram</a></li>
-            </ul>
-          </li>-->
         </ul>
-        <!--<form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        </form>-->
       </div>
     </div>
   </nav>
-  <!--<form action="/add" method="post">
-    <input type="text" name="country" autofocus placeholder="<%= locals.error ? error :  'Enter country name'%>">
-    <button type="submit">Add</button>
-  </form>--> 
+
   <section class="z-n1">
     <div id="tooltip" class="card bg-dark border-top-gradient w-25">
       <h6 id="tooltip_text" class="card-header text-light">Temp</h6>
@@ -1194,10 +1055,8 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
             }
         }
 
-        // Initial check
         setTogglerIconColor();
 
-        // Listen for changes in dark mode preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setTogglerIconColor);
     
   </script>
@@ -1231,8 +1090,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
     <div class="col mb-3">
       <h5 class="text-light">Pages</h5>
       <ul class="nav flex-column">
-        <li class="nav-item mb-2"><a href="./academics" class="nav-link p-0 text-light">Academics</a></li>
-        <li class="nav-item mb-2"><a href="./travel" class="nav-link p-0 text-light">Travel</a></li>
+        <li class="nav-item mb-2"><a href="./essays" class="nav-link p-0 text-light">Essays</a></li>
       </ul>
     </div>
   </footer>
