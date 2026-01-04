@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Word Cloud</title>
+
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background-color: #060606;
+        }
+
+        .navbar, .navbar-dark, .container-fluid, .navbar-nav, .bg-dark, .container {
+            background-color: #060606 !important;
+        }
+
+        .navbar-nav .nav-link {
+            opacity: 0.3;
+            transition: opacity 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        .text-light {
+            opacity: 0.7;
+        }
+
+        .gradient-text {
+            font-family: "Roboto Slab", serif;
+            font-weight: 500;
+            background: linear-gradient(to top, #0C3095, #0BAAED);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-link {
+            position: relative !important;
+            display: inline-block !important;
+            opacity: 0.7;
+            text-decoration: none !important;
+            background: transparent !important;
+            transition: color 0.7s ease !important;
+        }
+
+        .gradient-text-link:hover {
+            color: transparent !important;
+            background-image: linear-gradient(90deg, #ffffff, #ff0000) !important;
+            background-clip: text !important;
+            -webkit-background-clip: text !important;
+        }
+
+        .gradient-text-link2 {
+          position: relative !important;
+          display: inline-block !important;
+          opacity: 0.7 ;
+          text-decoration: none !important;
+          background: transparent !important;
+          transition: color 0.7s ease !important;
+          -webkit-background-clip: text !important;
+        }
+
+        .gradient-text-link2:hover {
+          color: transparent !important; 
+          background-image: linear-gradient(90deg, #8b5cf6,#e9d5ff ) !important; 
+          background-clip: text !important; 
+          -webkit-background-clip: text !important; 
+        }
+
+        .border-top-gradient::before, .border-bottom-gradient::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .border-top-gradient::before {
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
+        }
+
+        .border-bottom-gradient::after {
+            bottom: 0;
+            left: 0;
+            background-image: linear-gradient(270deg, rgba(255,255,255,0) 0%, #FFF 52.07%, rgba(255,255,255,0) 100%);
+        }
+
+        #DarkRager { display: block; }
+        #LightRager { display: none; }
+
+        @media (prefers-color-scheme: light) {
+            body, .container { background-color: white !important; }
+            .navbar, .navbar-dark, .container-fluid, .navbar-nav { background-color: white !important; }
+            .nav-link, .text-light { color: black !important; opacity: 0.7; }
+            .gradient-text {
+                font-family: "Roboto", sans-serif; 
+                background: linear-gradient(to top right, #a4a4a4, #448cff) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            #DarkRager { display: none; }
+            #LightRager { display: block; }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark border-bottom-gradient">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../">
+                <img src="../public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
+                <img src="../public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30">
+            </a>
+            <button id="navbar-toggler" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link gradient-text-link2" href="../essays">Essays</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../travel">Travel</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>  
+
+    <div class="container">
+        <div class="row pt-2 align-items-center">
+            <div class="col-3">
+                <h2 class="gradient-text">Word Association html</h2>
+            </div>
+            <div class="col-6">
+                <input type="text" id="wordInput" class="form-control input-lg" placeholder="Enter a word">
+            </div>
+            <div class="col-3 text-end">
+                <h2 class="gradient-text" id="scoreDisplay">Score: 0</h2>
+            </div>
+        </div>
+        <div id="wordCloud"></div>
+    </div>
+
+    <div class="container bg-dark">
+        <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top-gradient">
+            <div class="col mb-3">
+                <p class="text-light">Designed by Samuel Rager</p>
+            </div>
+            <div class="col mb-3">
+                <p class="text-light">Same game written in Flutter:</p>
+                <a href="https://github.com/56sarager/Word-Association-Flutter" class="nav-link p-0 text-light">
+                    https://github.com/56sarager/Word-Association-Flutter
+                </a>
+            </div>
+            <div class="col mb-3"></div>
+            <div class="col mb-3">
+                <h5 class="text-light">Links</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="https://github.com/56sarager" class="nav-link p-0 text-light">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col mb-3">
+                <h5 class="text-light">Pages</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="../essays" class="nav-link p-0 text-light">Essays</a></li>
+                    <li class="nav-item mb-2"><a href="../travel" class="nav-link p-0 text-light">Travel</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+

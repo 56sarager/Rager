@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Pages</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #060606;
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+    }
+
+    .navbar {
+      position: relative;
+      background-color: #060606 !important;
+    }
+
+     .navbar-nav .nav-link {
+    opacity: 0.3;
+    transition: opacity 0.3s ease;
+  }
+
+      .navbar-nav .nav-link:hover { opacity: 0.7; }
+  .text-light { opacity: 0.7; }
+
+    .navbar::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #fff 50%, rgba(255,255,255,0) 100%);
+      opacity: 0.2;
+    }
+
+    .preview {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      min-height: 360px;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    .preview iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1600px;
+      height: 900px;
+      transform: translate(-50%, -50%) scale(0.4);
+      transform-origin: center;
+      border: none;
+      pointer-events: none;
+    }
+
+    .card {
+      background-color: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      opacity: 0.9;
+    }
+
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .text-muted {
+      opacity: 0.6;
+    }
+
+    #DarkRager { display: block; }
+    #LightRager { display: none; }
+
+    footer {
+      position: relative;
+      background-color: #060606;
+      color: #fff;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(270deg, rgba(255,255,255,0) 0%, #fff 50%, rgba(255,255,255,0) 100%);
+      opacity: 0.2;
+    }
+
+    @media (prefers-color-scheme: light) {
+      body { background-color: #f8f9fa; }
+      .navbar { background-color: #ffffff !important; }
+      .navbar::after {
+        background: linear-gradient(270deg, rgba(0,0,0,0) 0%, #000 50%, rgba(0,0,0,0) 100%);
+      }
+      .card {
+        background-color: rgba(255,255,255,0.9);
+        border: 1px solid rgba(0,0,0,0.08);
+      }
+      .text-light { color: #000 !important; }
+      footer {
+        background-color: #ffffff;
+        color: #000;
+      }
+      footer::before {
+        background: linear-gradient(270deg, rgba(0,0,0,0) 0%, #000 50%, rgba(0,0,0,0) 100%);
+      }
+      #DarkRager { display: none; }
+      #LightRager { display: block; }
+    }
+  </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="./">
+      <img src="./public/DarkRager.png" id="DarkRager" alt="Rager logo" height="30">
+      <img src="./public/LightRager.jpg" id="LightRager" alt="Rager logo" height="30">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link text-light" href="./essays">Essays</a></li>
+        <li class="nav-item"><a class="nav-link text-light" href="./travel">Travel</a></li>
+        <li class="nav-item"><a class="nav-link text-light fw-bold" href="./landing-pages.html">Landing Pages</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container py-5 text-center"></div>
+
+<div class="container pb-5">
+  <div class="row g-4">
+    <div class="col-12 col-lg-6">
+      <a href="./Landing Pages/CONVO/index.html" class="text-decoration-none">
+        <div class="card h-100">
+          <div class="preview">
+            <iframe src="./Landing Pages/CONVO/index.html" loading="lazy" title="CONVO Landing Page Preview"></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="text-light mb-1">CONVO</h5>
+            <p class="text-light mb-0">Human-first conversation starter.</p>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <a href="./Landing Pages/Analytics/index.html" class="text-decoration-none">
+        <div class="card h-100">
+          <div class="preview">
+            <iframe src="./Landing Pages/Analytics/index.html" loading="lazy" title="Analytics Landing Page Preview"></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="text-light mb-1">Rhodes</h5>
+            <p class="text-light mb-0">Rapid data analytics for small business and finance</p>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer class="mt-5">
+  <div class="container py-5">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5">
+      <div class="col mb-3"><p>Designed by Samuel Rager</p></div>
+      <div class="col mb-3"></div>
+      <div class="col mb-3"></div>
+      <div class="col mb-3">
+        <h5>Links</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="https://github.com/56sarager" class="nav-link text-light p-0">GitHub</a></li>
+        </ul>
+      </div>
+      <div class="col mb-3">
+        <h5>Pages</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="./essays" class="nav-link text-light p-0">Essays</a></li>
+          <li class="nav-item mb-2"><a href="./landing" class="nav-link text-light p-0">Landing Pages</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

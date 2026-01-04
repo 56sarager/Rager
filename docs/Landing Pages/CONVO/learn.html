@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn More | CONVO</title>
+<link href="https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #333;
+        background-color: #FFF5F0;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 40px;
+        position: sticky;
+        top: 0;
+        background-color: rgba(255,255,255,0.9);
+        z-index: 10;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        border-radius: 0 0 12px 12px;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-family: 'Oleo Script Swash Caps', cursive;
+        font-size: 32px;
+        background-color: rgba(255,255,255,0.8);
+        padding: 6px 12px;
+        border-radius: 12px;
+    }
+    .logo img { height: 40px; }
+
+    nav {
+        display: flex;
+        gap: 20px;
+        font-weight: bold;
+        background: #FAD2C1;
+        padding: 8px 16px;
+        border-radius: 24px;
+    }
+    nav a { color: #333; }
+
+    main {
+        max-width: 900px;
+        margin: 60px auto 120px auto;
+        padding: 0 20px;
+        line-height: 1.6;
+    }
+
+    main h1 {
+        font-family: 'Oleo Script Swash Caps', cursive;
+        font-size: 48px;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    main h2 {
+        font-size: 28px;
+        margin-top: 40px;
+        margin-bottom: 16px;
+        color: #333;
+    }
+
+    main p {
+        font-size: 20px;
+        margin-bottom: 24px;
+        color: #555;
+    }
+
+    .highlight {
+        color: #F28C6B;
+        font-weight: bold;
+    }
+
+    @media (max-width: 900px) {
+        header { flex-direction: column; gap: 12px; padding: 20px; }
+        nav { width: 100%; justify-content: space-around; }
+        main h1 { font-size: 36px; }
+        main h2 { font-size: 24px; }
+        main p { font-size: 18px; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="CONVO.svg" alt="CONVO Logo"> CONVO
+    </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="learn.html">Learn More</a>
+        <a href="faq.html">FAQ</a>
+    </nav>
+</header>
+
+<main>
+    <h1>Learn More About CONVO</h1>
+    
+    <h2>Why CONVO Exists</h2>
+    <p>For years, social apps have been designed to keep you scrolling endlessly. CONVO is built around real connection, not metrics. Its sole purpose is to help two people start a conversation—and then step away from the screen.</p>
+
+    <h2>How It Works</h2>
+    <p>Open the app, see a small prompt chosen by someone nearby, and start a conversation. There are no followers, no likes, and no filters. The app is designed to <span class="highlight">disappear quickly</span>—because the real product is the moment that happens after.</p>
+
+    <h2>Designed for Humans</h2>
+    <p>Minimal design. Subtle colors. No flashy animations. CONVO is here to remove friction from social interactions and make real-world connections effortless.</p>
+
+    <h2>Privacy & Safety</h2>
+    <p>Your prompts are anonymous and ephemeral. CONVO never shares your personal data, ensuring that starting a conversation is safe and stress-free.</p>
+</main>
+
+</body>
+</html>
