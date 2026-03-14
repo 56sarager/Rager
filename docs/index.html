@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rager</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange: #FF6B00;
+      --yellow: #FFD700;
+      --glass-bg: rgba(255,255,255,0.55);
+      --glass-border: rgba(255,255,255,0.75);
+      --glass-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
+      --glass-blur: blur(18px) saturate(180%);
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+      font-family: 'Outfit', sans-serif;
+      background: #FFF;
+    }
+
+    .bg-video {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -35%) scale(1.55);
+      min-width: 100%; min-height: 100%;
+      width: auto; height: auto;
+      object-fit: cover;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .vignette {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .nav-island {
+      position: fixed;
+      top: 22px;
+      left: 22px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 10px 22px 10px 14px;
+      border-radius: 999px;
+      background: var(--glass-bg);
+      backdrop-filter: var(--glass-blur);
+      -webkit-backdrop-filter: var(--glass-blur);
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        var(--glass-shadow),
+        inset 0 1px 0 rgba(160, 200, 255, 0.25),
+        inset 0 -1px 0 rgba(80, 140, 255, 0.08);
+      overflow: visible;
+    }
+
+    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+    .nav-logo img { height: 30px; width: auto; display: block; }
+
+    .nav-divider {
+      width: 1px; height: 20px;
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent);
+      flex-shrink: 0;
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links li { position: relative; }
+
+    .nav-links a {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 500;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      padding: 4px 0;
+      display: inline-block;
+      transition: color 0.25s ease;
+      position: relative;
+      z-index: 1;
+    }
+    .nav-links a:hover { color: rgba(255,255,255,1); }
+    .nav-links a::after { display: none; }
+    .nav-links a.active { color: #fff; }
+
+    .shoot-line {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      pointer-events: none;
+      z-index: 299;
+      background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 60%, transparent 100%);
+      box-shadow: 0 0 10px 2px rgba(255,160,0,0.6);
+      width: 0;
+      opacity: 0;
+    }
+
+    .link-underline {
+      position: fixed;
+      height: 2px;
+      border-radius: 2px;
+      pointer-events: none;
+      z-index: 300;
+      background: linear-gradient(90deg, var(--orange), var(--yellow));
+      box-shadow: 0 0 8px 1px rgba(255,160,0,0.5);
+      opacity: 0;
+    }
+
+    .hero {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-wordmark {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 12vw, 11rem);
+      letter-spacing: 0.08em;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.08) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      text-shadow: 0 0 80px rgba(255,140,0,0.18);
+    }
+
+    .hero-tagline {
+      margin-top: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: clamp(0.75rem, 1.5vw, 1rem);
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="./public/LightRager.mp4" type="video/mp4" />
+  </video>
+  <div class="vignette"></div>
+
+  <nav class="nav-island" id="navIsland">
+    <div class="nav-logo">
+      <img src="./public/Subtract.png" id="LightRager" alt="Rager logo" height="30" />
+    </div>
+    <div class="nav-divider"></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="./travel" class="nav-link" data-label="Explore">Explore</a></li>
+      <li><a href="https://reclaimrevenue.co" class="nav-link">Reclaim Revenue</a></li>
+      <li><a href="./crossword" class="nav-link">Aburrí</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const links = document.querySelectorAll('.nav-link');
+    let activeLink = null;
+
+    const shootLine = document.createElement('div');
+    shootLine.className = 'shoot-line';
+    document.body.appendChild(shootLine);
+
+    const underlineEl = document.createElement('div');
+    underlineEl.className = 'link-underline';
+    document.body.appendChild(underlineEl);
+
+    let shootTimer = null;
+
+    function activate(link) {
+      if (link === activeLink) return;
+
+      if (activeLink) activeLink.classList.remove('active');
+      link.classList.add('active');
+      activeLink = link;
+
+      const rect = link.getBoundingClientRect();
+      const lineY = rect.bottom + 3;
+      const linkLeft  = rect.left;
+      const linkWidth = rect.width;
+
+      underlineEl.style.opacity = '0';
+      underlineEl.style.transition = 'none';
+      underlineEl.style.left  = linkLeft + 'px';
+      underlineEl.style.width = linkWidth + 'px';
+      underlineEl.style.top   = lineY + 'px';
+
+      if (shootTimer) clearTimeout(shootTimer);
+      shootLine.style.transition = 'none';
+      shootLine.style.top    = lineY + 'px';
+      shootLine.style.left   = '0px';
+      shootLine.style.width  = '0px';
+      shootLine.style.opacity = '1';
+
+      void shootLine.offsetWidth;
+
+      const targetWidth = linkLeft + linkWidth;
+      const duration = 320 + targetWidth * 0.18;
+      shootLine.style.transition = `width ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+      shootLine.style.width = targetWidth + 'px';
+
+      shootTimer = setTimeout(() => {
+        shootLine.style.transition = 'opacity 120ms ease';
+        shootLine.style.opacity = '0';
+        underlineEl.style.transition = 'opacity 100ms ease';
+        underlineEl.style.opacity = '1';
+      }, duration);
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', e => {
+        const href = link.getAttribute('href');
+        const isExternal = href && href.startsWith('http');
+
+        if (isExternal) {
+          activate(link);
+          return; // allow default — browser opens the link
+        }
+
+        // Internal: animate then navigate
+        e.preventDefault();
+        activate(link);
+        const rect = link.getBoundingClientRect();
+        const duration = 320 + (rect.left + rect.width) * 0.18;
+        setTimeout(() => { window.location.href = href; }, duration + 80);
+      });
+    });
+  </script>
+</body>
+</html>

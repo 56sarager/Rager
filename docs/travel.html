@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel Map</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-bg-heavy: rgba(255,255,255,0.78);
+  --glass-border: rgba(255,255,255,0.75);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
+  --glass-blur: blur(24px) saturate(1.8);
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-ui: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+html, body {
+  height: 100%; overflow: hidden;
+  background: #f0f4f8;
+  font-family: var(--font-ui);
+  color: #1a1a2e;
+}
+body::before {
+  content: ''; position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(180,210,255,0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 80%, rgba(210,190,255,0.2)  0%, transparent 50%),
+    radial-gradient(ellipse at 60% 10%, rgba(200,230,255,0.3)  0%, transparent 45%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── TAB BAR ── */
+#tab-bar {
+  position: fixed; top: 16px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 190;
+  display: flex; align-items: center;
+  gap: 4px; padding: 6px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border); border-radius: 20px;
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.9);
+  white-space: nowrap;
+  max-width: calc(100vw - 32px);
+  overflow-x: auto; overflow-y: hidden;
+  scrollbar-width: none;
+  transition: top 0.35s cubic-bezier(0.34,1.1,0.64,1);
+}
+#tab-bar::-webkit-scrollbar { display: none; }
+.tab-pill {
+  padding: 7px 18px; border-radius: 14px;
+  font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: rgba(30,50,100,0.55);
+  cursor: pointer; transition: all 0.22s ease;
+  border: 1px solid transparent; user-select: none;
+}
+.tab-pill:hover { color: rgba(30,50,100,0.85); background: rgba(255,255,255,0.6); }
+.tab-pill.active {
+  background: var(--glass-bg-heavy); color: rgba(30,50,100,0.95);
+  border-color: rgba(255,255,255,0.9);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,1);
+}
+.tab-divider {
+  width: 1px; height: 16px;
+  background: rgba(100,140,200,0.2);
+  margin: 0 2px; flex-shrink: 0;
+}
+.zoom-only { transition: opacity 0.2s ease; }
+.zoom-hidden .zoom-only { opacity: 0.25; pointer-events: none; }
+
+/* ── MAP ── */
+#map-container {
+  position: fixed; inset: 0; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; touch-action: none; user-select: none;
+}
+#map-wrapper {
+  position: absolute; transform-origin: center center;
+  transition: transform 0.65s cubic-bezier(0.34,1.1,0.64,1);
+  will-change: transform; width: 100%; height: 100%;
+  pointer-events: none;
+}
+#map-wrapper svg {
+  display: block; position: absolute;
+  inset: 0; width: 100%; height: 100%;
+}
+path {
+  fill: rgba(200,215,235,0.5);
+  stroke: rgba(120,150,200,0.35);
+  stroke-width: 0.3; cursor: pointer; pointer-events: all;
+  transition: fill 0.25s ease, stroke 0.25s ease, filter 0.25s ease;
+}
+path:hover {
+  stroke: rgba(80,140,255,0.7); stroke-width: 1.2;
+  filter: drop-shadow(0 0 6px rgba(80,140,255,0.35));
+}
+
+/* ── MODAL BACKDROP ── */
+#modal-backdrop {
+  position: fixed; inset: 0; z-index: 220;
+  background: rgba(200,215,235,0.45);
+  backdrop-filter: blur(10px) saturate(1.5); -webkit-backdrop-filter: blur(10px) saturate(1.5);
+  opacity: 0; pointer-events: none; transition: opacity 0.4s ease;
+}
+#modal-backdrop.active { opacity: 1; pointer-events: all; }
+
+/* ── GLASS PANEL ── */
+#glass-panel {
+  position: fixed; top: 50%; left: calc(50% - 110px); z-index: 230;
+  transform: translate(-50%, -50%) scale(0.92);
+  opacity: 0; pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.34,1.4,0.64,1);
+  width: min(820px, calc(100vw - 280px));
+  height: min(680px, calc(100vh - 80px));
+  border-radius: 28px; overflow: hidden;
+  background: rgba(240,244,248,0.6);
+  border: 1px solid rgba(255,255,255,0.85);
+  box-shadow:
+    0 48px 100px rgba(0,0,0,0.14), 0 12px 32px rgba(0,0,0,0.08),
+    inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(255,255,255,0.4);
+}
+#glass-panel.active { opacity: 1; pointer-events: all; transform: translate(-50%,-50%) scale(1); }
+#glass-panel::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 45%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.38) 0%, transparent 100%);
+  pointer-events: none; z-index: 2; border-radius: 28px 28px 0 0;
+}
+#glass-panel::after {
+  content: ''; position: absolute; inset: 0; border-radius: 28px;
+  border: 1.5px solid transparent;
+  background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(255,255,255,0.1), rgba(200,220,255,0.3)) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out; mask-composite: exclude;
+  pointer-events: none; z-index: 3;
+}
+#glass-panel-img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* ── SIDE TAB ── */
+#side-tab {
+  position: fixed; top: 50%; right: 0; z-index: 235;
+  transform: translateY(-50%) translateX(100%); opacity: 0;
+  transition: transform 0.55s cubic-bezier(0.34,1.2,0.64,1) 0.15s, opacity 0.35s ease 0.15s;
+  width: 220px; max-height: calc(100vh - 80px);
+  display: flex; flex-direction: column;
+  border-radius: 24px 0 0 24px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(32px) saturate(2); -webkit-backdrop-filter: blur(32px) saturate(2);
+  border: 1px solid rgba(255,255,255,0.85); border-right: none;
+  box-shadow: -12px 0 40px rgba(0,0,0,0.08), inset 1px 0 0 rgba(255,255,255,0.9), inset 0 1px 0 rgba(255,255,255,0.8);
+  overflow: hidden;
+}
+#side-tab::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 40%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 100%);
+  pointer-events: none; border-radius: 24px 0 0 0; z-index: 0;
+}
+#side-tab.active { transform: translateY(-50%) translateX(0); opacity: 1; }
+#side-tab-header { padding: 28px 24px 18px; flex-shrink: 0; position: relative; z-index: 1; }
+#side-tab-country {
+  font-family: var(--font-display); font-weight: 300; font-size: 1.4rem;
+  line-height: 1.25; color: rgba(20,40,90,0.9); margin-bottom: 12px;
+}
+#side-tab-divider {
+  width: 28px; height: 1px;
+  background: linear-gradient(90deg, rgba(80,120,200,0.35), transparent);
+  margin-bottom: 12px;
+}
+#side-tab-tagline {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: 0.8rem; line-height: 1.7; color: rgba(60,90,160,0.5);
+}
+#side-tab-gallery {
+  flex: 1; overflow-y: auto; padding: 0 14px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+  position: relative; z-index: 1;
+  scrollbar-width: thin; scrollbar-color: rgba(120,160,220,0.3) transparent;
+}
+#side-tab-gallery::-webkit-scrollbar { width: 4px; }
+#side-tab-gallery::-webkit-scrollbar-track { background: transparent; }
+#side-tab-gallery::-webkit-scrollbar-thumb { background: rgba(120,160,220,0.3); border-radius: 2px; }
+.gallery-thumb {
+  width: 100%; aspect-ratio: 4/3; border-radius: 14px; overflow: hidden;
+  cursor: pointer; flex-shrink: 0;
+  border: 1.5px solid rgba(255,255,255,0.7);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.22s ease;
+}
+.gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s ease; }
+.gallery-thumb:hover { border-color: rgba(80,140,255,0.5); box-shadow: 0 6px 20px rgba(80,140,255,0.2); transform: translateY(-2px); }
+.gallery-thumb:hover img { transform: scale(1.04); }
+.gallery-thumb.selected { border-color: rgba(80,140,255,0.7); box-shadow: 0 0 0 3px rgba(80,140,255,0.15), 0 6px 20px rgba(80,140,255,0.2); }
+
+/* ── CLOSE BTN ── */
+#close-btn {
+  position: fixed; top: 24px; right: 238px; z-index: 240;
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  color: rgba(40,60,120,0.7); font-size: 0.85rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: all 0.3s ease 0.1s;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.9);
+}
+#close-btn.active { opacity: 1; pointer-events: all; }
+#close-btn:hover { background: rgba(255,255,255,0.9); transform: scale(1.1); }
+
+/* ── EASTER EGG ── */
+#egg-backdrop {
+  position: fixed; inset: 0; z-index: 350;
+  background: rgba(220,230,245,0.4);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+#egg-backdrop.active { opacity: 1; pointer-events: all; }
+
+#easter-egg {
+  position: fixed; top: 50%; left: 50%; z-index: 360;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0; pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.34,1.4,0.64,1);
+  width: min(500px, 88vw);
+}
+#easter-egg.active { opacity: 1; pointer-events: all; transform: translate(-50%, -50%) scale(1); }
+
+#easter-egg-inner {
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  padding: 36px 36px 28px;
+  background: rgba(242,230,196,0.95);
+  backdrop-filter: blur(28px) saturate(1.2); -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  border: 1px solid rgba(210,185,140,0.7);
+  border-radius: 28px;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.06),
+              inset 0 1px 0 rgba(255,248,225,0.9);
+  text-align: center; position: relative;
+}
+#easter-egg-inner::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 45%;
+  background: linear-gradient(180deg, rgba(255,248,220,0.6) 0%, transparent 100%);
+  border-radius: 28px 28px 0 0; pointer-events: none;
+}
+.egg-stats {
+  display: flex; justify-content: center; gap: 32px; align-items: center;
+}
+.egg-stat { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+.egg-stat-number {
+  font-family: var(--font-display); font-size: 3rem; font-weight: 300;
+  line-height: 1; color: rgba(60,40,10,0.85);
+}
+.egg-stat-label {
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(100,70,20,0.5);
+}
+.egg-divider {
+  width: 1px; height: 48px;
+  background: linear-gradient(180deg, transparent, rgba(160,120,60,0.25), transparent);
+}
+#easter-egg-quote {
+  font-family: var(--font-display); font-style: italic; font-weight: 300;
+  font-size: 0.92rem; line-height: 1.75; color: rgba(80,55,20,0.7);
+  padding: 0 4px;
+}
+#easter-egg-attribution {
+  font-size: 0.65rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(80,55,20,0.45);
+}
+#easter-egg-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 28px; height: 28px; border-radius: 50%;
+  border: 1px solid rgba(210,185,140,0.6);
+  background: rgba(242,230,196,0.6);
+  color: rgba(80,55,20,0.45); font-size: 0.7rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s ease;
+}
+#easter-egg-close:hover { background: rgba(255,245,210,0.95); color: rgba(80,55,20,0.8); }
+</style>
+</head>
+<body>
+
+<!-- LOGO -->
+<a href="./" id="site-logo" style="
+  position: fixed; top: 16px; left: 16px; z-index: 191;
+  display: flex; align-items: center;
+  padding: 8px 10px; border-radius: 16px;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255,255,255,0.9);
+  text-decoration: none;
+">
+  <img src="./public/Subtract.png" alt="Rager logo" height="26">
+</a>
+
+<!-- TAB BAR -->
+<div id="tab-bar">
+  <div class="tab-pill active" data-map="world" onclick="switchMap('world')">World</div>
+  <div class="tab-divider"></div>
+  <div class="tab-pill" data-map="us" onclick="switchMap('us')">United States</div>
+  <div class="tab-divider"></div>
+  <div class="tab-pill zoom-only" data-zoom="europe"       onclick="zoomTo('europe')">Europe</div>
+  <div class="tab-pill zoom-only" data-zoom="northamerica" onclick="zoomTo('northamerica')">N. America</div>
+  <div class="tab-pill zoom-only" data-zoom="asia"         onclick="zoomTo('asia')">Asia</div>
+  <div class="tab-pill zoom-only" data-zoom="southamerica" onclick="zoomTo('southamerica')">S. America</div>
+  <div class="tab-pill zoom-only" data-zoom="africa"       onclick="zoomTo('africa')">Africa</div>
+  <div class="tab-pill zoom-only" data-zoom="oceania"      onclick="zoomTo('oceania')">Oceania</div>
+  <div class="tab-divider zoom-only"></div>
+  <div class="tab-pill zoom-only" data-zoom="reset" onclick="zoomTo('reset')">Reset</div>
+  <div class="tab-divider zoom-only"></div>
+  <div class="tab-pill zoom-only" onclick="showEasterEgg()" title="Stats" style="font-size:0.9rem; padding:6px 10px;">🧭</div>
+</div>
+
+<!-- MAP -->
+<div id="map-container">
+  <div id="map-wrapper"></div>
+</div>
+
+<!-- MODAL -->
+<div id="modal-backdrop"></div>
+<div id="glass-panel">
+  <img id="glass-panel-img" src="" alt="">
+</div>
+<div id="side-tab">
+  <div id="side-tab-header">
+    <div id="side-tab-country"></div>
+    <div id="side-tab-divider"></div>
+    <div id="side-tab-tagline">To the adventures<br>yet to come</div>
+  </div>
+  <div id="side-tab-gallery"></div>
+</div>
+<button id="close-btn" aria-label="Close">✕</button>
+
+<!-- EASTER EGG -->
+<div id="egg-backdrop" onclick="closeEasterEgg()"></div>
+<div id="easter-egg">
+  <div id="easter-egg-inner">
+    <button id="easter-egg-close" onclick="closeEasterEgg()">✕</button>
+    <div class="egg-stats">
+      <div class="egg-stat">
+        <span class="egg-stat-number" id="egg-country-count">0</span>
+        <span class="egg-stat-label">Countries</span>
+      </div>
+      <div class="egg-divider"></div>
+      <div class="egg-stat">
+        <span class="egg-stat-number" id="egg-state-count">0</span>
+        <span class="egg-stat-label">States</span>
+      </div>
+    </div>
+    <p id="easter-egg-quote">"The proper function of man is to live, not to exist. I shall not waste my days in trying to prolong them. I shall use my time."</p>
+    <span id="easter-egg-attribution">— Jack London</span>
+  </div>
+</div>
+
+<script>
+const backdrop   = document.getElementById('modal-backdrop');
+const glassPanel = document.getElementById('glass-panel');
+const panelImg   = document.getElementById('glass-panel-img');
+const sideTab    = document.getElementById('side-tab');
+const countryEl  = document.getElementById('side-tab-country');
+const taglineEl  = document.getElementById('side-tab-tagline');
+const gallery    = document.getElementById('side-tab-gallery');
+const closeBtn   = document.getElementById('close-btn');
+const wrapper    = document.getElementById('map-wrapper');
+const container  = document.getElementById('map-container');
+const tabBar     = document.getElementById('tab-bar');
+const navToggle  = document.getElementById('nav-toggle');
+const siteNavbar = document.getElementById('site-navbar');
+
+let currentMap = 'world';
+let scale = 1, tx = 0, ty = 0;
+let navVisible = true;
+
+const imagedCountries = new Set();
+const imagedStates    = new Set();
+
+/* ── NAV TOGGLE ── */
+function toggleNav() {
+  navVisible = !navVisible;
+  siteNavbar.classList.toggle('hidden', !navVisible);
+  navToggle.classList.toggle('nav-hidden', !navVisible);
+  tabBar.style.top = navVisible ? '70px' : '16px';
+}
+
+/* ── DISPLAY NAME ── */
+function getDisplayName(el) {
+  if (el.dataset.name)          return el.dataset.name;
+  if (el.getAttribute('title')) return el.getAttribute('title');
+  return el.id.replace(/_/g,' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/* ── ZOOM ── */
+const ZOOM_REGIONS = {
+  europe:       { cx: 0.535, cy: 0.28, z: 3.8 },
+  northamerica: { cx: 0.18,  cy: 0.32, z: 2.4 },
+  asia:         { cx: 0.72,  cy: 0.35, z: 2.6 },
+  southamerica: { cx: 0.29,  cy: 0.68, z: 2.8 },
+  africa:       { cx: 0.525, cy: 0.57, z: 2.8 },
+  oceania:      { cx: 0.815, cy: 0.68, z: 3.2 },
+  reset:        { cx: 0.5,   cy: 0.5,  z: 1   },
+};
+
+function applyTransform(animated = true) {
+  wrapper.style.transition = animated
+    ? 'transform 0.65s cubic-bezier(0.34,1.1,0.64,1)' : 'none';
+  wrapper.style.transform = `translate(${tx}px,${ty}px) scale(${scale})`;
+}
+
+function zoomTo(region) {
+  if (currentMap !== 'world') return;
+  const r  = ZOOM_REGIONS[region] || ZOOM_REGIONS.reset;
+  const cw = container.clientWidth, ch = container.clientHeight;
+  if (region === 'reset') { scale = 1; tx = 0; ty = 0; }
+  else { scale = r.z; tx = cw/2 - r.cx*cw*scale; ty = ch/2 - r.cy*ch*scale; }
+  applyTransform(true);
+  document.querySelectorAll('.tab-pill[data-zoom]').forEach(p =>
+    p.classList.toggle('active', p.dataset.zoom === region));
+  document.querySelectorAll('.tab-pill[data-map]').forEach(p =>
+    p.classList.remove('active'));
+}
+
+/* ── MAP SWITCH ── */
+async function switchMap(which) {
+  if (currentMap === which) return;
+  currentMap = which;
+  tabBar.classList.toggle('zoom-hidden', which === 'us');
+  document.querySelectorAll('.tab-pill[data-map]').forEach(p =>
+    p.classList.toggle('active', p.dataset.map === which));
+  document.querySelectorAll('.tab-pill[data-zoom]').forEach(p =>
+    p.classList.remove('active'));
+  scale = 1; tx = 0; ty = 0;
+  applyTransform(false);
+  await loadMap(which === 'us' ? './public/us_map.html' : './public/maps.html');
+}
+
+/* ── PROBE EXTRA IMAGES ── */
+function probeImages(id) {
+  return Promise.all(
+    Array.from({ length: 10 }, (_, i) => {
+      const path = `./public/photos/${id}(${i+1}).jpg`;
+      return new Promise(resolve => {
+        const img = new Image();
+        img.onload  = () => resolve(path);
+        img.onerror = () => resolve(null);
+        img.src = path;
+      });
+    })
+  ).then(r => r.filter(Boolean));
+}
+
+/* ── EASTER EGG ── */
+function showEasterEgg() {
+  // load the US map counts if not yet loaded, so states are always accurate
+  const stateCount = Math.max(0, imagedStates.size - 1);
+  document.getElementById('egg-country-count').textContent = imagedCountries.size;
+  document.getElementById('egg-state-count').textContent   = stateCount;
+  document.getElementById('easter-egg').classList.add('active');
+  document.getElementById('egg-backdrop').classList.add('active');
+}
+function closeEasterEgg() {
+  document.getElementById('easter-egg').classList.remove('active');
+  document.getElementById('egg-backdrop').classList.remove('active');
+}
+
+/* ── MODAL ── */
+async function openModal(id, baseImgPath, displayName) {
+  countryEl.textContent = displayName;
+  gallery.innerHTML = '';
+  const hasImage = !!baseImgPath;
+  taglineEl.style.display = hasImage ? 'none' : '';
+
+  if (hasImage) {
+    panelImg.style.display = '';
+    setMainImage(baseImgPath);
+  } else {
+    panelImg.style.display = 'none';
+    panelImg.src = '';
+  }
+
+  backdrop.classList.add('active');
+  glassPanel.classList.add('active');
+  closeBtn.classList.add('active');
+  setTimeout(() => sideTab.classList.add('active'), 80);
+
+  if (!hasImage) return;
+
+  const extras = await probeImages(id);
+  if (extras.length === 0) return;
+
+  [baseImgPath, ...extras].forEach((src, idx) => {
+    const thumb = document.createElement('div');
+    thumb.className = 'gallery-thumb' + (idx === 0 ? ' selected' : '');
+    const img = document.createElement('img');
+    img.src = src; img.alt = '';
+    thumb.appendChild(img);
+    thumb.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('selected'));
+      thumb.classList.add('selected');
+      setMainImage(src);
+    });
+    gallery.appendChild(thumb);
+  });
+}
+
+function setMainImage(src) {
+  panelImg.style.opacity = '0';
+  setTimeout(() => { panelImg.src = src; panelImg.style.opacity = '1'; }, 150);
+}
+
+function closeModal() {
+  backdrop.classList.remove('active');
+  glassPanel.classList.remove('active');
+  sideTab.classList.remove('active');
+  closeBtn.classList.remove('active');
+  gallery.innerHTML = '';
+}
+backdrop.addEventListener('click', closeModal);
+closeBtn.addEventListener('click', closeModal);
+
+/* ── LOAD MAP ── */
+async function loadMap(file = './public/maps.html') {
+  const res  = await fetch(file);
+  const html = await res.text();
+  wrapper.innerHTML = html;
+  const svg = wrapper.querySelector('svg');
+  if (svg) {
+    svg.style.position = 'absolute'; svg.style.inset = '0';
+    svg.style.width = '100%'; svg.style.height = '100%';
+  }
+  initRegions();
+}
+
+function initRegions() {
+  const svg = wrapper.querySelector('svg');
+  if (!svg) return;
+  let defs = svg.querySelector('defs');
+  if (!defs) { defs = document.createElementNS("http://www.w3.org/2000/svg","defs"); svg.prepend(defs); }
+
+  const isUS = !!svg.querySelector('[data-id]');
+
+  svg.querySelectorAll('path').forEach(region => {
+    const id = region.id;
+    if (!id) return;
+    const displayName = getDisplayName(region);
+    const imgPath     = './public/photos/' + id + '.jpg';
+    const testImg     = new Image();
+
+    const wireRegion = (hasImg) => {
+      if (hasImg) {
+        if (isUS) imagedStates.add(id);
+        else      imagedCountries.add(id);
+
+        const pattern = document.createElementNS("http://www.w3.org/2000/svg","pattern");
+        pattern.setAttribute("id","pat_"+id);
+        pattern.setAttribute("patternUnits","objectBoundingBox");
+        pattern.setAttribute("patternContentUnits","objectBoundingBox");
+        pattern.setAttribute("width","1"); pattern.setAttribute("height","1");
+        const img = document.createElementNS("http://www.w3.org/2000/svg","image");
+        img.setAttributeNS("http://www.w3.org/1999/xlink","href",imgPath);
+        img.setAttribute("width","1"); img.setAttribute("height","1");
+        img.setAttribute("x","0"); img.setAttribute("y","0");
+        img.setAttribute("preserveAspectRatio","xMidYMid slice");
+        pattern.appendChild(img); defs.appendChild(pattern);
+        region.style.fill = "url(#pat_"+id+")";
+
+        const tint = document.createElementNS("http://www.w3.org/2000/svg","path");
+        tint.setAttribute("d", region.getAttribute("d"));
+        tint.setAttribute("transform", region.getAttribute("transform") || "");
+        tint.style.fill = "rgba(80,150,255,0.32)";
+        tint.style.stroke = "none"; tint.style.pointerEvents = "none";
+        tint.style.opacity = "0"; tint.style.transition = "opacity 0.25s ease";
+        region.parentNode.insertBefore(tint, region.nextSibling);
+
+        region.addEventListener("mouseenter", () => {
+          tint.style.opacity = "1";
+          region.style.stroke = "rgba(80,140,255,0.8)";
+          region.style.strokeWidth = "1.2";
+          region.style.filter = "drop-shadow(0 0 6px rgba(80,140,255,0.4))";
+        });
+        region.addEventListener("mouseleave", () => {
+          tint.style.opacity = "0";
+          region.style.stroke = ""; region.style.strokeWidth = ""; region.style.filter = "";
+        });
+      }
+
+      region.addEventListener("click", e => {
+        e.stopPropagation();
+        openModal(id, hasImg ? imgPath : null, displayName);
+      });
+    };
+
+    testImg.onload  = () => wireRegion(true);
+    testImg.onerror = () => wireRegion(false);
+    testImg.src = imgPath;
+  });
+}
+function toggleBurger() {
+  document.getElementById('nav-links').classList.toggle('open');
+}
+
+window.addEventListener('DOMContentLoaded', () => loadMap('./public/maps.html'));
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

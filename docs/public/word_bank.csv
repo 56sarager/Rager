@@ -1,0 +1,1999 @@
+english_word,spanish_word,english_hint,spanish_hint
+time,tiempo,"What clocks measure","Lo que mide el reloj"
+man,hombre,"Adult male","Adulto masculino"
+way,camino,"Route from one place to another","Ruta para llegar a un lugar"
+people,gente,"A group of persons","Conjunto de personas"
+life,vida,"Existence of a living being","Existencia de un ser vivo"
+day,día,"24-hour period","Periodo de 24 horas"
+work,trabajo,"Employment or labor","Actividad laboral"
+call,llamada,"Phone contact","Comunicación por teléfono"
+night,noche,"Time after sunset","Tiempo después del atardecer"
+home,hogar,"Where one lives","Lugar donde vive una familia"
+thought,pensamiento,"Idea in the mind","Idea en la mente"
+money,dinero,"Cash or currency","Moneda o efectivo"
+name,nombre,"Word identifying a person","Palabra que identifica a alguien"
+father,padre,"Male parent","Progenitor masculino"
+guy,chico,"Casual word for a man","Forma informal de hombre"
+place,lugar,"Specific location","Sitio específico"
+feel,sentimiento,"Emotion inside","Emoción interior"
+girl,chica,"Young female","Mujer joven"
+house,casa,"Building where people live","Edificio para vivir"
+left,izquierda,"Opposite of right","Opuesto de derecha"
+right,derecha,"Opposite of left","Opuesto de izquierda"
+mother,madre,"Female parent","Progenitora femenina"
+course,curso,"Series of lessons","Serie de lecciones"
+dad,papá,"Informal father","Forma informal de padre"
+world,mundo,"The planet Earth","El planeta Tierra"
+son,hijo,"Male child","Descendiente masculino"
+car,coche,"Road vehicle","Vehículo para conducir"
+woman,mujer,"Adult female","Persona femenina adulta"
+friend,amigo,"Close companion","Persona cercana"
+mind,mente,"Center of thought","Centro del pensamiento"
+head,cabeza,"Top part of the body","Parte superior del cuerpo"
+mom,mamá,"Informal mother","Forma informal de madre"
+boy,niño,"Young male","Varón joven"
+job,trabajo,"Paid occupation","Ocupación pagada"
+baby,bebé,"Very young child","Niño muy pequeño"
+family,familia,"Parents and children group","Grupo de parientes"
+room,habitación,"Space inside a house","Espacio dentro de una casa"
+brother,hermano,"Male sibling","Hermano masculino"
+idea,idea,"Mental concept","Concepto mental"
+wife,esposa,"Married woman","Mujer casada"
+start,inicio,"Beginning point","Punto inicial"
+door,puerta,"Entry to a room","Entrada a una habitación"
+bit,pedazo,"Small piece","Pequeña parte"
+matter,materia,"Physical substance","Sustancia física"
+run,carrera,"Fast movement on foot","Movimiento rápido al correr"
+school,escuela,"Place for learning","Lugar para estudiar"
+play,juego,"Activity for fun","Actividad para divertirse"
+problem,problema,"Difficult situation","Situación difícil"
+end,fin,"Opposite of beginning","Opuesto de inicio"
+phone,teléfono,"Device for calls","Dispositivo para llamar"
+hope,esperanza,"Feeling of expectation","Sentimiento de optimismo"
+excuse,excusa,"Reason given to avoid blame","Razón para evitar culpa"
+face,cara,"Front of the head","Parte frontal de la cabeza"
+turn,turno,"Time in a sequence","Tiempo asignado"
+police,policía,"Law enforcement officers","Agentes del orden"
+heart,corazón,"Organ that pumps blood","Órgano que bombea sangre"
+worry,preocupación,"Feeling of anxiety","Sentimiento de ansiedad"
+business,negocio,"Commercial activity","Actividad comercial"
+watch,reloj,"Device that tells time","Dispositivo que da la hora"
+year,año,"12-month period","Periodo de 12 meses"
+hand,mano,"Body part with fingers","Parte del cuerpo con dedos"
+doctor,médico,"Health professional","Profesional de la salud"
+sit,sentada,"Position on a chair","Posición sentado"
+second,segundo,"Unit of time","Unidad pequeña de tiempo"
+kid,niño,"Child","Persona joven"
+pay,pago,"Money given for work","Dinero por trabajo"
+water,agua,"Essential liquid","Líquido esencial"
+death,muerte,"End of life","Fin de la vida"
+stuff,cosas,"Various items","Objetos variados"
+minute,minuto,"60-second unit","Unidad de 60 segundos"
+part,parte,"Piece of a whole","Porción de algo"
+person,persona,"Human individual","Individuo humano"
+drink,bebida,"Liquid to consume","Líquido para beber"
+change,cambio,"Act of becoming different","Acto de modificar"
+hit,golpe,"Strike with force","Impacto fuerte"
+check,cheque,"Written payment order","Orden escrita de pago"
+music,música,"Art of sound","Arte de sonidos"
+inside,interior,"Opposite of outside","Opuesto de exterior"
+sleep,sueño,"Rest at night","Descanso nocturno"
+mine,mío,"Belonging to me","Que me pertenece"
+deal,acuerdo,"Arrangement between parties","Convenio entre partes"
+point,punto,"Exact spot","Lugar preciso"
+body,cuerpo,"Physical structure","Estructura física"
+chance,oportunidad,"Possibility of success","Posibilidad favorable"
+close,cierre,"Act of shutting","Acción de cerrar"
+party,fiesta,"Celebration with people","Celebración social"
+daughter,hija,"Female child","Descendiente femenina"
+word,palabra,"Unit of language","Unidad del lenguaje"
+fun,diversión,"Enjoyable activity","Actividad agradable"
+number,número,"Mathematical symbol","Símbolo matemático"
+story,historia,"Narrative tale","Relato narrativo"
+wish,deseo,"Strong hope","Esperanza fuerte"
+husband,esposo,"Married man","Hombre casado"
+fire,fuego,"Flames and heat","Llamas y calor"
+fight,pelea,"Physical conflict","Conflicto físico"
+rest,descanso,"Time to relax","Tiempo para relajarse"
+moment,momento,"Very short time","Tiempo muy breve"
+week,semana,"Seven days","Periodo de siete días"
+game,juego,"Structured play","Actividad con reglas"
+sister,hermana,"Female sibling","Hermana femenina"
+child,niño,"Young human","Ser humano joven"
+side,lado,"Edge or direction","Parte lateral"
+blood,sangre,"Red body fluid","Líquido rojo del cuerpo"
+truth,verdad,"Opposite of lie","Opuesto de mentira"
+lady,dama,"Polite term for woman","Forma respetuosa de mujer"
+war,guerra,"Armed conflict","Conflicto armado"
+walk,paseo,"Move on foot","Moverse caminando"
+reason,razón,"Cause or explanation","Motivo o explicación"
+city,ciudad,"Large town","Gran área urbana"
+town,pueblo,"Small city","Ciudad pequeña"
+trust,confianza,"Belief in reliability","Creencia en alguien"
+question,pregunta,"Inquiry for information","Solicitud de información"
+office,oficina,"Workplace desk area","Lugar de trabajo administrativo"
+half,mitad,"One of two equal parts","Una de dos partes iguales"
+welcome,bienvenida,"Greeting for arrival","Saludo al llegar"
+couple,pareja,"Two people together","Dos personas juntas"
+hurry,prisa,"Need for speed","Necesidad de rapidez"
+honey,cariño,"Sweet term of affection","Palabra afectuosa"
+power,poder,"Ability to control","Capacidad de controlar"
+bed,cama,"Furniture for sleeping","Mueble para dormir"
+front,frente,"Opposite of back","Parte delantera"
+answer,respuesta,"Reply to a question","Contestación a pregunta"
+gun,pistola,"Handheld firearm","Arma de fuego corta"
+line,línea,"Long narrow mark","Trazo largo"
+team,equipo,"Group working together","Grupo que coopera"
+news,noticias,"Current events report","Información reciente"
+captain,capitán,"Leader of a team","Líder de equipo"
+dog,perro,"Common pet animal","Mascota común"
+food,comida,"Something to eat","Algo para comer"
+light,luz,"What lamps produce","Lo que produce una lámpara"
+order,orden,"Command or arrangement","Mandato o disposición"
+country,país,"Nation state","Nación independiente"
+fact,hecho,"Something proven true","Algo comprobado"
+boss,jefe,"Person in charge","Persona que dirige"
+book,libro,"Collection of pages","Conjunto de páginas"
+hour,hora,"60 minutes","Periodo de 60 minutos"
+uncle,tío,"Parent's brother","Hermano de un padre"
+company,empresa,"Business organization","Organización comercial"
+past,pasado,"Time already gone","Tiempo anterior"
+sound,sonido,"What ears hear","Lo que oyen los oídos"
+hair,pelo,"Grows on the head","Crece en la cabeza"
+human,ser humano,"Member of our species","Miembro de la humanidad"
+luck,suerte,"Good fortune","Fortuna favorable"
+top,cima,"Highest point","Punto más alto"
+win,victoria,"Success in competition","Éxito en competencia"
+control,control,"Power to manage","Poder de manejar"
+cold,frío,"Low temperature","Temperatura baja"
+air,aire,"Gas we breathe","Gas que respiramos"
+master,maestro,"Expert teacher","Profesor experto"
+dance,baile,"Movement to music","Movimiento con música"
+sex,sexo,"Biological category","Categoría biológica"
+others,otros,"People besides oneself","Personas adicionales"
+hospital,hospital,"Place for medical care","Lugar de atención médica"
+street,calle,"Road in a city","Vía urbana"
+murder,asesinato,"Intentional killing","Homicidio intencional"
+lie,mentira,"False statement","Declaración falsa"
+dream,sueño,"Images during sleep","Imágenes al dormir"
+voice,voz,"Sound from speaking","Sonido al hablar"
+sign,señal,"Indicator or symbol","Símbolo indicador"
+quiet,silencio,"Absence of noise","Ausencia de ruido"
+coffee,café,"Popular hot drink","Bebida caliente común"
+date,cita,"Romantic meeting","Encuentro romántico"
+secret,secreto,"Hidden information","Información oculta"
+fault,culpa,"Responsibility for wrong","Responsabilidad por error"
+fall,caída,"Drop downward","Movimiento hacia abajo"
+song,canción,"Musical piece with words","Pieza musical con letra"
+calm,calma,"State of peace","Estado tranquilo"
+road,camino,"Route for travel","Ruta para viajar"
+drop,gota,"Small liquid bead","Pequeña cantidad líquida"
+future,futuro,"Time yet to come","Tiempo que vendrá"
+throw,lanzamiento,"Act of tossing something","Acción de arrojar algo"
+step,paso,"Movement of the foot","Movimiento del pie"
+piece,pieza,"Part of a whole","Parte de un conjunto"
+picture,imagen,"Visual representation","Representación visual"
+land,tierra,"Solid ground of Earth","Suelo del planeta"
+wonder,maravilla,"Something amazing","Algo extraordinario"
+worth,valor,"Monetary or moral value","Importancia o precio"
+president,presidente,"Leader of a republic","Jefe de un país republicano"
+eye,ojo,"Organ used for seeing","Órgano para ver"
+dude,tipo,"Casual term for a man","Forma informal de hombre"
+state,estado,"Political region","División política"
+figure,figura,"Shape or form","Forma o silueta"
+act,acto,"Deed or performance","Acción realizada"
+law,ley,"Rule enforced by authority","Norma legal"
+kiss,beso,"Touch of lips","Contacto de labios"
+works,obras,"Creative productions","Producciones artísticas"
+report,informe,"Official account","Documento informativo"
+pain,dolor,"Physical suffering","Sufrimiento físico"
+pass,pase,"Permit or successful move","Permiso o jugada"
+wake,despertar,"Stop sleeping","Dejar de dormir"
+general,general,"High military rank","Alto rango militar"
+ship,barco,"Large sea vessel","Embarcación grande"
+choice,elección,"Selection between options","Decisión entre opciones"
+class,clase,"Group of students","Grupo escolar"
+officer,oficial,"Person with authority","Persona con rango"
+mistake,error,"Incorrect action","Acción equivocada"
+chief,jefe,"Leader of a group","Persona que dirige"
+age,edad,"Years lived","Años de vida"
+mouth,boca,"Opening for eating","Abertura para comer"
+finish,finalización,"Completion of something","Conclusión de algo"
+clothes,ropa,"Garments worn","Prendas para vestir"
+ride,paseo,"Trip for enjoyment","Viaje corto recreativo"
+birthday,cumpleaños,"Annual birth celebration","Celebración del nacimiento"
+dark,oscuridad,"Absence of light","Falta de luz"
+system,sistema,"Organized structure","Conjunto organizado"
+film,película,"Motion picture","Producción cinematográfica"
+court,tribunal,"Place for legal trials","Lugar de juicios"
+movie,película,"Cinema production","Obra de cine"
+month,mes,"About 30 days","Periodo mensual"
+wear,uso,"Act of using clothing","Acción de llevar ropa"
+train,tren,"Rail transport","Transporte ferroviario"
+hotel,hotel,"Place for travelers to stay","Lugar para hospedarse"
+evidence,evidencia,"Proof in a case","Prueba en juicio"
+security,seguridad,"Protection from danger","Protección contra riesgos"
+information,información,"Knowledge or facts","Datos o conocimiento"
+bag,bolsa,"Container for carrying","Objeto para guardar cosas"
+attack,ataque,"Violent strike","Acción agresiva"
+round,ronda,"Complete cycle","Vuelta completa"
+blue,azul,"Color of the sky","Color del cielo"
+station,estación,"Transport stop","Parada de transporte"
+table,mesa,"Furniture for eating","Mueble para comer"
+message,mensaje,"Communication sent","Comunicación enviada"
+history,historia,"Record of past events","Relato del pasado"
+fool,tonto,"Person lacking sense","Persona poco inteligente"
+buddy,amigo,"Close companion","Compañero cercano"
+floor,suelo,"Bottom surface of a room","Superficie interior"
+sun,sol,"Star of our solar system","Estrella del sistema solar"
+handle,mango,"Part used to hold","Parte para agarrar"
+army,ejército,"National military force","Fuerza militar"
+marriage,matrimonio,"Legal union","Unión legal"
+letter,carta,"Written message","Mensaje escrito"
+attention,atención,"Focused awareness","Concentración mental"
+peace,paz,"Absence of war","Falta de conflicto"
+situation,situación,"Set of circumstances","Estado de cosas"
+middle,medio,"Center point","Punto central"
+rock,roca,"Hard natural stone","Piedra dura"
+test,prueba,"Examination or trial","Examen o ensayo"
+lead,liderazgo,"Guidance of others","Dirección de un grupo"
+club,club,"Social organization","Asociación social"
+fear,miedo,"Feeling of danger","Sensación de peligro"
+present,regalo,"Gift given","Objeto dado"
+idiot,idiota,"Very foolish person","Persona muy tonta"
+box,caja,"Container with sides","Recipiente cuadrado"
+ball,pelota,"Round sports object","Objeto redondo deportivo"
+group,grupo,"Collection of people","Conjunto de personas"
+boat,barco,"Small vessel","Embarcación pequeña"
+count,conteo,"Act of numbering","Acción de contar"
+crime,crimen,"Serious offense","Delito grave"
+key,llave,"Tool for locks","Objeto para abrir cerraduras"
+force,fuerza,"Physical power","Potencia física"
+horse,caballo,"Large riding animal","Animal para montar"
+lunch,almuerzo,"Midday meal","Comida del mediodía"
+american,americano,"Person from the USA","Persona de EE. UU."
+paper,papel,"Material for writing","Material para escribir"
+charge,cargo,"Formal responsibility","Responsabilidad oficial"
+surprise,sorpresa,"Unexpected event","Hecho inesperado"
+space,espacio,"Area or cosmos","Lugar amplio"
+honor,honor,"High respect","Gran respeto"
+accident,accidente,"Unexpected mishap","Suceso imprevisto"
+fish,pez,"Animal that swims","Animal acuático"
+bar,bar,"Place serving drinks","Lugar de bebidas"
+ground,suelo,"Earth surface","Superficie terrestre"
+government,gobierno,"Political authority","Autoridad política"
+bank,banco,"Money institution","Institución financiera"
+cover,cubierta,"Protective layer","Capa protectora"
+major,mayor,"High rank officer","Oficial de alto rango"
+hide,escondite,"Place to conceal","Lugar para ocultarse"
+stick,palo,"Long thin wood","Trozo largo de madera"
+sea,mar,"Large salt water body","Gran masa de agua"
+tea,té,"Hot leaf drink","Bebida caliente de hojas"
+area,área,"Defined region","Región definida"
+dress,vestido,"Woman's garment","Prenda femenina"
+service,servicio,"Helpful work","Trabajo de ayuda"
+trip,viaje,"Journey somewhere","Desplazamiento a un lugar"
+radio,radio,"Audio broadcast device","Dispositivo de sonido"
+star,estrella,"Bright object in sky","Objeto brillante del cielo"
+record,récord,"Best performance","Marca superior"
+offer,oferta,"Proposal to give","Propuesta de dar"
+prison,prisión,"Place for criminals","Lugar para reclusos"
+soul,alma,"Spiritual essence","Esencia espiritual"
+list,lista,"Series of items","Serie de elementos"
+gold,oro,"Precious yellow metal","Metal precioso amarillo"
+afternoon,tarde,"Time after noon","Tiempo después del mediodía"
+agent,agente,"Representative worker","Representante profesional"
+detective,detective,"Crime investigator","Investigador policial"
+respect,respeto,"High regard","Consideración profunda"
+public,público,"Open to everyone","Accesible a todos"
+girlfriend,novia,"Female romantic partner","Pareja femenina"
+drunk,borracho,"Intoxicated person","Persona ebria"
+brain,cerebro,"Organ of thought","Órgano del pensamiento"
+cell,célula,"Basic biological unit","Unidad biológica básica"
+mess,desorden,"Untidy situation","Situación caótica"
+smell,olor,"Sense of scent","Percepción por la nariz"
+fly,mosca,"Small buzzing insect","Insecto pequeño"
+killer,asesino,"One who kills","Persona que mata"
+scene,escena,"Place of action","Lugar de acción"
+card,tarjeta,"Small flat card","Cartulina pequeña"
+english,inglés,"Language of England","Idioma de Inglaterra"
+church,iglesia,"Christian worship building","Edificio religioso"
+ice,hielo,"Frozen water","Agua congelada"
+window,ventana,"Opening with glass","Abertura con vidrio"
+laugh,risa,"Sound of amusement","Sonido de diversión"
+lieutenant,teniente,"Junior officer rank","Rango militar inferior"
+cry,llanto,"Sound of sadness","Sonido de tristeza"
+visit,visita,"Go see someone","Ir a ver a alguien"
+seat,asiento,"Place to sit","Lugar para sentarse"
+teacher,profesor/profesora,"Person who educates","Persona que enseña"
+relationship,relación,"Connection between people","Vínculo entre personas"
+pleasure,placer,"Feeling of enjoyment","Sensación agradable"
+camera,cámara,"Device for photos","Dispositivo fotográfico"
+college,colegio,"Higher education school","Institución educativa"
+judge,juez,"Court decision maker","Autoridad judicial"
+position,posición,"Location or rank","Lugar o rango"
+boyfriend,novio,"Male romantic partner","Pareja masculina"
+wall,pared,"Vertical structure","Estructura vertical"
+stop,parada,"Place to halt","Lugar para detenerse"
+art,arte,"Creative expression","Expresión creativa"
+machine,máquina,"Mechanical device","Dispositivo mecánico"
+green,verde,"Color of grass","Color de la hierba"
+cop,policía,"Slang for officer","Forma informal de policía"
+wine,vino,"Alcohol from grapes","Bebida de uva"
+apartment,apartamento,"City dwelling","Vivienda urbana"
+village,pueblo,"Small rural town","Pequeña comunidad"
+congratulations,felicitaciones,"Praise for success","Expresión de alegría"
+jail,cárcel,"Short-term prison","Lugar de detención"
+joke,broma,"Funny remark","Comentario gracioso"
+evil,mal,"Opposite of good","Opuesto de bien"
+field,campo,"Open land","Terreno abierto"
+contact,contacto,"Communication link","Conexión entre personas"
+store,tienda,"Place selling goods","Lugar de ventas"
+doubt,duda,"Uncertainty","Falta de certeza"
+plane,avión,"Flying vehicle","Vehículo aéreo"
+cash,efectivo,"Physical money","Dinero en billetes"
+island,isla,"Land surrounded by water","Tierra rodeada de agua"
+decision,decisión,"Final choice","Elección final"
+beer,cerveza,"Alcoholic grain drink","Bebida de cebada"
+difference,diferencia,"Not the same","Distinción entre cosas"
+push,empujón,"Forceful shove","Movimiento con fuerza"
+south,sur,"Direction opposite north","Dirección opuesta al norte"
+gift,regalo,"Present given","Objeto obsequiado"
+glass,vaso,"Drinking container","Recipiente para beber"
+tree,árbol,"Tall woody plant","Planta alta con tronco"
+north,norte,"Opposite of south","Dirección contraria al sur"
+bus,autobús,"Public road transport","Vehículo público"
+victim,víctima,"Person harmed","Persona dañada"
+computer,computadora,"Electronic calculating device","Máquina digital"
+truck,camión,"Large cargo vehicle","Vehículo de carga"
+reach,alcance,"Distance attainable","Distancia posible"
+board,tablero,"Flat surface panel","Superficie plana"
+planet,planeta,"Orbital celestial body","Cuerpo celeste"
+search,búsqueda,"Act of looking","Acción de buscar"
+wind,viento,"Moving air","Aire en movimiento"
+arrest,arresto,"Police detention","Detención policial"
+jump,salto,"Leap into the air","Movimiento hacia arriba"
+support,apoyo,"Help or backing","Ayuda o respaldo"
+magic,magia,"Supernatural illusion","Arte sobrenatural"
+crap,mierda,"Vulgar term for nonsense","Palabra vulgar"
+kitchen,cocina,"Room for cooking","Lugar para cocinar"
+summer,verano,"Warmest season","Estación más cálida"
+patient,paciente,"Person receiving care","Persona bajo atención médica"
+aunt,tía,"Parent's sister","Hermana de un padre"
+experience,experiencia,"Knowledge from events","Conocimiento vivido"
+heaven,cielo,"Paradise above","Lugar celestial"
+river,río,"Large flowing water","Corriente natural de agua"
+knock,golpe,"Hit on a door","Impacto o toque"
+escape,fuga,"Act of getting away","Acción de huir"
+address,dirección,"Location details","Datos de ubicación"
+foot,pie,"Lower body part","Parte inferior del cuerpo"
+moon,luna,"Earth's satellite","Satélite de la Tierra"
+mate,compañero/compañera,"Partner or teammate","Persona que acompaña"
+match,partido,"Sports contest","Competencia deportiva"
+final,final,"Last stage","Etapa última"
+smoke,humo,"Result of burning","Gas de combustión"
+blame,culpa,"Responsibility for fault","Responsabilidad por error"
+press,prensa,"News media","Medios informativos"
+smile,sonrisa,"Happy facial expression","Expresión de alegría"
+type,tipo,"Category or kind","Clase o categoría"
+mission,misión,"Important assignment","Encargo importante"
+favor,favor,"Helpful act","Acto de ayuda"
+action,acción,"Act or movement","Acto o movimiento"
+duty,deber,"Moral obligation","Obligación moral"
+price,precio,"Cost of something","Valor monetario"
+guard,guardia,"Person who protects","Persona que vigila"
+risk,riesgo,"Chance of harm","Posibilidad de peligro"
+notice,aviso,"Public announcement","Comunicación pública"
+enemy,enemigo/enemiga,"Opposing person","Persona contraria"
+kick,patada,"Strike with the foot","Golpe con el pie"
+race,carrera,"Speed competition","Competencia de velocidad"
+suit,traje,"Formal clothing set","Conjunto elegante"
+fit,ajuste,"Proper size","Medida adecuada"
+director,director/directora,"Person who leads","Persona que dirige"
+spot,lugar,"Exact place","Sitio específico"
+cross,cruz,"Intersecting lines","Símbolo con líneas cruzadas"
+arm,brazo,"Upper limb","Extremidad superior"
+upstairs,arriba,"Higher floor","Piso superior"
+chicken,pollo,"Farm bird","Ave de granja"
+department,departamento,"Division of an organization","Sección de una organización"
+hero,héroe,"Brave admired person","Persona valiente"
+gas,gas,"Airlike substance","Sustancia gaseosa"
+sergeant,sargento,"Military rank","Rango militar"
+low,bajo,"Opposite of high","Opuesto de alto"
+leg,pierna,"Lower limb","Extremidad inferior"
+taste,gusto,"Sense of flavor","Sentido del sabor"
+waste,desperdicio,"Unused material","Material inútil"
+west,oeste,"Direction of sunset","Dirección del atardecer"
+bunch,grupo,"Collection of items","Conjunto de cosas"
+battle,batalla,"Armed fight","Combate armado"
+study,estudio,"Act of learning","Actividad académica"
+mention,mención,"Brief reference","Referencia breve"
+bell,campana,"Ringing metal object","Objeto que suena"
+stage,escenario,"Theater platform","Plataforma teatral"
+hole,agujero,"Opening in surface","Abertura en superficie"
+lock,cerradura,"Door fastener","Mecanismo de puerta"
+weapon,arma,"Tool for fighting","Instrumento de combate"
+energy,energía,"Power for action","Fuerza para actuar"
+treat,trato,"Way of dealing","Forma de tratar"
+burn,quemadura,"Injury from heat","Lesión por calor"
+form,forma,"Shape or structure","Figura o estructura"
+sky,cielo,"Space above Earth","Espacio sobre la Tierra"
+breakfast,desayuno,"Morning meal","Comida de la mañana"
+band,banda,"Music group","Grupo musical"
+track,pista,"Racing path","Camino de carrera"
+spirit,espíritu,"Inner essence","Esencia interior"
+nose,nariz,"Organ for smelling","Órgano del olfato"
+favorite,favorito/favorita,"Most liked item","Lo que más gusta"
+memory,memoria,"Stored recollection","Recuerdo guardado"
+laughter,risa,"Sound of amusement","Sonido de alegría"
+roll,rollo,"Cylinder shape","Forma cilíndrica"
+witness,testigo,"Person who saw event","Persona que observó"
+double,doble,"Twice as much","Cantidad duplicada"
+bathroom,baño,"Room with toilet","Cuarto sanitario"
+build,construcción,"Act of making structure","Acción de construir"
+bomb,bomba,"Explosive device","Dispositivo explosivo"
+pressure,presión,"Force on surface","Fuerza aplicada"
+flight,vuelo,"Air travel","Viaje por aire"
+interest,interés,"Curiosity or benefit","Atención o beneficio"
+throat,garganta,"Front neck passage","Parte del cuello"
+cost,costo,"Amount paid","Cantidad pagada"
+danger,peligro,"Risk of harm","Riesgo de daño"
+neck,cuello,"Part connecting head","Parte que une cabeza"
+bottle,botella,"Liquid container","Recipiente de líquido"
+beauty,belleza,"Quality of attractiveness","Cualidad estética"
+nature,naturaleza,"Natural world","Mundo natural"
+video,vídeo,"Recorded moving images","Imágenes grabadas"
+rain,lluvia,"Water from clouds","Agua que cae"
+camp,campamento,"Temporary outdoor site","Lugar temporal"
+shame,vergüenza,"Feeling of embarrassment","Sentimiento de pena"
+driver,conductor/conductora,"Person operating vehicle","Persona que maneja"
+bird,pájaro,"Animal with wings","Animal que vuela"
+crowd,multitud,"Large group of people","Gran grupo"
+level,nivel,"Height or rank","Altura o categoría"
+faith,fe,"Strong belief","Creencia profunda"
+commander,comandante,"Military leader","Líder militar"
+client,cliente,"Customer of services","Persona que compra"
+engine,motor,"Machine producing power","Máquina que genera energía"
+animal,animal,"Living creature","Ser vivo"
+devil,diablo,"Evil spirit","Espíritu maligno"
+weekend,fin de semana,"Saturday and Sunday","Días de descanso"
+stone,piedra,"Hard natural mineral","Material mineral"
+skin,piel,"Outer body layer","Capa externa del cuerpo"
+knife,cuchillo,"Sharp cutting tool","Herramienta para cortar"
+drug,droga,"Chemical substance","Sustancia química"
+beach,playa,"Sandy shore","Orilla del mar"
+hat,sombrero,"Head covering","Prenda para cabeza"
+code,código,"System of symbols","Sistema de símbolos"
+hall,sala,"Large room","Habitación amplia"
+opportunity,oportunidad,"Chance to act","Posibilidad favorable"
+corner,esquina,"Meeting of streets","Intersección de calles"
+cup,taza,"Small drinking vessel","Recipiente para beber"
+justice,justicia,"Fair legal principle","Principio legal justo"
+bottom,fondo,"Lowest part","Parte inferior"
+ghost,fantasma,"Spirit of dead","Aparición sobrenatural"
+restaurant,restaurante,"Place to eat out","Lugar para comer"
+language,lenguaje,"System of communication","Sistema de comunicación"
+east,este,"Direction of sunrise","Dirección del amanecer"
+note,nota,"Short written message","Mensaje breve"
+leader,líder,"Person guiding others","Persona que guía"
+health,salud,"State of well-being","Estado físico"
+angel,ángel,"Heavenly messenger","Ser celestial"
+rule,regla,"Guiding principle","Norma establecida"
+advice,consejo,"Guidance given","Sugerencia útil"
+pardon,perdón,"Act of forgiving","Acción de disculpar"
+milk,leche,"White dairy liquid","Líquido de vaca"
+speed,velocidad,"Rate of motion","Rapidez de movimiento"
+file,archivo,"Stored documents","Colección de documentos"
+tape,cinta,"Thin strip material","Tira delgada"
+practice,práctica,"Repeated exercise","Ejercicio repetido"
+emergency,emergencia,"Urgent situation","Situación urgente"
+bridge,puente,"Structure over water","Estructura para cruzar"
+applause,aplauso,"Clapping approval","Palmas de aprobación"
+conversation,conversación,"Talk between people","Diálogo entre personas"
+account,cuenta,"Financial record","Registro financiero"
+breath,aliento,"Air from lungs","Aire de pulmones"
+crew,tripulación,"Team on vehicle","Equipo de transporte"
+meat,carne,"Animal food","Producto animal"
+cake,pastel,"Sweet baked dessert","Postre horneado"
+strength,fuerza,"Physical power","Potencia física"
+career,carrera,"Professional path","Trayectoria laboral"
+sight,vista,"Sense of seeing","Sentido visual"
+vote,voto,"Election choice","Elección electoral"
+copy,copia,"Duplicate item","Duplicado"
+student,estudiante,"Person studying","Persona que aprende"
+trial,juicio,"Court proceeding","Proceso judicial"
+freedom,libertad,"State of independence","Estado sin control"
+market,mercado,"Place for trade","Lugar de comercio"
+manager,gerente,"Person managing business","Persona que administra"
+size,tamaño,"Measurement of scale","Medida de magnitud"
+operation,operación,"Medical procedure","Procedimiento médico"
+trick,truco,"Clever deception","Engaño ingenioso"
+pack,paquete,"Bundle of items","Conjunto empaquetado"
+monster,monstruo,"Scary creature","Criatura aterradora"
+center,centro,"Middle point","Punto central"
+travel,viaje,"Journey to places","Desplazamiento"
+target,objetivo,"Intended goal","Meta deseada"
+science,ciencia,"Study of nature","Estudio científico"
+project,proyecto,"Planned work","Plan de trabajo"
+feed,alimentación,"Act of giving food","Acción de nutrir"
+credit,crédito,"Financial trust","Confianza financiera"
+investigation,investigación,"Detailed inquiry","Examen detallado"
+oil,aceite,"Liquid fat","Grasa líquida"
+criminal,criminal,"Person committing crime","Persona delincuente"
+soldier,soldado,"Army member","Miembro militar"
+shirt,camisa,"Upper clothing","Prenda superior"
+example,ejemplo,"Illustrating case","Caso ilustrativo"
+strike,huelga,"Work stoppage protest","Paro laboral"
+chair,silla,"Seat with back","Asiento con respaldo"
+universe,universo,"All cosmic space","Todo el cosmos"
+command,comando,"Authoritative order","Orden autoritaria"
+condition,condición,"State or requirement","Estado o requisito"
+challenge,desafío,"Difficult task","Reto difícil"
+ticket,boleto,"Pass for entry","Documento de acceso"
+view,vista,"What can be seen","Lo que se observa"
+program,programa,"Planned schedule","Plan organizado"
+brown,marrón,"Earth tone color","Color tierra"
+wash,lavado,"Act of cleaning","Acción de limpiar"
+society,sociedad,"Organized community of people","Comunidad organizada"
+release,liberación,"Act of setting free","Acción de liberar"
+birth,nacimiento,"Beginning of life","Inicio de la vida"
+research,investigación,"Systematic study","Estudio detallado"
+guest,invitado/invitada,"Person visiting","Persona que visita"
+lift,ascensor,"Vertical transport in buildings","Transporte entre pisos"
+opinion,opinión,"Personal belief","Idea personal"
+character,carácter,"Personality trait","Rasgo de personalidad"
+mountain,montaña,"Very tall natural elevation","Gran elevación natural"
+heat,calor,"High temperature","Temperatura elevada"
+tie,corbata,"Neck garment","Prenda del cuello"
+sheriff,sheriff,"County law officer","Oficial de ley local"
+color,color,"Hue or shade","Tono visible"
+sword,espada,"Long bladed weapon","Arma larga"
+lab,laboratorio,"Scientific workspace","Lugar de experimentos"
+bullet,bala,"Projectile from a gun","Proyectil de arma"
+proof,prueba,"Evidence or verification","Demostración de verdad"
+base,base,"Supporting foundation","Fundamento de algo"
+cream,crema,"Rich dairy layer","Capa grasa de leche"
+noise,ruido,"Unwanted sound","Sonido molesto"
+total,total,"Complete amount","Cantidad completa"
+gang,pandilla,"Criminal group","Grupo delictivo"
+happiness,felicidad,"State of joy","Estado de alegría"
+joy,alegría,"Feeling of delight","Emoción de felicidad"
+female,hembra,"Biological sex","Sexo biológico"
+draw,sorteo,"Random selection","Selección al azar"
+male,macho,"Opposite of female","Sexo masculino"
+bite,mordisco,"Act of using teeth","Acción de morder"
+shower,ducha,"Water spray bath","Baño con agua"
+audience,audiencia,"Group watching performance","Personas que observan"
+purpose,propósito,"Intended aim","Meta deseada"
+fate,destino,"Predetermined future","Futuro inevitable"
+screw,tornillo,"Threaded fastener","Pieza con rosca"
+gentleman,caballero,"Polite man","Hombre educado"
+medicine,medicina,"Substance for healing","Remedio médico"
+responsibility,responsabilidad,"Duty or obligation","Obligación moral"
+talk, charla,"Informal speech","Conversación breve"
+split,división,"Act of separating","Acción de dividir"
+weight,peso,"Measure of heaviness","Medida de masa"
+unit,unidad,"Single item","Elemento individual"
+pig,cerdo,"Farm animal","Animal de granja"
+desk,escritorio,"Furniture for work","Mueble para escribir"
+finger,dedo,"Digit of the hand","Parte de la mano"
+pool,piscina,"Water for swimming","Lugar para nadar"
+focus,enfoque,"Point of attention","Centro de atención"
+garden,jardín,"Area for plants","Lugar con plantas"
+property,propiedad,"Owned possession","Bien poseído"
+mayor,alcalde/alcalde,"City leader","Jefe municipal"
+issue,asunto,"Important topic","Tema importante"
+pal,amigo,"Casual friend","Compañero cercano"
+interview,entrevista,"Question session","Sesión de preguntas"
+fan,aficionado/aficionada,"Enthusiastic supporter","Persona entusiasta"
+signal,señal,"Sign or indicator","Indicación visible"
+silence,silencio,"Absence of sound","Falta de sonido"
+surgery,cirugía,"Medical operation","Procedimiento médico"
+harm,daño,"Physical injury","Perjuicio causado"
+staff,personal,"Workers of an organization","Equipo de trabajadores"
+chef,chef,"Professional cook","Cocinero profesional"
+weather,clima,"Atmospheric conditions","Condiciones del tiempo"
+distance,distancia,"Space between points","Espacio entre lugares"
+process,proceso,"Series of steps","Conjunto de pasos"
+season,estación,"Part of the year","Periodo del año"
+access,acceso,"Right of entry","Permiso de entrada"
+model,modelo,"Example or representation","Representación ejemplar"
+path,camino,"Small route","Ruta estrecha"
+russian,ruso,"Person from Russia","Persona de Rusia"
+member,miembro,"Part of a group","Integrante de grupo"
+style,estilo,"Distinctive manner","Forma característica"
+alarm,alarma,"Warning device","Dispositivo de alerta"
+japanese,japonés/japonesa,"Person from Japan","Persona de Japón"
+sugar,azúcar,"Sweet substance","Sustancia dulce"
+roof,techo,"Top of a building","Parte superior"
+funeral,funeral,"Burial ceremony","Ceremonia mortuoria"
+damage,daño,"Physical harm","Perjuicio material"
+stomach,estómago,"Organ for digestion","Órgano digestivo"
+bread,pan,"Baked staple food","Alimento horneado"
+snow,nieve,"Frozen precipitation","Agua congelada"
+castle,castillo,"Fortified residence","Edificio medieval"
+speech,discurso,"Formal talk","Habla formal"
+block,bloque,"Solid mass","Masa sólida"
+shake,temblor,"Small vibration","Movimiento ligero"
+dig,excavación,"Act of digging","Acción de cavar"
+post,poste,"Vertical support","Soporte vertical"
+reality,realidad,"Actual state of things","Estado verdadero"
+football,fútbol,"Popular team sport","Deporte con balón"
+spread,extensión,"Area covered","Área cubierta"
+coat,abrigo,"Warm outer garment","Prenda para frío"
+chest,pecho,"Front torso area","Parte frontal del torso"
+success,éxito,"Achievement of goal","Logro importante"
+madame,madame,"Formal address for woman","Tratamiento formal"
+safety,seguridad,"Protection from danger","Protección contra daño"
+permission,permiso,"Authorization to act","Autorización"
+fancy,capricho,"Sudden desire","Deseo repentino"
+theory,teoría,"Proposed explanation","Explicación propuesta"
+gate,puerta,"Entry barrier","Entrada cerrada"
+journey,viaje,"Long trip","Trayecto largo"
+paint,pintura,"Colored coating","Material artístico"
+lover,amante,"Romantic partner","Pareja romántica"
+mood,humor,"Emotional state","Estado emocional"
+storm,tormenta,"Severe weather","Clima violento"
+page,página,"Sheet in book","Hoja de libro"
+cheese,queso,"Dairy product","Producto de leche"
+priest,sacerdote,"Religious leader","Líder religioso"
+regret,arrepentimiento,"Feeling of remorse","Sentimiento de culpa"
+contract,contrato,"Legal agreement","Acuerdo legal"
+thief,ladrón,"Person who steals","Persona que roba"
+divorce,divorcio,"End of marriage","Fin legal del matrimonio"
+lesson,lección,"Educational unit","Unidad de enseñanza"
+community,comunidad,"Group sharing place","Grupo social"
+subject,tema,"Topic of discussion","Asunto tratado"
+rent,alquiler,"Payment for use","Pago por uso"
+revenge,venganza,"Retaliation for harm","Castigo por daño"
+trade,comercio,"Exchange of goods","Intercambio comercial"
+forest,bosque,"Large area of trees","Gran área de árboles"
+rush,prisa,"Hurry or urgency","Necesidad de rapidez"
+owner,dueño/dueña,"Person possessing","Persona propietaria"
+amount,cantidad,"Total number","Número total"
+artist,artista,"Creative professional","Persona creativa"
+pocket,bolsillo,"Clothing pouch","Compartimento de ropa"
+cancer,cáncer,"Serious disease","Enfermedad grave"
+pair,par,"Two items","Conjunto de dos"
+ruin,ruina,"State of destruction","Estado destruido"
+grandfather,abuelo,"Parent’s father","Padre del padre"
+bike,bicicleta,"Two-wheel vehicle","Vehículo de dos ruedas"
+loss,pérdida,"Act of losing","Falta de algo"
+winter,invierno,"Cold season","Estación fría"
+assistant,asistente,"Helper role","Persona que ayuda"
+farm,granja,"Agricultural land","Lugar de cultivo"
+tongue,lengua,"Organ for taste","Órgano del gusto"
+toilet,baño,"Room with toilet","Lugar sanitario"
+genius,genio,"Exceptionally intelligent person","Persona brillante"
+square,plaza,"Open city area","Espacio urbano"
+secretary,secretario/secretaria,"Office assistant","Empleado administrativo"
+connection,conexión,"Link between things","Vínculo entre cosas"
+downstairs,planta baja,"Lower floor","Piso inferior"
+bedroom,habitación,"Room for sleeping","Cuarto para dormir"
+professional,profesional,"Paid expert worker","Trabajador experto"
+tour,gira,"Planned travel route","Recorrido organizado"
+player,jugador/jugadora,"Participant in game","Participante deportivo"
+silver,plata,"Precious metal","Metal brillante"
+pity,lástima,"Feeling of sympathy","Sentimiento de compasión"
+clock,reloj,"Timekeeping device","Dispositivo para hora"
+ocean,océano,"Huge sea body","Gran masa de agua"
+dna,ADN,"Genetic molecule","Molécula genética"
+crash,choque,"Violent collision","Colisión fuerte"
+bath,baño,"Act of washing body","Acción de bañarse"
+fortune,fortuna,"Great wealth or luck","Gran riqueza"
+century,siglo,"100-year period","Periodo de cien años"
+insurance,seguro,"Protection policy","Protección financiera"
+airport,aeropuerto,"Place for planes","Terminal aérea"
+temple,templo,"Religious building","Edificio sagrado"
+knowledge,conocimiento,"Understanding gained","Saber adquirido"
+map,mapa,"Geographic drawing","Representación del terreno"
+competition,competencia,"Contest for victory","Concurso competitivo"
+defense,defensa,"Protection against attack","Protección contra ataque"
+goodness,bondad,"Kind moral quality","Cualidad amable"
+event,evento,"Notable happening","Hecho importante"
+period,período,"Span of time","Intervalo temporal"
+shape,forma,"Outline of object","Figura externa"
+hell,infierno,"Place of torment","Lugar de castigo"
+telephone,teléfono,"Device for calls","Aparato para llamar"
+request,solicitud,"Formal ask","Petición formal"
+grant,subvención,"Financial aid","Ayuda económica"
+affair,asunto,"Matter of concern","Tema importante"
+grave,tumba,"Burial place","Lugar de entierro"
+giant,gigante,"Very large being","Ser enorme"
+plant,planta,"Living green organism","Ser vegetal"
+site,sitio,"Specific place","Lugar específico"
+statement,declaración,"Formal remark","Comentario oficial"
+rise,ascenso,"Upward movement","Movimiento hacia arriba"
+jacket,chaqueta,"Short outer coat","Prenda exterior"
+mercy,misericordia,"Compassion shown","Compasión demostrada"
+switch,interruptor,"Device to control power","Control de energía"
+meal,comida,"Food serving","Ración de alimento"
+direction,dirección,"Course to follow","Ruta a seguir"
+data,datos,"Collected information","Información reunida"
+horn,cuerno,"Animal or instrument projection","Proyección dura"
+attorney,abogado,"Legal representative","Profesional legal"
+official,oficial,"Person with authority","Persona con cargo"
+rat,rata,"Rodent animal","Roedor pequeño"
+pizza,pizza,"Italian baked dish","Comida italiana"
+shock,choque,"Sudden surprise","Impacto inesperado"
+soup,sopa,"Liquid food dish","Comida líquida"
+courage,valor,"Bravery in danger","Valentía ante riesgo"
+yellow,amarillo,"Color of lemons","Color brillante"
+location,ubicación,"Exact place","Lugar exacto"
+jerk,idiota,"Rude foolish person","Persona grosera"
+chocolate,chocolate,"Sweet cocoa food","Dulce de cacao"
+image,imagen,"Visual representation","Representación visual"
+regular,regular,"Normal or standard","Común o habitual"
+taxi,taxi,"Car for hire","Auto de servicio"
+piss,orín,"Urine slang","Orina vulgar"
+wound,herida,"Injury to body","Lesión corporal"
+plate,plato,"Dish for food","Recipiente para comida"
+television,televisión,"Screen broadcast device","Dispositivo de video"
+freak,bicho raro,"Very strange person","Persona muy rara"
+traffic,tráfico,"Vehicle movement","Movimiento de autos"
+dawn,amanecer,First light of the day,Primera luz del día
+poison,veneno,Substance that can kill or harm,Sustancia que puede matar o dañar
+mystery,misterio,Something difficult to explain or solve,Algo difícil de explicar o resolver
+indian,indio/india,Person from India or Indigenous American,Persona de India o indígena
+bang,estruendo,Loud explosive sound,Ruido fuerte o explosivo
+disease,enfermedad,Illness affecting the body,Problema de salud del cuerpo
+italian,italiano/italiana,Person or language from Italy,Persona o idioma de Italia
+role,papel,Part played by an actor or person,Función o personaje que alguien cumple
+butt,trasero,Backside of a person,Parte trasera del cuerpo
+victory,victoria,Winning in a contest or battle,Triunfo en una competencia
+trap,trampa,Device used to catch something,Dispositivo para atrapar algo
+nation,nación,Large community of people with government,País o estado organizado
+desire,deseo,Strong feeling of wanting something,Fuerte ganas de algo
+midnight,medianoche,12 o'clock at night,Doce de la noche
+jury,jurado,Group deciding a case in court,Grupo que decide un caso legal
+appointment,cita,Scheduled meeting,Reunión programada
+swim,natación,Moving through water with arms and legs,Actividad de moverse en el agua
+mail,correo,System for sending letters,Sistema para enviar cartas
+vacation,vacaciones,Time away from work or school,Tiempo de descanso del trabajo
+source,fuente,Origin of something,Origen de algo
+factory,fábrica,Building where goods are produced,Lugar donde se fabrican productos
+palace,palacio,Large royal residence,Gran residencia real
+crack,grieta,Small split in a surface,Abertura pequeña en algo
+talent,talento,Natural ability,Habilidad natural
+neighborhood,vecindario,Area where people live,Barrio o zona residencial
+threat,amenaza,Statement of possible harm,Advertencia de daño posible
+ear,oreja,Organ used for hearing,Parte del cuerpo para oír
+miracle,milagro,Wonderful event with no explanation,Hecho sorprendente inexplicable
+grandmother,abuela,Mother of a parent,Madre de tu padre o madre
+firm,empresa,Business organization,Organización comercial
+winner,ganador/ganadora,Person who wins,Persona que gana
+license,licencia,Official permission,Permiso oficial
+advantage,ventaja,Benefit over others,Beneficio sobre otros
+monkey,mono,Tree-dwelling primate,Animal parecido al humano que vive en árboles
+mirror,espejo,Surface that reflects images,Superficie que refleja imágenes
+wood,madera,Material from trees,Material de los árboles
+union,sindicato,Workers' organization,Organización de trabajadores
+christian,cristiano/cristiana,Follower of Christianity,Seguidor de la religión cristiana
+violence,violencia,Use of physical force,Uso de fuerza física
+protection,protección,Act of keeping safe,Acción de mantener seguro
+hook,gancho,Curved piece for hanging something,Pieza curva para colgar
+motherfucker,hijo de puta,Strong insulting term,Insulto fuerte
+concern,preocupación,Feeling of worry,Sentimiento de inquietud
+effect,efecto,Result of a cause,Resultado de una causa
+studio,estudio,Place for recording or art,Lugar para grabar o crear arte
+load,carga,Amount carried or transported,Cantidad que se transporta
+treasure,tesoro,Valuable hidden riches,Riqueza muy valiosa
+spell,hechizo,Magic words or charm,Palabras mágicas
+iron,hierro,Strong metallic element,Metal fuerte
+rescue,rescate,Save from danger,Salvar del peligro
+treatment,tratamiento,Medical care given to a patient,Atención médica para curar
+desert,desierto,Dry land with little rain,Tierra seca con poca lluvia
+result,resultado,Outcome of an action,Consecuencia de algo
+piano,piano,Large keyboard instrument,Instrumento musical de teclas
+friendship,amistad,Close bond between friends,Relación cercana entre amigos
+candy,caramelo,Sweet sugary treat,Dulce de azúcar
+bride,novia,Woman getting married,Mujer que se casa
+flower,flor,Colorful part of a plant,Parte colorida de una planta
+bone,hueso,Hard part of skeleton,Parte dura del esqueleto
+value,valor,Worth or importance,Importancia o precio
+junior,junior,Younger person with same name,Persona más joven con mismo nombre
+remains,restos,What is left after something ends,Lo que queda
+metal,metal,Shiny hard material,Material duro y brillante
+tip,propina,Extra money for service,Dinero extra por servicio
+holiday,vacaciones,Day of celebration or rest,Día festivo o descanso
+rate,tasa,Measured amount or speed,Medida o porcentaje
+performance,rendimiento,How well something works,Resultado de funcionamiento
+governor,gobernador,Leader of a state,Jefe político de un estado
+vehicle,vehículo,Transport machine like a car,Medio de transporte
+toast,brindis,Drink raised in celebration,Gesto de celebrar con bebida
+pride,orgullo,Feeling of satisfaction,Sentimiento de satisfacción
+champagne,champán,Sparkling wine from France,Vino espumoso
+stranger,extraño/extraña,Person you do not know,Persona desconocida
+uniform,uniforme,Standard clothing for a group,Ropa igual para un grupo
+tear,lágrima,Drop from the eye when crying,Gota que sale del ojo
+cab,taxi,Car for hire,Coche de servicio público
+presence,presencia,State of being somewhere,Hecho de estar presente
+scream,grito,Loud cry,Grito fuerte
+dust,polvo,Fine dry particles,Partículas finas
+edge,borde,Outer boundary,Extremo de algo
+witch,bruja,Woman with magical powers,Mujer con poderes mágicos
+media,medios,Communication outlets like TV,Medios de comunicación
+claim,reclamación,Statement demanding something,Petición formal
+rice,arroz,Small white grain food,Grano alimenticio
+egg,huevo,Oval food from a chicken,Alimento ovalado de gallina
+punch,puñetazo,Hit with a fist,Golpe con el puño
+cast,reparto,Actors in a play or film,Grupo de actores
+intelligence,inteligencia,Ability to think and learn,Capacidad mental
+cow,vaca,Farm animal that gives milk,Animal que produce leche
+surface,superficie,Outer layer of something,Parte exterior
+cigarette,cigarrillo,Tobacco rolled in paper,Tabaco en papel
+destiny,destino,Future that seems predetermined,Futuro inevitable
+score,puntuación,Points in a game,Puntos en un juego
+technology,tecnología,Tools and machines of science,Herramientas científicas
+dragon,dragón,Mythical fire-breathing creature,Criatura legendaria
+pilot,piloto,Person who flies aircraft,Persona que conduce avión
+sin,pecado,Act against religious law,Falta religiosa
+emperor,emperador,Ruler of an empire,Gobernante de imperio
+goal,meta,Desired result,Objectivo final
+youth,juventud,Period of being young,Etapa joven de la vida
+pot,olla,Container for cooking,Recipiente para cocinar
+wolf,lobo,Wild doglike animal,Animal salvaje similar al perro
+boom,estruendo,Loud explosive noise,Ruido fuerte
+row,fila,Line of people or objects,Línea ordenada
+section,sección,Part of a whole,Parte de un todo
+dump,vertedero,Place where trash is thrown,Lugar para basura
+text,texto,Written words,Palabras escritas
+prisoner,prisionero,Person kept in jail,Persona encarcelada
+zero,cero,Number representing nothing,Número sin valor
+wheel,rueda,Round object that rolls,Objeto circular que gira
+exchange,intercambio,Act of trading things,Acción de cambiar algo
+coast,costa,Land along the sea,Tierra junto al mar
+grade,nota (academic),School evaluation mark,Calificación escolar
+shift,turno,Work period,Periodo de trabajo
+cure,cura,Something that heals,Remedio que sana
+sacrifice,sacrificio,Giving something valuable up,Renuncia importante
+beast,bestia,Large wild animal,Animal salvaje grande
+pie,pastel,Baked dessert with filling,Postre horneado
+material,material,Substance used to make things,Sustancia para fabricar
+creature,criatura,Living being,Ser vivo
+trace,rastro,Small sign left behind,Señal pequeña de algo
+button,botón,Small fastener on clothing,Pieza para cerrar ropa
+darkness,oscuridad,Absence of light,Falta de luz
+ambulance,ambulancia,Emergency medical vehicle,Transporte médico urgente
+internet,internet,Global computer network,Red mundial
+range,rango,Scope or extent,Alcance o nivel
+expert,experto/a,Person with great knowledge,Persona con gran conocimiento
+freeze,congelación,Turning into ice,Proceso de congelar
+sale,venta,Exchange for money,Acción de vender
+juice,jugo/zumo,Liquid from fruit,Líquido de fruta
+solution,solución,Answer to a problem,Respuesta a un problema
+tower,torre,Tall narrow building,Estructura alta
+mass,masa,Large amount,Gran cantidad
+alien,extraterrestre,Being from another planet,Ser de otro planeta
+schedule,horario,Plan of times,Lista de tiempos
+stairs,escaleras,Steps between floors,Peldaños para subir
+fruit,fruta,Sweet edible plant product,Producto dulce de planta
+spy,espía,Secret agent,Agente secreto
+senior,anciano/superior,Older or higher rank,Persona mayor o de rango alto
+garage,garaje,Place to park cars,Lugar para autos
+anger,ira,Strong feeling of rage,Sentimiento fuerte de enojo
+clue,pista,Piece of evidence,Indicio o señal
+magazine,revista,Periodical publication,Publicación periódica
+zone,zona,Area or region,Área definida
+shoulder,hombro,Joint connecting arm,Parte del cuerpo entre brazo y torso
+progress,progreso,Forward improvement,Avance hacia mejoría
+snake,serpiente,Legless reptile,Reptil sin patas
+effort,esfuerzo,Hard work attempt,Intento con trabajo
+elevator,ascensor,Machine lifting people between floors,Máquina para subir pisos
+sentence,sentencia,Judgment in court,Fallo judicial
+equipment,equipo,Tools needed for a task,Herramientas necesarias
+attitude,actitud,Way of thinking or behaving,Forma de pensar
+newspaper,periódico,Daily printed news,Publicación de noticias
+warrant,orden de arresto,Legal permission for arrest,Permiso legal para arrestar
+loser,perdedor,Person who fails,Persona que pierde
+series,serie,Set of related items,Conjunto de cosas
+vision,visión,Ability to see or imagine,Capacidad de ver
+actor,actor,Performer in theater or film,Intérprete en cine o teatro
+curse,maldición,Harmful magic wish,Deseo mágico negativo
+shadow,sombra,Dark shape from blocked light,Figura oscura
+passion,pasión,Strong emotion,Emoción intensa
+route,ruta,Path taken to travel,Camino a seguir
+reporter,reportero/a,Journalist collecting news,Periodista de noticias
+explosion,explosión,Sudden violent burst,Estallido fuerte
+squad,escuadrón,Small organized group,Grupo pequeño organizado
+kingdom,reino,Land ruled by a king,Territorio de un rey
+screen,pantalla,Surface displaying images,Superficie de imagen
+fashion,moda,Popular style,Tendencia de vestir
+wave,ola,Moving ridge of water,Movimiento del mar
+climb,escalada,Going upward by effort,Subir con esfuerzo
+pen,pluma,Tool for writing,Herramienta para escribir
+incident,incidente,Notable event,Suceso importante
+bull,toro,Male cattle animal,Animal macho del ganado
+chain,cadena,Series of metal links,Serie de eslabones
+device,dispositivo,Gadget or tool,Aparato
+debt,deuda,Money owed,Dinero que se debe
+campaign,campaña,Organized effort,Esfuerzo organizado
+hug,abrazo,Arms wrapped in affection,Gestó de cariño con brazos
+alcohol,alcohol,Intoxicating liquid in drinks,Líquido embriagante
+conference,conferencia,Formal meeting,Reunión formal
+education,educación,Process of learning,Proceso de aprendizaje
+politics,política,Government affairs,Asuntos del gobierno
+rape,violación,Sexual crime by force,Delito sexual
+mummy,momia,Preserved ancient body,Cuerpo preservado
+border,frontera,Line between countries,Límite entre países
+wire,cable,Thin metal strand,Hilo metálico
+prize,premio,Award for winning,Recompensa por ganar
+circle,círculo,Round shape,Figura redonda
+object,objeto,Physical thing,Cosa material
+robbery,robo,Crime of stealing,Delito de robar
+thunder,trueno,Sound from lightning,Ruido del rayo
+rope,cuerda,Thick twisted fiber line,Línea gruesa de fibras
+salt,sal,Common seasoning,Condimento común
+flesh,carne,Soft tissue of the body,Tejido del cuerpo
+writer,escritor/a,Person who writes books,Persona que escribe
+trash,basura,Waste material,Desperdicios
+reward,recompensa,Something given for good action,Premio por acción
+glory,gloria,Great honor,Gran honor
+authority,autoridad,Power to command,Poder para mandar
+estate,propiedad,Large area of owned land,Terreno o bienes
+yard,patio,Outdoor area beside a house,Espacio exterior junto a una casa
+tank,tanque,Armored military vehicle,Vehículo militar blindado
+confidence,confianza,Belief in oneself or others,Seguridad o fe en alguien
+lack,falta,Absence of something,Falta o carencia
+apple,manzana,Common red or green fruit,Fruta redonda y dulce
+approach,acercamiento,Way of dealing with something,Manera de tratar algo
+chick,pollito,Baby chicken,Cría de gallina
+doll,muñeca,Toy shaped like a person,Juguete con forma humana
+duck,pato,Water bird with a flat bill,Ave acuática con pico ancho
+stock,acciones,Shares in a company,Participaciones de empresa
+library,biblioteca,Place with books to borrow,Lugar con libros
+failure,fracaso,Lack of success,Falta de éxito
+movement,movimiento,Act of changing position,Acción de moverse
+bow,arco,Curved weapon for arrows,Arma curva para flechas
+tail,cola,Back appendage of an animal,Extremo trasero de un animal
+senator,senador,Member of a senate,Miembro del senado
+nightmare,pesadilla,Very frightening dream,Sueño aterrador
+theater,teatro,Place for plays or films,Lugar para obras o cine
+sand,arena,Loose grains on beaches,Granos finos de roca
+reputation,reputación,Public opinion about someone,Opinión pública
+slip,resbalón,Accidental slide,Deslizamiento accidental
+pink,rosa,Light red color,Color claro entre rojo y blanco
+maid,doncella,Young female servant,Servidora doméstica
+agency,agencia,Business providing services,Empresa de servicios
+childhood,infancia,Early years of life,Primeros años de vida
+opposite,opuesto,Completely different thing,Lo contrario
+policy,política,Plan or rule of action,Norma o plan
+panic,pánico,Sudden strong fear,Miedo intenso
+design,diseño,Plan or pattern,Plan visual
+chat,charla,Informal conversation,Conversación informal
+task,tarea,Work to be done,Trabajo asignado
+chatter,cháchara,Constant talk,Habla continua
+belt,cinturón,Strip worn around the waist,Banda alrededor de la cintura
+guarantee,garantía,Promise of quality,Promesa de seguridad
+current,corriente,Flow of water or electricity,Flujo continuo
+garbage,basura,Waste material,Residuos
+custody,custodia,Legal care of someone,Cuidado legal
+demon,demonio,Evil spirit,Espíritu maligno
+coincidence,coincidencia,Unexpected match of events,Situación que ocurre por casualidad
+attempt,intento,Effort to do something,Esfuerzo para lograr algo
+revolution,revolución,Major political change,Cambio político radical
+agreement,acuerdo,Mutual decision,Decisión común
+empire,imperio,Large group of territories ruled by one power,Gran territorio gobernado por uno
+disaster,desastre,Great damage or tragedy,Gran calamidad
+advance,avance,Forward progress,Progreso hacia adelante
+guitar,guitarra,String musical instrument,Instrumento de cuerdas
+detail,detalle,Small specific part,Parte pequeña
+behavior,comportamiento,Way someone acts,Manera de actuar
+delivery,entrega,Act of bringing goods,Acción de entregar
+ability,habilidad,Skill to do something,Capacidad de hacer algo
+district,distrito,Administrative area,Zona administrativa
+shoe,zapato,Footwear,Cobertura para el pie
+slave,esclavo/a,Person forced to work,Persona sin libertad
+coward,cobarde,Person lacking courage,Persona sin valentía
+hunter,cazador,Person who hunts animals,Persona que caza
+culture,cultura,Shared traditions of a society,Tradiciones sociales
+explanation,explicación,Statement making something clear,Respuesta aclaratoria
+committee,comité,Group assigned to a task,Grupo de trabajo
+background,antecedente,Past history or context,Historia previa
+identity,identidad,Who someone is,Quién es alguien
+channel,canal,Path for water or communication,Vía de comunicación
+bound,límite,Border or restriction,Frontera o restricción
+species,especie,Group of similar organisms,Tipo biológico
+struggle,lucha,Hard effort against difficulty,Esfuerzo difícil
+mask,máscara,Face covering,Cobertura facial
+fever,fiebre,High body temperature,Temperatura corporal alta
+loan,préstamo,Money borrowed,Dinero prestado
+whistle,silbato,Instrument that makes a sharp sound,Objeto que produce sonido agudo
+punishment,castigo,Penalty for wrongdoing,Sanción por falta
+production,producción,Creation of goods,Creación de productos
+capital,capital,City of government or wealth,Ciudad principal o riqueza
+potential,potencial,Possible ability,Capacidad futura
+quarter,cuarto,One fourth part,Una cuarta parte
+bowl,tazón,Round deep dish,Recipiente redondo
+museum,museo,Place displaying historical objects,Lugar con exhibiciones
+cheer,porra,Shout of support,Grito de apoyo
+dish,plato,Container for food,Recipiente para comida
+gunshot,disparo,Sound of a gun,Ruido de arma
+closet,armario,Storage cabinet,Mueble para guardar
+dirt,suciedad,Unclean matter,Materia sucia
+crown,corona,Royal headpiece,Objeto del rey
+shout,grito,Loud call,Voz fuerte
+fella,tipo,Guy or man,Hombre informal
+couch,sofá,Long comfortable seat,Asiento largo
+demand,demanda,Strong request,Petición fuerte
+transfer,transferencia,Movement from one place to another,Movimiento de algo
+joint,junta,Place where things meet,Unión de partes
+episode,episodio,Part of a series,Parte de una serie
+basement,sótano,Lowest floor of a building,Piso inferior
+roman,romano,Person from ancient Rome,Persona de Roma
+article,artículo,Written piece or item,Texto o objeto
+guide,guía,Person who shows the way,Persona que dirige
+sandwich,sándwich,Bread with filling,Comida entre pan
+flash,destello,Brief bright light,Luz repentina
+wallet,cartera,Small case for money,Objeto para dinero
+quality,calidad,Level of excellence,Nivel de excelencia
+concert,concierto,Live music performance,Evento musical
+singer,cantante,Person who sings,Persona que canta
+lane,carril,Strip of road,Vía de tráfico
+baseball,béisbol,Bat-and-ball sport,Deporte con bate
+title,título,Name of a book or role,Nombre de obra
+commissioner,comisionado/a,Official leader,Autoridad oficial
+pee,pis,Informal word for urine,Orina en lenguaje informal
+charity,caridad,Help for those in need,Ayuda a necesitados
+drama,drama,Serious theatrical story,Historia teatral seria
+ceremony,ceremonia,Formal event,Evento formal
+package,paquete,Wrapped item,Bulto envuelto
+shine,brillo,Reflective light,Luz reflejada
+comrade,camarada,Companion or ally,Compañero cercano
+pussy,gato/a,Slang insult or cat,Insulto o gato
+supply,suministro,Available stock,Existencias
+tone,tono,Quality of sound,Calidad del sonido
+customer,cliente,Person buying goods,Comprador
+sweat,sudor,Moisture from skin,Líquido del cuerpo
+possibility,posibilidad,Something that may happen,Algo que puede ocurrir
+flag,bandera,National symbol cloth,Símbolo nacional
+plastic,plástico,Synthetic material,Material sintético
+gear,equipo,Tools or machinery,Herramientas
+surrender,rendición,Giving up in defeat,Entrega tras derrota
+impression,impresión,Effect on the mind,Efecto mental
+self,yo,Individual identity,Identidad personal
+bust,busto,Statue of head and shoulders,Escultura parcial
+servant,sirviente,Person working for a master,Persona que sirve
+gym,gimnasio,Place for exercise,Lugar para ejercicio
+assault,asalto,Violent attack,Ataque violento
+trail,sendero,Path through nature,Camino pequeño
+crisis,crisis,Time of intense difficulty,Periodo crítico
+collection,colección,Group of gathered items,Conjunto de objetos
+diamond,diamante,Hard precious gem,Gema valiosa
+adult,adulto/a,Grown person,Persona madura
+bible,biblia,Christian holy book,Libro sagrado cristiano
+league,liga,Group of teams or clubs,Asociación deportiva
+orange,naranja,Citrus fruit or color,Fruta cítrica
+imagination,imaginación,Ability to form ideas,Capacidad creativa
+neighbor,vecino/a,Person living nearby,Persona cercana
+blast,explosión,Strong explosion,Explosión fuerte
+balance,equilibrio,State of stability,Estado estable
+golf,golf,Sport with clubs and balls,Deporte con palos
+defeat,derrota,Loss in competition,Pérdida en juego
+theme,tema,Central subject,Asunto central
+comfort,comodidad,Feeling of ease,Bienestar
+reaction,reacción,Response to something,Respuesta
+legend,leyenda,Traditional story,Historia popular
+grass,césped,Short green lawn plant,Hierba de jardín
+print,impresión,Mark made by pressure,Marca impresa
+virus,virus,Tiny infectious agent,Agente infeccioso
+launch,lanzamiento,Act of starting or sending,Inicio o envío
+siren,sirena,Alarm sound or mythical creature,Sonido de alarma
+entrance,entrada,Way in,Lugar para entrar
+religion,religión,System of faith,Sistema de creencias
+butter,mantequilla,Spread made from cream,Producto lácteo
+homework,tarea,School work at home,Trabajo escolar
+stress,estrés,Mental pressure,Tensión mental
+cap,gorra,Hat with visor,Gorro con visera
+bat,murciélago,Flying nocturnal mammal,Mamífero volador nocturno
+mix,mezcla,Combination of things,Combinación
+torture,tortura,Severe pain inflicted,Infligir dolor
+deck,cubierta,Flat ship surface,Superficie del barco
+rabbit,conejo,Small long-eared mammal,Mamífero pequeño
+option,opción,Choice available,Alternativa
+accent,acento,Distinct pronunciation,Forma de pronunciar
+tax,impuesto,Money paid to government,Pago al gobierno
+rip,desgarro,Tear in fabric or flesh,Ruptura
+bud,brote,Young plant growth,Crecimiento nuevo
+therapy,terapia,Treatment for illness,Tratamiento médico
+lifetime,vida,Span of a person's life,Duración de vida
+crush,aplastamiento,Forceful pressing,Presión fuerte
+champion,campeón/a,Winner of a contest,Ganador
+skull,cráneo,Bone protecting brain,Hueso de la cabeza
+version,versión,Different form of something,Forma alternativa
+mistress,amante,Woman in affair,Pareja secreta
+fuel,combustible,Substance burned for energy,Material que produce energía
+term,término,Word or time period,Palabra o periodo
+bond,bono,Financial certificate or tie,Documento financiero
+plain,llanura,Flat land,Tierra plana
+experiment,experimento,Scientific test,Prueba científica
+monk,monje,Religious male living in monastery,Hombre religioso
+lion,león,Large wild cat,Gran felino
+lad,muchacho,Young boy,Joven masculino
+exercise,ejercicio,Physical activity,Actividad física
+purse,monedero,Small bag for money,Bolsa pequeña
+cave,cueva,Natural underground chamber,Espacio bajo tierra
+standard,estándar,Accepted level,Nivel aceptado
+tunnel,túnel,Underground passage,Pasaje subterráneo
+steel,acero,Strong metal alloy,Metal resistente
+division,división,Separation into parts,Separación
+sheep,oveja,Wool-producing farm animal,Animal con lana
+classic,clásico,Traditional or enduring work,Obra tradicional
+nephew,sobrino,Son of a sibling,Hijo de hermano
+sauce,salsa,Liquid for flavoring food,Condimento líquido
+influence,influencia,Power to affect others,Poder de afectar
+network,red,Connected system,Sistema conectado
+contest,concurso,Competition event,Evento competitivo
+cabin,cabaña,Small wooden house,Casa pequeña
+jungle,jungla,Dense tropical forest,Bosque tropical
+vampire,vampiro,Mythical blood-drinking creature,Criatura mítica
+exit,salida,Way out,Lugar para salir
+spit,escupitajo,Saliva expelled from mouth,Saliva expulsada
+generation,generación,Group born around same time,Grupo de misma época
+crystal,cristal,Clear transparent mineral,Material transparente y duro
+status,estatus,Position or rank in society,Posición o condición social
+degree,grado,Level of education or measurement,Nivel académico o medida
+buck,dólar,Informal word for a dollar,Forma coloquial de dólar
+brand,marca,Symbol identifying a product,Señal que identifica producto
+toy,juguete,Plaything for children,Objeto para jugar
+scratch,rasguño,Small cut on skin or surface,Marca superficial
+tribe,tribu,Group with shared ancestry,Grupo cultural antiguo
+script,guion,Written text for a play or film,Texto para obra o cine
+nerve,nervio,Fiber transmitting impulses,Fibra del sistema nervioso
+seal,sello,Stamp used to close or certify,Marca oficial
+bug,bicho,Small insect or creature,Insecto pequeño
+response,respuesta,Reply to a question,Contestación
+surveillance,vigilancia,Close observation for security,Observación constante
+gain,ganancia,Increase or profit,Aumento o beneficio
+trigger,gatillo,Part of gun that fires it,Parte de arma que dispara
+clinic,clínica,Medical treatment center,Centro médico
+patience,paciencia,Ability to wait calmly,Capacidad de esperar
+traitor,traidor,Person who betrays trust,Persona que traiciona
+heck,escándalo,Informal word expressing annoyance,Exclamación informal
+hail,granizo,Frozen rain falling from sky,Precipitación de hielo
+port,puerto,Harbor for ships,Lugar donde atracan barcos
+beef,carne de res,Meat from cattle,Carne de vaca
+routine,rutina,Regular pattern of actions,Hábito repetido
+outfit,atuendo,Complete set of clothes,Conjunto de ropa
+confession,confesión,Admission of wrongdoing,Declaración de culpa
+ease,facilidad,State of comfort or simplicity,Ausencia de dificultad
+deputy,subalterno,Person acting for another,Sustituto oficial
+principal,director,Head of a school or main person,Jefe de escuela
+stake,apuesta,Amount risked in a bet,Dinero arriesgado
+link,enlace,Connection between things,Conexión
+industry,industria,Production of goods,Actividad económica productiva
+costume,disfraz,Clothing worn for role or celebration,Ropa de personaje
+argument,argumento,Reasoned discussion or dispute,Debate o discusión
+motion,movimiento,Act of moving,Acción de moverse
+construction,construcción,Building process,Proceso de edificar
+aim,objetivo,Goal or purpose,Meta
+pattern,patrón,Repeated design or form,Modelo repetido
+nail,clavo,Metal spike used in building,Pieza metálica para fijar
+electricity,electricidad,Energy from electric charge,Energía eléctrica
+warrior,guerrero,Fighter in battle,Soldado valiente
+fairy,hada,Mythical magical being,Criatura mágica
+anniversary,aniversario,Yearly celebration of event,Fecha anual
+temperature,temperatura,Measure of heat or cold,Medida del calor
+booth,caseta,Small enclosed space,Pequeña estructura
+pet,mascota,Animal kept for companionship,Animal doméstico
+sport,deporte,Physical competitive activity,Actividad física competitiva
+bail,fianza,Money to free someone from jail,Dinero para libertad provisional
+interrupt,interrupción,Act of stopping something briefly,Acción de detener
+tune,melodía,Musical sequence of notes,Serie musical
+prayer,oración,Religious communication to deity,Comunicación religiosa
+conscience,conciencia,Inner sense of right and wrong,Sentido moral interno
+headquarters,cuartel general,Central command office,Centro de mando
+cock,gallo,Male chicken,Ave macho
+chip,chip,Small electronic component,Componente electrónico
+guilt,culpa,Feeling of responsibility for wrong,Responsabilidad moral
+chill,escalofrío,Cold shivering sensation,Sensación de frío
+mouse,ratón,Small rodent or computer device,Roedor pequeño
+dealer,distribuidor,Person selling goods,Vendedor o intermediario
+backup,respaldo,Copy for safety,Copia de seguridad
+paradise,paraíso,Perfect or heavenly place,Lugar ideal
+bishop,obispo,Senior Christian church official,Líder religioso cristiano
+trunk,baúl,Large storage chest,Caja grande
+tradition,tradición,Custom passed through generations,Costumbre heredada
+salad,ensalada,Mixed vegetables dish,Plato de vegetales
+complex,complejo,Group of buildings or idea,Conjunto complicado
+average,promedio,Typical or mean value,Valor medio
+cliff,acantilado,Steep rock face,Borde rocoso alto
+greek,griego,Person or language of Greece,Persona o idioma de Grecia
+behalf,representación,Acting for another,Actuar por alguien
+punk,punk,Rebellious youth subculture,Subcultura rebelde
+strip,tira,Long narrow piece,Franja estrecha
+pipe,tubería,Tube for liquid flow,Conducto para líquidos
+sample,muestra,Small example part,Pequeña parte
+laundry,lavandería,Clothes washing service,Lugar para lavar ropa
+environment,medio ambiente,Natural surroundings,Entorno natural
+cage,jaula,Enclosure for animals,Recinto para animales
+robot,robot,Programmable machine,Máquina automática
+habit,hábito,Repeated behavior,Costumbre
+wrap,envoltura,Covering around something,Cubierta
+belly,vientre,Front of abdomen,Parte del abdomen
+benefit,beneficio,Advantage gained,Ventaja
+sink,lavabo,Basin for washing,Recipiente para lavar
+beep,pitido,Short electronic sound,Sonido corto
+motive,motivo,Reason for action,Razón
+circus,circo,Traveling show with performers,Espectáculo itinerante
+territory,territorio,Land under control,Tierra controlada
+pit,fosa,Deep hole,Hoyo profundo
+apology,disculpa,Expression of regret,Expresión de arrepentimiento
+exam,examen,Test of knowledge,Prueba académica
+festival,festival,Public celebration,Fiesta pública
+actress,actriz,Female actor,Actora
+ward,sala,Hospital room,Cuarto de hospital
+activity,actividad,Action or task,Acción
+worker,trabajador,Person who works,Persona que trabaja
+policeman,policía,Law enforcement officer,Agente de seguridad
+shelter,refugio,Place for protection,Lugar de protección
+existence,existencia,State of being alive,Estado de existir
+atmosphere,atmósfera,Layer of gases around planet,Capa de gases
+product,producto,Item produced for sale,Bien producido
+meantime,entretanto,During the time between events,Mientras tanto
+limit,límite,Boundary or restriction,Restricción
+election,elección,Public vote,Proceso de votar
+underwear,ropa interior,Clothing worn under others,Ropa interior
+pulse,pulso,Heartbeat rhythm,Latido del corazón
+farewell,despedida,Goodbye expression,Acto de decir adiós
+slap,bofetada,Hit with open hand,Golpe con la mano
+yell,grito,Loud shout,Grito fuerte
+doorbell,timbre,Bell at door,Timbre de entrada
+adventure,aventura,Exciting experience,Experiencia emocionante
+passport,pasaporte,Travel identification document,Documento para viajar
+hammer,martillo,Tool for driving nails,Herramienta para clavos
+hood,capucha,Head covering of garment,Cubierta para la cabeza
+judgment,juicio,Decision by court or mind,Decisión judicial
+homicide,homicidio,Killing of a person,Muerte causada por otra persona
+patrol,patrulla,Group watching area,Grupo de vigilancia
+flow,flujo,Movement of liquid or ideas,Movimiento continuo
+fence,cerca,Barrier around land,Barrera
+noon,mediodía,Middle of the day,Doce del día
+occasion,ocasión,Special event,Momento especial
+personality,personalidad,Character of a person,Rasgos personales
+fantasy,fantasía,Imaginative fiction,Historia imaginaria
+produce,producto fresco,Fruits and vegetables sold fresh,Alimentos frescos
+odds,probabilidades,Chance of event occurring,Posibilidad estadística
+signature,firma,Written name for approval,Nombre escrito
+individual,individuo,Single person,Persona única
+charm,encanto,Attractive quality,Atractivo especial
+chairman,presidente,Leader of a meeting,Dirigente
+frame,marco,Border around picture,Borde de imagen
+relief,alivio,Removal of pain,Reducción del dolor
+cloud,nube,Mass of vapor in sky,Masa de vapor
+corpse,cadáver,Dead human body,Cuerpo muerto
+organization,organización,Structured group,Grupo organizado
+host,anfitrión,Person receiving guests,Persona que recibe invitados
+transport,transporte,System of moving people or goods,Movimiento de personas
+oxygen,oxígeno,Gas essential for breathing,Gas vital
+citizen,ciudadano,Member of a nation,Persona de un país
+impact,impacto,Strong effect or collision,Efecto fuerte
+offense,ofensa,Insulting action,Acción ofensiva
+producer,productor,Person creating film or goods,Persona que produce
+kit,kit,Set of tools or items,Conjunto de objetos
+ad,anuncio,Advertisement message,Mensaje publicitario
+escort,escolta,Guard accompanying someone,Protección acompañante
+invitation,invitación,Request to attend event,Petición para asistir
+terrorist,terrorista,Person using violence for politics,Persona violenta política
+clay,arcilla,Soft earth used for pottery,Tierra moldeable
+tragedy,tragedia,Serious disastrous event,Evento triste
+math,matemática,Study of numbers,Ciencia de números
+shed,cobertizo,Small storage building,Edificio pequeño
+procedure,procedimiento,Official method,Método formal
+monitor,monitor,Device showing images,Pantalla de computadora
+spin,giro,Rotation movement,Movimiento circular
+clown,payaso,Circus comic performer,Artista cómico
+necklace,collar,Jewelry worn on neck,Joya de cuello
+mud,barro,Wet soil,Tierra mojada
+profile,perfil,Side view or summary,Descripción breve
+angle,ángulo,Space between lines,Medida geométrica
+furniture,muebles,Household furnishings,Objetos de casa
+engagement,compromiso,Promise to marry,Promesa matrimonial
+moron,idiota,Very foolish person,Persona muy tonta
+shark,tiburón,Large predatory fish,Pez grande
+humanity,humanidad,All humans collectively,Conjunto humano
+chop,corte,Act of cutting,Golpe de corte
+snap,chasquido,Sharp cracking sound,Sono breve
+sales,ventas,Act of selling goods,Comercio de productos
+stable,establo,Building for horses,Lugar para caballos
+granny,abuela,Informal grandmother,Abuela cariñosa
+pole,poste,Long vertical rod,Barra vertical
+dancer,bailarín/bailarina,Person who dances,Persona que baila
+footage,metraje,Recorded film material,Material filmado
+increase,aumento,Rise in amount,Incremento
+stretch,estiramiento,Extension movement,Movimiento de extensión
+romance,romance,Love story,Historia amorosa
+helicopter,helicóptero,Aircraft with rotating blades,Aeronave de hélices
+pitch,lanzamiento,Throw in sports,Tiro deportivo
+instance,instancia,Example or case,Ejemplo
+lemon,limón,Sour yellow citrus fruit,Fruta cítrica
+headache,dolor de cabeza,Pain in the head,Dolor en la cabeza
+rubbish,basura,Waste or trash,Desperdicio
+session,sesión,Period of activity,Periodo de trabajo
+pin,alfiler,Small sharp fastener,Pieza pequeña puntiaguda
+chamber,cámara,Large room or hall,Gran habitación
+commercial,comercial,Advertisement or business related,Relacionado con publicidad
+liver,hígado,Internal organ filtering blood,Órgano del cuerpo
+penis,pene,Male reproductive organ,Órgano reproductor masculino
+engineer,ingeniero,Technical designer,Profesional técnico
+supper,cena,Evening meal,Comida nocturna
+liquor,licor,Strong alcoholic drink,Bebida alcohólica
+drill,taladro,Tool for making holes,Herramienta para perforar
+alley,callejón,Narrow passage between buildings,Calle estrecha
+hop,salto,Small jump,Brinco pequeño
+destruction,destrucción,Complete ruin,Daño total
+junk,chatarra,Worthless old material,Material viejo
+rocket,cohete,Vehicle launched into space,Vehículo espacial
+elder,anciano,Older respected person,Persona mayor
+opera,ópera,Dramatic musical performance,Obra musical teatral
+highway,autopista,Major fast road,Carretera principal
+fighter,luchador,Person who fights,Persona combatiente
+shell,concha,Covering of animal or egg,Cubierta dura
+alpha,alfa,First letter of Greek alphabet,Primera letra griega
+liberty,libertad,State of being free,Estado de ser libre
+surgeon,cirujano,Medical doctor performing operations,Médico que realiza cirugías
+bum,vago,Lazy or homeless person,Persona perezosa o sin hogar
+widow,viuda,Woman whose spouse died,Mujer cuyo esposo murió
+reverend,reverendo,Clergy title,Título religioso
+insult,insulto,Offensive remark,Palabra ofensiva
+comment,comentario,Statement or opinion,Observación
+soap,jabón,Cleaning substance,Sustancia para lavar
+prick,pinchazo,Sharp small puncture,Pequeña punción
+scale,balanza,Device for weighing,Instrumento para pesar
+grief,pena,Deep sorrow,Tristeza profunda
+knee,rodilla,Joint in the leg,Articulación de la pierna
+slut,zorra,Derogatory term for promiscuous woman,Insulto ofensivo
+album,álbum,Collection of photos or music,Colección de fotos o música
+defendant,acusado,Person charged in court,Persona acusada
+goddess,diosa,Female deity,Deidad femenina
+bend,curva,Turn in road or shape,Desviación
+makeup,maquillaje,Cosmetics applied to face,Productos cosméticos
+loyalty,lealtad,Faithfulness or devotion,Fidelidad
+powder,polvo,Fine dry particles,Sustancia pulverizada
+gene,gen,Unit of heredity,Unidad genética
+diet,dieta,Food plan for health,Régimen alimenticio
+parent,padre/madre,Mother or father,Progenitor
+jam,mermelada,Fruit preserve,Conserva de fruta
+salary,salario,Regular payment for work,Pago por trabajo
+latin,latín,Ancient Roman language,Idioma antiguo
+population,población,Number of inhabitants,Número de habitantes
+ambassador,embajador,Official diplomatic representative,Representante diplomático
+locker,taquilla,Storage compartment,Casillero
+praise,alabanza,Expression of approval,Elogio
+trauma,trauma,Serious emotional or physical shock,Choque emocional
+shore,orilla,Edge of water,Borde del agua
+wealth,riqueza,Great amount of assets,Gran fortuna
+honeymoon,luna de miel,Trip after marriage,Viaje de recién casados
+blade,hoja,Cutting edge or thin plate,Filo o lámina
+whiskey,whisky,Distilled alcoholic drink,Bebida alcohólica
+core,núcleo,Central part,Parte central
+aid,ayuda,Support or assistance,Apoyo
+tent,tienda de campaña,Portable shelter,Alojamiento de tela
+blonde,rubia,Person with light hair,Persona de cabello claro
+intention,intención,Planned aim,Propósito
+abuse,abuso,Misuse or harm,Maltrato
+poetry,poesía,Literary art with rhythm,Arte literario
+jet,jet,High-speed aircraft,Avión rápido
+resistance,resistencia,Opposition or endurance,Oposición
+beard,barba,Hair on chin or face,Vello facial
+strategy,estrategia,Plan for achieving goal,Plan organizado
+goat,cabra,Domestic farm animal,Animal de granja
+award,premio,Prize for achievement,Reconocimiento
+corn,maíz,Grain crop,Planta alimenticia
+pro,profesional,Expert or paid specialist,Especialista
+net,red,Woven mesh,Tejido de hilos
+tattoo,tatuaje,Permanent skin design,Dibujo en piel
+stroke,golpe,Hit or medical attack,Golpe físico
+novel,novela,Long fictional book,Libro de ficción
+chaos,caos,Complete disorder,Desorden total
+colleague,colega,Work associate,Compañero de trabajo
+scientist,científico,Person studying science,Investigador
+tale,cuento,Short narrative story,Historia breve
+warehouse,almacén,Large storage building,Edificio de almacenamiento
+elephant,elefante,Large trunked mammal,Mamífero grande
+hostage,rehén,Person held captive,Persona retenida
+branch,rama,Part of a tree,Extensión de árbol
+objection,objeción,Expression of disagreement,Protesta formal
+lap,regazo,Upper legs when seated,Parte superior de piernas
+possession,posesión,Ownership of something,Propiedad
+tap,grifo,Device controlling water flow,Llave de agua
+superior,superior,Higher in rank,De rango más alto
+chin,barbilla,Lower face bone,Parte inferior del rostro
+soda,refresco,Sweet carbonated drink,Bebida gaseosa
+commission,comisión,Group or fee,Grupo oficial
+cinema,cine,Film theater,Teatro de películas
+muscle,músculo,Body tissue for movement,Tejido corporal
+poem,poema,Short literary verse work,Composición poética
+appeal,apelación,Legal request for review,Recurso legal
+steak,bistec,Slice of beef,Carne cortada
+survival,supervivencia,Continuing to live,Continuar viviendo
+profit,beneficio,Financial gain,Ganancia económica
+symbol,símbolo,Sign representing idea,Representación gráfica
+madness,locura,Extreme insanity,Pérdida de razón
+development,desarrollo,Growth or progress,Progreso
+sail,vela,Cloth catching wind on boat,Tela de barco
+tooth,diente,Hard structure in mouth,Estructura dental
+review,reseña,Evaluation or critique,Crítica
+basketball,baloncesto,Sport with hoop and ball,Deporte
+management,gerencia,Administration of organization,Dirección empresarial
+tube,tubo,Hollow cylinder,Conducto hueco
+rifle,rifle,Long firearm,Arma larga
+log,tronco,Large piece of wood,Parte de árbol
+bee,abeja,Insect producing honey,Insecto polinizador
+squeeze,apretón,Strong press or hug,Presión fuerte
+manner,manera,Way of doing something,Forma
+entry,entrada,Act of entering,Acceso
+cable,cable,Thick electrical wire,Conductor eléctrico
+pan,sartén,Flat cooking pan,Utensilio de cocina
+native,nativo,Person born in place,Persona originaria
+waiter,camarero,Restaurant server,Empleado de restaurante
+brick,ladrillo,Baked clay building block,Bloque de construcción
+pork,cerdo,Pig meat,Carne de cerdo
+pile,pila,Heap or stack,Montón
+expression,expresión,Way feelings are shown,Manifestación
+clan,clan,Extended family group,Grupo familiar
+facility,instalación,Place built for activity,Infraestructura
+reception,recepción,Act of welcoming,Evento de bienvenida
+statue,estatua,Sculpted monument,Figura esculpida
+satellite,satélite,Object orbiting planet,Objeto orbital
+polish,pulimento,Shiny surface treatment,Sustancia para brillar
+pound,libra,Unit of weight,Unidad de peso
+communication,comunicación,Exchange of information,Intercambio de información
+fridge,nevera,Appliance for cooling food,Electrodoméstico
+foundation,fundación,Base or organization,Base estructural
+appearance,apariencia,Outward look,Aspecto exterior
+proposal,propuesta,Suggested plan,Sugerencia formal
+combat,combate,Fight between forces,Enfrentamiento
+slide,tobogán,Playground sliding structure,Estructura para deslizar
+delay,retraso,Postponement,Demora
+labor,trabajo,Physical or manual work,Actividad laboral
+burden,carga,Heavy responsibility,Peso o responsabilidad
+payment,pago,Money given for service,Dinero entregado
+mall,centro comercial,Large shopping center,Complejo de tiendas
+paperwork,papeleo,Administrative documents,Documentos burocráticos
+lamb,cordero,Young sheep,Oveja joven
+item,artículo,Single object or entry,Elemento
+testimony,testimonio,Statement in court,Declaración legal
+hip,cadera,Joint connecting leg,Cadera del cuerpo
+prom,baile de graduación,Formal school dance,Fiesta escolar
+patch,parche,Piece used to repair,Remiendo
+assignment,tarea,Work given to complete,Trabajo asignado
+motel,motel,Roadside hotel,Hotel de carretera
+fraud,fraude,Intentional deception,Engaño
+dessert,postre,Sweet dish after meal,Comida dulce
+injury,lesión,Physical damage to body,Daño corporal
+bout,combate,Short fight,Enfrentamiento
+sack,saco,Large bag,Bolsa grande
+soil,suelo,Earth or ground,Tierra
+badge,placa,Official insignia,Insignia
+motor,motor,Machine producing motion,Máquina de movimiento
+description,descripción,Detailed account,Explicación detallada
+battery,batería,Energy storage device,Dispositivo eléctrico
+complaint,queja,Expression of dissatisfaction,Protesta
+cowboy,vaquero,Cattle ranch worker,Trabajador ganadero
+privacy,privacidad,State of being free from observation,Intimidad
+wisdom,sabiduría,Deep knowledge or insight,Conocimiento profundo
+contrary,contrario,Opposite position,Opuesto
+crane,grúa,Machine lifting heavy objects,Máquina elevadora
+leak,fuga,Unwanted escape of liquid,Escape de líquido
+pill,pastilla,Small medicine tablet,Medicamento sólido
+suitcase,maleta,Travel luggage,Equipaje
+vodka,vodka,Clear distilled alcohol,Bebida alcohólica
+chemical,químico,Substance of chemistry,Sustancia química
+catholic,católico,Member of Catholic church,Religión cristiana
+soccer,fútbol,Team sport with ball,Deporte con balón
+brush,cepillo,Tool with bristles,Herramienta para limpiar
+illness,enfermedad,Disease or sickness,Estado de salud
+flip,voltereta,Quick turn or somersault,Giro acrobático
+twist,giro,Rotation movement,Movimiento de rotación
+chapter,capítulo,Section of a book,Parte de libro
+measure,medida,Standard of size or amount,Unidad de medición
+radar,radar,Detection system with radio waves,Sistema de detección
+editor,editor,Person preparing publications,Responsable editorial
+structure,estructura,Arrangement of parts,Organización interna
+marshal,mariscal,High-ranking officer,Oficial militar
+bid,oferta,Proposed price in auction,Propuesta de precio
+palm,palma,Inner hand surface,Parte interior de mano
+pub,pub,Public bar,Bar tradicional
+analysis,análisis,Detailed examination,Estudio detallado
+throne,trono,Seat of a monarch,Asiento real
+barn,granero,Farm storage building,Edificio agrícola
+rage,ira,Intense anger,Enojo extremo
+fleet,flota,Group of ships or vehicles,Conjunto de barcos
+budget,presupuesto,Financial plan,Plan financiero
+humor,humor,Quality of being funny,Sentido cómico
+employee,empleado,Person working for company,Trabajador contratado
+medication,medicación,Drug treatment,Tratamiento con medicamentos
+booze,alcohol,Informal term for liquor,Bebida alcohólica
+sis,hermana,Informal sister,Hermana familiar
+turtle,tortuga,Slow reptile with shell,Reptil con caparazón
+nut,nuez,Hard-shelled edible seed,Semilla comestible
+coin,moneda,Metal money piece,Dinero metálico
+basis,base,Underlying support,Fundamento
+discussion,discusión,Conversation about topic,Debate
+temper,temperamento,Emotional disposition,Carácter
+plot,trama,Sequence of story events,Historia narrativa
+casino,casino,Gambling establishment,Lugar de apuestas
+poker,póker,Card gambling game,Juego de cartas
+farmer,granjero,Agricultural worker,Trabajador del campo
+counter,mostrador,Surface for serving customers,Mesa de atención
+fucker,cabrón,Strong insult,Insulto vulgar
+repair,reparación,Act of fixing something,Arreglo
+cookie,galleta,Sweet baked snack,Dulce horneado
+baker,panadero,Person who bakes bread,Profesión panadería
+massage,masaje,Body manipulation for relaxation,Terapia corporal
+entertainment,entretenimiento,Amusement activity,Diversión
+bucket,cubo,Container with handle,Recipiente
+whip,látigo,Flexible striking tool,Herramienta flexible
+forgiveness,perdón,Act of pardoning,Acto de disculpar
+spider,araña,Eight-legged arachnid,Arácnido
+phase,fase,Stage in process,Etapa
+diary,diario,Personal journal,Cuaderno personal
+blanket,manta,Thick warm covering,Cobertura de tela
+comedy,comedia,Humorous dramatic work,Obra humorística
+height,altura,Measurement from base to top,Medida vertical
+dive,buceo,Act of swimming underwater,Actividad bajo el agua
+tennis,tenis,Racket sport with net,Deporte con raqueta
+sunshine,sol,Light from the sun,Luz solar
+dope,droga,Illegal narcotic substance,Sustancia narcótica
+permit,permiso,Official authorization,Autorización
+jazz,jazz,Music genre with improvisation,Género musical
+swallow,golondrina,Small migratory bird,Ave migratoria
+towel,toalla,Cloth for drying,Cubierta de tela para secar
+function,función,Purpose or role,Propósito
+bunny,conejo,Small rabbit,Animal pequeño
+niece,sobrina,Daughter of sibling,Hija de hermano
+prosecutor,fiscal,Lawyer presenting case against accused,Abogado del estado
+fund,fondo,Pool of money,Cantidad de dinero
+pump,bomba,Device moving liquid,Dispositivo hidráulico
+region,región,Geographic area,Zona geográfica
+weakness,debilidad,Lack of strength,Falta de fuerza
+discovery,descubrimiento,Finding something new,Hallazgo
+needle,aguja,Thin pointed instrument,Instrumento puntiagudo
+executive,ejecutivo,High-level manager,Directivo
+halt,parada,Stopping action,Detención
+nest,nido,Bird home,Estructura de aves
+gravity,gravedad,Force pulling objects toward earth,Fuerza física
+wagon,vagón,Railroad car,Carro ferroviario
+con,estafa,Swindle or fraud,Engaño
+burst,explosión,Sudden break or blast,Estallido
+weed,hierba,Wild unwanted plant,Planta silvestre
+concept,concepto,Abstract idea,Idea abstracta
+vessel,buque,Large ship,Barco grande
+zoo,zoológico,Animal park,Parque de animales
+stink,hedor,Very bad smell,Olor fuerte
+leather,cuero,Animal skin material,Material de piel
+mexican,mexicano,Person from Mexico,Persona de México
+sheet,hoja,Thin flat piece,Lámina delgada
+boot,bota,Sturdy footwear,Calzado
+reverse,reverso,Opposite side,Lado opuesto
+grandson,nieto,Son of one's child,Hijo del hijo
+shield,escudo,Protective armor piece,Protección
+conduct,conducta,Behavior,Comportamiento
+luggage,equipaje,Travel bags,Maletas
+promotion,promoción,Advancement or marketing,Ascenso o publicidad
+menu,menú,List of food items,Lista de platos
+bacon,tocino,Pork belly meat,Carne de cerdo
+method,método,Systematic procedure,Procedimiento
+parade,desfile,Public procession,Marcha pública
+potato,patata,Starchy root vegetable,Tubérculo
+tag,etiqueta,Label attached to item,Marca identificadora
+radiation,radiación,Energy emission,Energía emitida
+technique,técnica,Specialized skill,Método especializado
+jewelry,joyería,Decorative ornaments,Joyería
+nanny,niñera,Child caretaker,Cuidadora infantil
+cart,carrito,Small wheeled vehicle,Carro pequeño
+tissue,tejido,Body cell structure,Material biológico
+shooter,tirador,Person firing weapon,Persona que dispara
+arrival,llegada,Act of coming,Llegada
+root,raíz,Underground plant part,Parte de planta
+galaxy,galaxia,Large star system,Sistema de estrellas
+gossip,chisme,Rumor about people,Comentario informal
+skill,habilidad,Learned ability,Capacidad
+conspiracy,conspiración,Secret plan,Plan secreto
+groom,novio,Man about to marry,Hombre que se casa
+cherry,cereza,Small red fruit,Fruta
+hunger,hambre,Need for food,Necesidad de comer
+ideal,ideal,Perfect model,Modelo perfecto
+dough,masa,Mixed flour paste,Masa de harina
+terror,terror,Extreme fear,Miedo extremo
+ham,jamón,Pork meat product,Carne curada
+priority,prioridad,Something most important,Importancia alta
+mankind,humanidad,All humans collectively,Toda la especie humana
+click,clic,Short computer sound,Sonido breve
+european,europeo,Person from Europe,Persona de Europa
+pillow,almohada,Head cushion for sleeping,Cojín para dormir
+scan,escáner,Electronic image reading,Dispositivo digital
+rehearsal,ensayo,Practice before performance,Práctica
+poet,poeta,Writer of poetry,Autor de poesía
+celebration,celebración,Festive event,Evento festivo
+cattle,ganado,Farm herd animals,Animales de granja
+drawer,cajón,Sliding storage box,Compartimento
+lighter,encendedor,Device producing flame,Dispositivo de fuego
+register,registro,Official record,Documento oficial
+comic,cómic,Illustrated story book,Historieta
+lamp,lámpara,Electric light device,Dispositivo de luz
+stab,puñalada,Knife attack,Ataque con cuchillo
+dignity,dignidad,Self-respect,Respeto propio
+wreck,naufragio,Ship destruction,Accidente marítimo
+relative,pariente,Family member,Familiar
+coma,coma,Deep unconscious state,Estado médico
+corporal,cabo,Low military rank,Rango militar
+basket,cesta,Woven container,Contenedor tejido
+horror,horror,Extreme fear,Gran miedo
+oath,juramento,Solemn promise,Promesa formal
+steam,vapor,Water gas,Vapor de agua
+solo,solo,Single performance,Actuación individual
+cemetery,cementerio,Burial ground,Lugar de entierro
+bump,golpe,Light collision,Choque leve
+personnel,personal,Employees of organization,Empleados
+scum,escoria,Contemptible person,Persona despreciable
+mob,multitud,Crowd often violent,Grupo grande
+combination,combinación,Mix of elements,Mezcla
+beam,viga,Structural support bar,Barra estructural
+alliance,alianza,Formal partnership,Acuerdo
+counselor,consejero,Advisor,Persona que aconseja
+nap,siesta,Short sleep,Descanso corto
+conflict,conflicto,Serious disagreement,Disputa
+assistance,asistencia,Help or support,Ayuda
+retreat,retiro,Strategic withdrawal,Retirada
+candidate,candidato,Person seeking position,Persona aspirante
+rubber,goma,Elastic material,Material flexible
+bingo,bingo,Number game,Juego de números
+autopsy,autopsia,Post-mortem examination,Examen médico
+carpet,alfombra,Floor covering,Tapete
+puppy,cachorro,Young dog,Perro joven
+gut,intestino,Part of digestive system,Órgano digestivo
+coffin,ataúd,Funeral box,Caja funeraria
+instant,instante,Very short time,Tiempo breve
+ash,ceniza,Powder from burning,Residuo de fuego
+scandal,escándalo,Public disgrace,Controversia pública
+ally,aliado,Partner in cooperation,Socio
+arrow,flecha,Projectile from bow,Arma de arco
+misery,miseria,Extreme suffering,Pobreza extrema
+cotton,algodón,Soft plant fiber,Fibra vegetal
+suite,suite,Group of rooms,Conjunto de habitaciones
+lecture,conferencia,Formal speech,Discurso público
+economy,economía,System of production and trade,Sistema económico
+stare,mirada,Long intense look,Mirada fija
+guardian,guardián,Protector,Persona que protege
+gig,actuación,Musical performance,Presentación musical
+investment,inversión,Use of money for profit,Capital invertido
+heroin,heroína,Illegal narcotic drug,Droga opioide
+deposit,depósito,Money placed in bank,Dinero guardado
+medal,medalla,Award for achievement,Premio metálico
+gum,chicle,Chewing candy,Goma masticable
+swell,hinchazón,Swelling,Aumento corporal
+commitment,compromiso,Serious promise,Promesa formal
+hut,cabaña,Small simple house,Vivienda simple
+rear,parte trasera,Back side,Sección posterior
+photographer,fotógrafo,Person taking photos,Profesión fotográfica
+excitement,emoción,Feeling of enthusiasm,Sentimiento fuerte
+ranch,rancho,Large farm property,Granja grande
+fee,tarifa,Payment for service,Costo
+tool,herramienta,Instrument for work,Objeto de trabajo
+profession,profesión,Career occupation,Ocupación
+document,documento,Written record,Texto oficial
+journalist,periodista,News reporter,Profesión informativa
+bait,cebo,Lure for animals,Señuelo
+breast,pecho,Chest area,Parte del cuerpo
+sorrow,pena,Sadness,Tristeza
+roommate,compañero de cuarto,Person sharing room,Persona que comparte habitación
+counsel,consejo,Advice,Sugerencia
+cannon,cañón,Large gun,Arma pesada
+penalty,penalización,Punishment or fine,Sanción
+announcement,anuncio,Public statement,Declaración pública
+cocaine,cocaína,Illegal stimulant drug,Droga estimulante
+embrace,abrazo,Hug,Contacto afectivo
+spike,púa,Sharp pointed object,Punta aguda
+silk,seda,Smooth natural fiber,Material textil
+theft,robo,Stealing crime,Delito
+visitor,visitante,Person visiting,Persona que visita
+acid,ácido,Corrosive chemical,Sustancia química
+fuss,alboroto,Unnecessary excitement,Agitación
+bargain,ganga,Good deal purchase,Compra barata
+feast,festín,Large celebratory meal,Banquete
+collar,collar,Neck jewelry,Joya
+envy,envidia,Jealous resentment,Sentimiento negativo
+flame,llama,Visible fire,Fuego
+fame,fama,Public recognition,Reconocimiento público
+perfume,perfume,Fragrant liquid,Fragancia
+protest,protesta,Public objection,Manifestación
+psycho,psicópata,Mentally unstable person,Persona con trastorno
+emotion,emoción,Strong feeling,Sentimiento
+display,exhibición,Public presentation,Presentación
+content,contenido,Material inside something,Información incluida
+pepper,pimienta,Spicy seasoning,Especia
+skirt,falda,Women's garment,Prenda
+cruise,crucero,Ship vacation trip,Viaje marítimo
+embassy,embajada,Diplomatic office,Oficina diplomática
+scar,cicatriz,Mark left after wound,Marca de herida
+rhythm,ritmo,Pattern of beats,Patrón musical
+myth,mito,Traditional story,Relato cultural
+shove,empujón,Forceful push,Empuje
+certificate,certificado,Official document,Documento formal
+drum,tambor,Percussion instrument,Instrumento musical
+infection,infección,Disease caused by microbes,Enfermedad microbiana
+scotch,whisky,Scottish whisky,Bebida alcohólica
+frog,rana,Amphibian animal,Animal anfibio
+chess,ajedrez,Strategy board game,Juego de mesa
+belief,creencia,Accepted truth,Idea aceptada
+cabinet,gabinete,Government ministers group,Grupo político
+rumor,rumor,Unverified information,Información no confirmada
+lung,pulmón,Organ for breathing,Órgano respiratorio
+rap,rap,Hip-hop vocal music,Género musical
+error,error,Mistake,Fallo
+debate,debate,Formal discussion,Discusión estructurada
+sum,suma,Total amount,Resultado matemático
+sweep,barrido,Act of cleaning floor,Acción de barrer
+era,era,Historical period,Periodo histórico
+vault,bóveda,Secure storage room,Estructura fuerte
+liquid,líquido,Fluid substance,Sustancia fluida
+aircraft,avión,Flying vehicle,Vehículo aéreo
+gunfire,disparos,Shots from firearms,Sonido de armas
+chap,chaval,Young man or boy,Joven
+fry,fritura,Food cooked in hot oil,Comida frita
+cargo,carga,Goods transported by ship or vehicle,Mercancía transportada
+fist,puño,Closed hand used for striking,Mano cerrada
+sucker,chupón,Person easily fooled or lollipop,Persona ingenua
+oven,horno,Appliance used for baking,Aparato para cocinar
+hatred,odio,Strong feeling of dislike,Sentimiento intenso
+bench,banco,Long seat or court position,Asiento largo
+envelope,sobre,Paper container for letters,Contenedor de carta
+kindness,amabilidad,Quality of being kind,Actitud amable
+helmet,casco,Protective headgear,Protección para la cabeza
+twin,gemelo/a,One of two born together,Hermano nacido junto
+sailor,marinero,Person who works on ship,Trabajador del mar
+ladder,escalera,Steps used for climbing,Estructura para subir
+barrel,barril,Large cylindrical container,Contenedor grande
+folk,gente,People in general,Personas
+banana,banana,Long curved fruit,Fruta tropical
+alternative,alternativa,Another possible choice,Opción diferente
+designer,diseñador/a,Person creating plans or fashion,Profesional creativo
+dial,dial,Rotating control on device,Control giratorio
+tension,tensión,Mental or physical strain,Presión emocional
+raid,redada,Police surprise search,Operación policial
+scout,explorador,Person sent to observe,Investigador o buscador
+deer,ciervo/a,Hoofed forest animal,Animal del bosque
+grip,agarre,Firm hold with hand,Sujeción fuerte
+tin,lata,Metal container,Envase metálico
+warden,guardián/a,Person supervising place,Persona responsable
+quote,cita,Repeated words from source,Texto citado
+subway,metro,Underground train system,Transporte subterráneo
+storage,almacenamiento,Act of storing goods,Guardar objetos
+trailer,remolque,Vehicle pulled behind another,Carro arrastrado
+operator,operador/a,Person controlling machine,Persona que maneja equipo
+enterprise,empresa,Business organization,Negocio
+cycle,ciclo,Series of repeating events,Secuencia repetida
+importance,importancia,State of being significant,Valor relevante
+goose,ganso/o,Large water bird,Ave acuática
+bass,bajo,Low musical tone or instrument,Sonido grave
+volunteer,voluntario/a,Person offering service freely,Persona que ayuda
+residence,residencia,Place where someone lives,Vivienda
+lip,labio,Edge of mouth,Parte de la boca
+gallery,galería,Place displaying art,Sala de arte
+motorcycle,motocicleta,Two-wheeled motor vehicle,Vehículo de dos ruedas
+worship,culto,Religious reverence,Práctica religiosa
+graduate,graduado/a,Person finishing studies,Persona titulada
+congress,congreso,Legislative assembly,Asamblea política
+execution,ejecución,Carrying out sentence,Aplicación de sentencia
+ritual,ritual,Formal ceremonial act,Acto ceremonial
+whale,ballena,Large sea mammal,Mamífero marino
+application,solicitud,Formal request,Petición formal
+tub,bañera,Bath container,Recipiente para baño
+pistol,pistola,Small firearm,Arma corta
+democracy,democracia,Government by the people,Sistema político
+campus,campus,University grounds,Instalaciones universitarias
+conclusion,conclusión,Final decision or result,Resultado final
+rascal,granuja,Mischievous person,Persona traviesa
+candle,vela,Wax stick producing light,Objeto de cera
+principle,principio,Fundamental rule or belief,Regla básica
+butcher,carnicero,Person selling meat,Profesión de carne
+sweater,suéter,Warm knitted garment,Prenda de abrigo
+rank,rango,Level of position,Nivel jerárquico
+picnic,picnic,Outdoor meal,Comida al aire libre
+recovery,recuperación,Return to health or state,Mejora después de daño
+crawl,reptar,Move slowly on hands and knees,Moverse arrastrándose
+villa,villa,Large country house,Casa grande
+brandy,brandy,Distilled wine liquor,Bebida alcohólica
+appetite,apetito,Desire to eat,Ganas de comer
+lesbian,lesbiana,Woman attracted to women,Mujer homosexual
+shepherd,pastor,Person tending sheep,Cuidador de ovejas
+perspective,perspectiva,Viewpoint or outlook,Punto de vista
+hockey,hockey,Team sport with sticks,Deporte con palo
+creep,reptar,Move slowly or sneakily,Moverse sigilosamente
+discipline,disciplina,Training or control,Control o estudio
+lick,lamida,Touch with tongue,Acción con lengua
+coal,carbón,Black fuel rock,Combustible mineral
+tomb,tumba,Place of burial,Lugar de entierro
+hush,silencio,Quiet command,Orden de callar
+dummy,muñeco,Model or fake person,Figura artificial
+suggestion,sugerencia,Idea proposed,Propuesta
+addition,adición,Act of adding,Suma
+therapist,terapeuta,Health professional for therapy,Especialista de terapia
+parole,libertad condicional,Early prison release,Salida supervisada
+cafe,café,Small restaurant for drinks,Local de bebidas
+wizard,mago,Person with magical powers,Persona con magia
+consciousness,conciencia,State of awareness,Estado mental
+sector,sector,Part of economy or area,División
+sunset,puesta del sol,Sun going below horizon,Fin del día
+creation,creación,Act of making something,Producción nueva
+passage,pasaje,Corridor or text section,Sección o camino
+compliment,cumplido,Polite praise,Elogio
+broadcast,transmisión,Radio or TV signal emission,Emisión
+prey,presa,Animal hunted by predator,Animal cazado
+puzzle,rompecabezas,Game requiring assembly,Juego de piezas
+arrangement,arreglo,Planned organization,Organización
+invasion,invasión,Military entry into territory,Entrada militar
+eternity,eternidad,Endless time,Tiempo infinito
+plague,plaga,Disease outbreak,Epidemia
+philosophy,filosofía,Study of knowledge and existence,Disciplina intelectual
+prostitute,prostituta,Person selling sexual services,Trabajadora sexual
+instinct,instinto,Natural behavior impulse,Impulso natural
+affection,afecto,Feeling of love or care,Cariño
+nazi,nazi,Member of Nazi ideology,Ideología política
+ministry,ministerio,Government department,Institución estatal
+luxury,lujo,Great comfort and expense,Gran comodidad
+breeze,brisa,Gentle wind,Viento suave
+sausage,salchicha,Ground meat in casing,Embutido
+physics,física,Science of matter and energy,Ciencia natural
+pirate,pirata,Sea robber,Ladrón del mar
+slice,rebanada,Thin piece cut from food,Porción delgada
+rod,caña,Long thin stick,Varilla
+kidney,riñón,Organ filtering blood,Órgano del cuerpo
+inspiration,inspiración,Creative influence,Estimulación creativa
+ginger,jengibre,Spicy root plant,Raíz aromática
+destination,destino,Final travel point,Lugar final
+concrete,concreto,Building material,Material de construcción
+stream,arroyo,Small flowing watercourse,Curso de agua
+dentist,dentista,Doctor for teeth,Médico dental
+drain,desagüe,Pipe removing water,Salida de agua
+spray,aerosol,Liquid dispersed as mist,Rociado
+organ,órgano,Body part or instrument,Parte corporal
+thumb,pulgar,First finger of hand,Dedo principal
+donkey,burro / asno,Domestic working animal,Animal de carga
+formula,fórmula,Mathematical expression,Expresión matemática
+hooker,prostituta,Sex worker,Trabajadora sexual
+bra,sostén,Women's undergarment,Prenda interior
+bachelor,soltero,Unmarried man,Hombre sin casar
+airplane,avión,Flying vehicle,Aeronave
+absence,ausencia,State of being away,Falta de presencia
+daylight,luz del día,Natural light during day,Luz natural
+wrist,muñeca,Joint between hand and arm,Articulación del brazo
+clerk,dependiente,Store assistant,Empleado de tienda
+deed,escritura,Legal property document,Documento legal
+pace,ritmo,Speed of movement,Velocidad
+plug,enchufe,Electrical connector,Conector eléctrico
+privilege,privilegio,Special advantage,Ventaja especial
+bonus,bono,Extra payment,Pago adicional
+honesty,honestidad,Truthfulness,Sinceridad
+cellar,bodega,Underground storage room,Almacén subterráneo
+carriage,carruaje,Horse-drawn vehicle,Transporte antiguo
+lobby,vestíbulo,Entrance hall,Área de entrada
+scent,olor,Pleasant smell,Aroma
+burger,hamburguesa,Ground beef sandwich,Comida rápida
+protocol,protocolo,Official procedure,Norma formal
+author,autor/a,Creator of written work,Escritor
+mole,topo,Burrowing mammal,Mamífero pequeño
+disgrace,desgracia,Loss of honor,Deshonra
+illusion,ilusión,False perception,Percepción falsa
+verdict,veredicto,Decision of jury,Decisión judicial
+income,ingreso,Money received,Entrada de dinero
+civilization,civilización,Advanced human society,Sociedad desarrollada
+bully,bravucón/a,Person who intimidates others,Persona agresiva
+element,elemento,Basic component,Parte básica
+passenger,pasajero/a,Person traveling in vehicle,Persona transportada
+balloon,globo,Inflated rubber object,Objeto inflado
+toe,dedo del pie,Digit of foot,Dedo del pie
+mortal,mortal,Subject to death,Ser humano
+lottery,lotería,Game of chance for prizes,Juego de azar
+mansion,mansión,Large luxurious house,Casa grande
+curtain,cortina,Cloth covering window,Tela para ventana
+cheek,mejilla,Side of face,Parte de la cara
+harbor,puerto,Safe place for ships,Lugar para barcos
+flood,inundación,Overflow of water,Exceso de agua
+cocktail,cóctel,Mixed alcoholic drink,Bebida combinada
+reply,respuesta,Answer to message,Contestación
+zombie,zombi,Undead fictional creature,Muerto viviente
+associate,asociado/a,Partner or colleague,Socio
+bubble,burbuja,Air pocket in liquid,Esfera de aire
+seed,semilla,Plant reproduction unit,Parte de planta
+celebrity,celebridad,Famous person,Persona famosa
+missile,misil,Guided weapon,Arma militar
+rot,pudrición,Decay of organic matter,Descomposición
+laser,láser,Focused light beam device,Dispositivo óptico
+spite,rencor,Desire to hurt from anger,Resentimiento
+mill,molino,Machine grinding grain,Máquina agrícola
+waitress,camarera,Female restaurant server,Trabajadora de restaurante
+retirement,jubilación,Leaving work after career,Fin de carrera
+consent,consenso,Agreement or permission,Aprobación
+shrink,psiquiatra,Slang for psychiatrist,Médico mental
+copper,cobre,Metal element,Metal rojo
+auction,subasta,Sale to highest bidder,Venta pública
+confusion,confusión,Lack of clarity,Falta de claridad
+column,columna,Vertical structural support,Elemento arquitectónico
+sympathy,simpatía,Feeling of compassion,Empatía
+speaker,altavoz,Sound output device,Dispositivo de audio
+brass,latón,Metal alloy of copper and zinc,Aleación metálica
+constable,constable,Local police officer,Oficial policial
+brat,mocoso/a,Annoying child,Niño malcriado
+scheme,esquema,Plan or diagram,Plan organizado
+heir,heredero/a,Person receiving inheritance,Persona heredera
+ditch,zanja,Long narrow trench,Canal excavado
+suspicion,sospecha,Doubt about wrongdoing,Duda
+tide,marea,Rise and fall of sea level,Movimiento del mar
+tournament,torneo,Competitive contest series,Competición organizada
+rainbow,arcoíris,Multicolored arc in sky,Fenómeno óptico
+orbit,órbita,Path around object,Trayectoria circular
+corps,cuerpo,Military unit or organization,Unidad militar
+platform,plataforma,Raised flat structure,Estructura elevada
+cloth,tela,Woven fabric,Material textil
+shotgun,escopeta,Two-barrel firearm,Arma de caza
+fur,pelaje,Animal hair coat,Pelo de animal
+gin,ginebra,Juniper-flavored liquor,Bebida alcohólica
+asshole,idiota,Offensive term for a very unpleasant person,Insulto para persona muy desagradable
+bastard,bastardo,Insult meaning a cruel or contemptible person,Insulto para persona despreciable
+bear,oso,Large furry forest animal with strong claws,Gran animal peludo del bosque
+beat,golpear,To strike repeatedly with force,Acción de pegar
+bet,apuesta,Wager money on an uncertain outcome,Apostar dinero
+bitch,perra,Offensive insult for an unpleasant woman,Insulto ofensivo
+black,negro,Color of night or coal,Color oscuro
+blind,ciego,Unable to see without vision,Persona sin vista
+blow,soplar,To move air forcefully from the mouth,Expulsar aire con fuerza
+break,romper,To separate into pieces,Partir algo
+bullshit,tonterías,Nonsense or false talk,Cosas sin sentido
+cat,gato,Small domesticated feline animal,Animal doméstico felino
+catch,atrapar,To seize something thrown,Tomar algo al vuelo
+cause,causa,Reason something happens,Motivo de un evento
+coach,entrenador,Person who trains athletes,Persona que entrena
+cousin,primo/a,Child of your aunt or uncle,Hijo de tío o tía
+cut,cortar,To divide with a sharp tool,Dividir con cuchillo
+dear,querido/a,Affectionate word for someone loved,Palabra cariñosa
+dinner,cena,Evening meal of the day,Comida de la noche
+drive,conducir,To operate a vehicle,Manejar un vehículo
+fat,gordo/a,Having a lot of body weight,Persona con sobrepeso
+fell,cayó,Past tense of fall,Pasado de caer
+fellow,compañero,Man or partner in group,Persona del mismo grupo
+felt,sintió,Past tense of feel,Pasado de sentir
+fix,arreglar,To repair something broken,Reparar algo
+french,francés,Person or language from France,Relacionado con Francia
+german,alemán,Person or language from Germany,Relacionado con Alemania
+grab,agarrar,To seize quickly with hand,Tomar con la mano
+hate,odiar,To strongly dislike,Odiar intensamente
+inspector,inspector,Official who examines something,Funcionario que revisa
+lawyer,abogado/a,Professional who practices law,Profesional del derecho
+liar,mentiroso/a,Person who tells lies,Persona que dice mentiras
+local,local,Person from the area,Persona del lugar
+madam,señora,Polite title for a woman,Tratamiento respetuoso
+minister,ministro,Government official or church leader,Funcionario del gobierno
+mum,mamá,Informal word for mother,Forma informal de madre
+murderer,asesino/a,Person who commits homicide,Persona que mata
+nonsense,disparate,Words with no meaning,Palabras sin sentido
+nurse,enfermero/a,Medical worker caring for patients,Profesional de salud
+partner,pareja,Person in relationship or business,Compañero sentimental
+pick,elegir,To choose from options,Seleccionar
+plan,plan,Idea for future action,Idea organizada
+pop,estallar,To burst suddenly,Explotar repentinamente
+private,privado,Not public or secret,Algo no público
+professor,profesor/a,University teacher,Docente universitario
+promise,promesa,Assurance something will happen,Compromiso verbal
+pull,tirar,To draw toward oneself,Jalar algo
+return,volver,To go back to place,Regresar
+safe,seguro,Free from danger,Sin peligro
+sake,motivo,Reason or purpose,Razón de algo
+sense,sentido,Ability to understand,Capacidad de comprender
+set,poner,To place something somewhere,Colocar algo
+share,compartir,To divide with others,Repartir con otros
+shoot,disparar,To fire a gun,Lanzar bala
+shop,tienda,Place where goods are sold,Lugar de compras
+shot,disparo,Act of firing gun,Acción de disparar
+sort,tipo,Category or kind,Categoría
+stand,estar de pie,To rise upright,Estar erguido
+suicide,suicidio,Act of killing oneself,Acto de quitarse la vida
+suspect,sospechoso/a,Person believed guilty,Persona bajo sospecha
+sweet,dulce,Taste of sugar,Sabor azucarado
+sweetheart,cariño,Affectionate term for loved one,Palabra cariñosa
+sweetie,cielito,Affectionate nickname,Apodo cariñoso
+touch,tocar,To make contact with hand,Hacer contacto
+trouble,problema,Difficulty or danger,Situación difícil
+whore,prostituta,Offensive term for sex worker,Trabajadora sexual
