@@ -262,10 +262,55 @@
   }
   .error-banner.show { display: block; }
 
+  /* ── Bottom bar ── */
+  .bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1.5px solid var(--light);
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .bottom-links {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bottom-links p {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 480px;
+  }
+
+  .bottom-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+  }
+
+  .bottom-links a:hover { color: var(--ink); }
+
+  .bottom-links .divider {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--light);
+    user-select: none;
+  }
+
   .download {
     display: block;
-    margin-left: auto;
-    margin-top: 24px;
+    flex-shrink: 0;
   }
 </style>
 </head>
@@ -317,7 +362,14 @@
     </div>
   </div>
 
-  <img src="./public/Download_IOS.png"class="download" alt="Download on Apple App Store" height="60" />
+  <!-- Bottom bar: links + app store download -->
+  <div class="bottom-bar">
+    <div class="bottom-links">
+      <p>Apple requires a privacy policy to publish on the App Store, but there are no logins — so there's no way to track user data anyway. Questions? <a href="56sarager@gmail.com">support@aburri.app</a></p>
+    </div>
+    <img src="./public/Download_IOS.png" class="download" alt="Download on Apple App Store" height="60" />
+  </div>
+
 </div>
 
 <!-- Reveal-all confirm modal -->
