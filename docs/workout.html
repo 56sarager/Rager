@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Strength Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --glass-bg: rgba(255,255,255,0.52);
+  --glass-bg-strong: rgba(255,255,255,0.72);
+  --glass-bg-subtle: rgba(255,255,255,0.32);
+  --glass-border: rgba(255,255,255,0.75);
+  --glass-border-subtle: rgba(255,255,255,0.45);
+  --glass-blur: blur(28px) saturate(180%);
+  --glass-blur-sm: blur(16px) saturate(160%);
+  --glass-shadow: 0 8px 32px rgba(80,120,200,0.10), 0 2px 8px rgba(80,120,200,0.07);
+  --glass-shadow-lg: 0 16px 48px rgba(80,120,200,0.14), 0 4px 16px rgba(80,120,200,0.09);
+  --inset-top: inset 0 1px 0 rgba(255,255,255,0.85);
+  --inset-bot: inset 0 -1px 0 rgba(160,180,220,0.18);
+  --text: #1a1a2e;
+  --text-sec: rgba(30,35,70,0.58);
+  --text-ter: rgba(30,35,70,0.38);
+  --accent: #3b82f6;
+}
+
+html, body {
+  width: 100%; min-height: 100%;
+  font-family: 'Outfit', sans-serif;
+  background: #f0f6ff;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+.mesh-bg {
+  position: fixed; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 20%, #dbeafe 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 90% 10%, #e0f2fe 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 50% 90%, #f0fdf4 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 80% 70%, #fce7f3 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 20% 80%, #fefce8 0%, transparent 50%),
+    #eef4ff;
+  animation: meshF 20s ease-in-out infinite alternate;
+}
+@keyframes meshF {
+  0%   { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(12deg); }
+}
+.mesh-bg::after {
+  content:''; position:absolute; inset:0;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--inset-top), var(--inset-bot);
+}
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-lg), var(--inset-top), var(--inset-bot);
+}
+.glass-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-shadow), var(--inset-top);
+}
+
+/* NAV */
+.nav-island {
+  position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+  z-index: 200; display: flex; align-items: center; gap: 4px;
+  padding: 6px 8px; border-radius: 999px;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.9);
+  box-shadow: 0 4px 24px rgba(80,120,200,0.14), 0 1px 4px rgba(80,120,200,0.08),
+              inset 0 1px 0 rgba(255,255,255,0.95), inset 0 -1px 0 rgba(160,180,220,0.2);
+  white-space: nowrap;
+}
+.nav-logo {
+  font-family: 'DM Serif Display', serif; font-style: italic;
+  font-size: 15px; color: var(--text); padding: 4px 10px;
+  opacity: 0.75; letter-spacing: 0.01em;
+}
+.nav-sep { width:1px; height:18px; background: linear-gradient(180deg,transparent,rgba(100,120,200,0.2),transparent); flex-shrink:0; margin:0 2px; }
+.nav-pill {
+  font-size: 13px; font-weight: 500; padding: 7px 18px;
+  border-radius: 999px; border: none; background: transparent;
+  color: var(--text-sec); cursor: pointer; font-family: 'Outfit', sans-serif;
+  transition: all 0.18s ease; letter-spacing: 0.01em;
+}
+.nav-pill:hover { background: rgba(59,130,246,0.08); color: #1d4ed8; }
+.nav-pill.active {
+  background: white; color: var(--text);
+  box-shadow: 0 2px 10px rgba(80,120,200,0.18), inset 0 1px 0 rgba(255,255,255,1);
+}
+
+/* WEEK STRIP */
+.week-strip {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  z-index: 200; display: none; align-items: center; gap: 4px;
+  padding: 7px 12px; border-radius: 999px;
+  background: rgba(255,255,255,0.68);
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.88);
+  box-shadow: 0 8px 32px rgba(80,120,200,0.12), inset 0 1px 0 rgba(255,255,255,0.95);
+  overflow-x: auto; max-width: calc(100vw - 32px); scrollbar-width: none;
+}
+.week-strip::-webkit-scrollbar { display:none; }
+.week-strip.visible { display: flex; }
+
+.wk-plabel {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--text-ter);
+  padding: 0 6px; flex-shrink: 0;
+}
+.wk-sep { width:1px; height:16px; background: rgba(100,120,200,0.15); flex-shrink:0; margin:0 4px; }
+.wk-btn {
+  font-size: 12px; font-weight: 500; padding: 5px 13px;
+  border-radius: 999px; border: none; background: transparent;
+  color: var(--text-sec); cursor: pointer; flex-shrink: 0;
+  transition: all 0.18s ease; font-family: 'Outfit', sans-serif; white-space: nowrap;
+}
+.wk-btn:hover { background: rgba(59,130,246,0.07); color: #1d4ed8; }
+.wk-btn.active { background: white; color: var(--text); box-shadow: 0 2px 8px rgba(80,120,200,0.15), inset 0 1px 0 rgba(255,255,255,1); }
+.wk-btn.deload { color: #b45309; }
+.wk-btn.deload.active { color: #78350f; background: #fef3c7; box-shadow: 0 2px 8px rgba(217,119,6,0.15); }
+.wk-btn.peak { color: #dc2626; }
+.wk-btn.peak.active { color: #7f1d1d; background: #fee2e2; box-shadow: 0 2px 8px rgba(220,38,38,0.15); }
+.wk-btn.attempt { color: #dc2626; font-weight: 700; }
+
+/* MAIN */
+main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 1280px; margin: 0 auto; }
+
+/* OVERVIEW */
+.ov-hero { text-align: center; margin-bottom: 52px; padding-top: 20px; }
+.ov-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(52px, 9vw, 96px);
+  font-weight: 400; line-height: 1.0; color: var(--text);
+  margin-bottom: 14px; letter-spacing: -0.02em;
+}
+.ov-title em {
+  font-style: italic;
+  background: linear-gradient(135deg,#3b82f6 0%,#06b6d4 50%,#6366f1 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.ov-sub { font-size: 15px; color: var(--text-sec); font-weight: 400; }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 52px; }
+.pill-tag {
+  font-size: 12.5px; font-weight: 500; padding: 7px 18px; border-radius: 999px;
+  letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px;
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+}
+.pt-blue  { background: rgba(59,130,246,0.1); color: #1d4ed8; border: 1px solid rgba(59,130,246,0.22); }
+.pt-teal  { background: rgba(6,182,212,0.1); color: #0e7490; border: 1px solid rgba(6,182,212,0.22); }
+.pt-amber { background: rgba(245,158,11,0.12); color: #92400e; border: 1px solid rgba(245,158,11,0.25); }
+.pt-purple{ background: rgba(99,102,241,0.1); color: #3730a3; border: 1px solid rgba(99,102,241,0.2); }
+.pt-green { background: rgba(16,185,129,0.1); color: #065f46; border: 1px solid rgba(16,185,129,0.2); }
+
+.sec-label {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--text-ter);
+  margin-bottom: 14px; margin-top: 44px;
+  display: flex; align-items: center; gap: 12px;
+}
+.sec-label::after { content:''; flex:1; height:1px; background: linear-gradient(90deg,rgba(100,120,200,0.15),transparent); }
+
+.goals-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap: 10px; margin-bottom: 0; }
+.goal-card {
+  border-radius: 20px; padding: 20px 18px; position: relative; overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s; cursor: default;
+}
+.goal-card:hover { transform: translateY(-3px); box-shadow: var(--glass-shadow-lg), var(--inset-top); }
+.goal-card::before { content:''; position:absolute; top:0;left:0;right:0; height:1px; background: linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent); }
+.goal-lift { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-ter); margin-bottom:10px; }
+.goal-current { font-family:'DM Serif Display',serif; font-size:34px; line-height:1; color:var(--text); margin-bottom:6px; }
+.goal-arrow { font-size:13px; font-weight:600; color:var(--accent); }
+
+.phase-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.phase-card {
+  border-radius: 20px; padding: 22px 20px; position: relative; overflow: hidden;
+  transition: transform 0.2s; cursor: default;
+}
+.phase-card:hover { transform: translateY(-2px); }
+.phase-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent); }
+.ph-num { font-size:10.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px; }
+.ph-name { font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:3px; line-height:1.2; }
+.ph-weeks { font-size:12px; color:var(--text-ter); margin-bottom:12px; }
+.ph-desc { font-size:13px; color:var(--text-sec); line-height:1.65; }
+
+.weekly-row { display: grid; grid-template-columns: repeat(7,1fr); gap: 8px; }
+.dm { border-radius:16px; padding:14px 10px; text-align:center; cursor:default; }
+.dm-name { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px; }
+.dm-title { font-size:12.5px; font-weight:500; color:var(--text); margin-bottom:3px; line-height:1.3; }
+.dm-sub { font-size:11px; color:var(--text-ter); line-height:1.3; }
+
+/* DAYS PANEL */
+.panel { display:none; }
+.panel.active { display:block; }
+
+.wk-header {
+  border-radius: 22px; padding: 22px 26px;
+  margin-bottom: 14px; display: flex; align-items: center;
+  justify-content: space-between; flex-wrap: wrap; gap: 14px;
+}
+.wk-title { font-family:'DM Serif Display',serif; font-size:38px; line-height:1; }
+.wk-dates { font-size:12.5px; color:var(--text-ter); margin-top:4px; }
+.wk-badge {
+  font-size:12px; font-weight:600; padding:7px 20px; border-radius:999px;
+  letter-spacing:0.03em; backdrop-filter:blur(12px);
+}
+.wb-normal  { background:rgba(59,130,246,0.1); color:#1d4ed8; border:1px solid rgba(59,130,246,0.22); }
+.wb-deload  { background:rgba(245,158,11,0.12); color:#92400e; border:1px solid rgba(245,158,11,0.25); }
+.wb-peak    { background:rgba(239,68,68,0.1); color:#991b1b; border:1px solid rgba(239,68,68,0.22); }
+.wb-attempt { background:rgba(239,68,68,0.12); color:#991b1b; border:1px solid rgba(239,68,68,0.3);
+              animation: apulse 2s ease-in-out infinite; }
+@keyframes apulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0);} 50%{box-shadow:0 0 0 5px rgba(239,68,68,0.08);} }
+
+.prog-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
+.pc { border-radius:18px; padding:18px 18px 15px; position:relative; overflow:hidden; }
+.pc::before { content:''; position:absolute; top:0;left:0;right:0;height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent); }
+.pc-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-ter); margin-bottom:8px; }
+.pc-val { font-family:'DM Serif Display',serif; font-size:26px; line-height:1; color:var(--accent); margin-bottom:3px; }
+.pc-sr { font-size:11px; color:var(--text-ter); }
+
+.attempt-banner {
+  border-radius:14px; padding:13px 18px; margin-bottom:14px;
+  font-size:13px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase;
+  text-align:center; background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.2);
+  color:#991b1b; display:flex; align-items:center; justify-content:center; gap:12px;
+}
+
+.day-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
+.day-card {
+  border-radius:22px; overflow:hidden; position:relative;
+  transition:transform 0.2s, box-shadow 0.2s;
+}
+.day-card:hover { transform:translateY(-3px); box-shadow:var(--glass-shadow-lg), var(--inset-top); }
+.day-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.95),transparent); z-index:1; }
+
+.dc-header {
+  padding:17px 20px 14px; display:flex; align-items:flex-start;
+  justify-content:space-between; border-bottom:1px solid rgba(100,120,200,0.08); gap:12px;
+}
+.dc-name { font-family:'DM Serif Display',serif; font-size:22px; line-height:1; }
+.dc-date { font-size:11px; color:var(--text-ter); margin-top:4px; }
+.dc-type {
+  font-size:11px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase;
+  padding:5px 14px; border-radius:999px; flex-shrink:0; margin-top:2px;
+}
+.dct-push   { background:rgba(245,158,11,0.11); color:#92400e; border:1px solid rgba(245,158,11,0.24); }
+.dct-pull   { background:rgba(6,182,212,0.1); color:#0e7490; border:1px solid rgba(6,182,212,0.2); }
+.dct-lower  { background:rgba(16,185,129,0.1); color:#065f46; border:1px solid rgba(16,185,129,0.2); }
+.dct-swim   { background:rgba(59,130,246,0.1); color:#1d4ed8; border:1px solid rgba(59,130,246,0.2); }
+
+.ex-list { padding:6px 0; }
+.ex-row {
+  display:flex; align-items:center; padding:9px 20px; gap:10px;
+  transition:background 0.14s; border-radius:0;
+}
+.ex-row:hover { background:rgba(59,130,246,0.04); }
+.ex-row.ex-p { padding:11px 20px; }
+.ex-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; background:rgba(100,130,200,0.2); }
+.ex-dot.p { background:var(--accent); width:7px; height:7px; box-shadow:0 0 6px rgba(59,130,246,0.35); }
+.ex-left { flex:1; min-width:0; }
+.ex-name { font-size:13.5px; font-weight:400; color:var(--text); line-height:1.3; }
+.ex-name.p { font-size:14px; font-weight:600; }
+.ex-sets { font-size:11px; color:var(--text-ter); margin-top:1px; }
+.ex-right { text-align:right; flex-shrink:0; }
+.ex-w { font-family:'DM Serif Display',serif; font-size:17px; color:var(--accent); line-height:1; display:block; }
+.ex-w.p { font-size:20px; }
+.ex-w.m { font-family:'Outfit',sans-serif; font-size:12.5px; color:var(--text-ter); }
+.ex-rest { font-size:10.5px; color:var(--text-ter); display:block; margin-top:2px; }
+
+@media(max-width:700px){
+  main{padding:86px 12px 90px;}
+  .phase-row{grid-template-columns:1fr;}
+  .weekly-row{grid-template-columns:repeat(4,1fr);}
+  .prog-strip{grid-template-columns:repeat(2,1fr);}
+  .day-grid{grid-template-columns:1fr;}
+  .ov-title{font-size:44px;}
+}
+</style>
+</head>
+<body>
+<div class="mesh-bg"></div>
+
+<nav class="nav-island">
+  <a href="./"><div class="nav-logo"><img src="./public/Subtract.png" alt="Rager logo" height="26"></div></a>
+  <div class="nav-sep"></div>
+  <button class="nav-pill active" onclick="showPanel('days',this)">Schedule</button>
+</nav>
+
+<div class="week-strip" id="weekStrip">
+  <span class="wk-plabel">P1</span>
+  <button class="wk-btn" data-wk="1">Wk 1</button>
+  <button class="wk-btn" data-wk="2">Wk 2</button>
+  <button class="wk-btn" data-wk="3">Wk 3</button>
+  <button class="wk-btn deload" data-wk="4">Wk 4 ↓</button>
+  <button class="wk-btn" data-wk="5">Wk 5</button>
+  <button class="wk-btn" data-wk="6">Wk 6</button>
+  <button class="wk-btn" data-wk="7">Wk 7</button>
+  <button class="wk-btn attempt" data-wk="8">Wk 8 ★</button>
+  <div class="wk-sep"></div>
+  <span class="wk-plabel">P2</span>
+  <button class="wk-btn" data-wk="9">Wk 9</button>
+  <button class="wk-btn" data-wk="10">Wk 10</button>
+  <button class="wk-btn" data-wk="11">Wk 11</button>
+  <button class="wk-btn deload" data-wk="12">Wk 12 ↓</button>
+  <button class="wk-btn" data-wk="13">Wk 13</button>
+  <button class="wk-btn" data-wk="14">Wk 14</button>
+  <button class="wk-btn" data-wk="15">Wk 15</button>
+  <button class="wk-btn deload" data-wk="16">Wk 16 ↓</button>
+  <div class="wk-sep"></div>
+  <span class="wk-plabel">P3</span>
+  <button class="wk-btn peak" data-wk="17">Wk 17</button>
+  <button class="wk-btn peak" data-wk="18">Wk 18</button>
+  <button class="wk-btn peak" data-wk="19">Wk 19</button>
+  <button class="wk-btn deload" data-wk="20">Wk 20 ↓</button>
+  <button class="wk-btn attempt" data-wk="21">Wk 21 ★</button>
+</div>
+
+<main>
+
+<!-- SCHEDULE -->
+<div class="panel active" id="panel-days">
+  <div class="wk-header glass-strong">
+    <div>
+      <div class="wk-title" id="wkTitle">Week 1</div>
+      <div class="wk-dates" id="wkDates"></div>
+    </div>
+    <span class="wk-badge wb-normal" id="wkBadge">Phase 1 — Foundation</span>
+  </div>
+  <div class="prog-strip">
+    <div class="pc glass"><div class="pc-label">Incline Press</div><div class="pc-val" id="pv-i">—</div><div class="pc-sr" id="ps-i"></div></div>
+    <div class="pc glass"><div class="pc-label">Deadlift</div><div class="pc-val" id="pv-d">—</div><div class="pc-sr" id="ps-d"></div></div>
+    <div class="pc glass"><div class="pc-label">Overhead Press</div><div class="pc-val" id="pv-o">—</div><div class="pc-sr" id="ps-o"></div></div>
+    <div class="pc glass"><div class="pc-label">Weighted Pull-up</div><div class="pc-val" id="pv-p">—</div><div class="pc-sr" id="ps-p"></div></div>
+  </div>
+  <div id="bannerAttempt" style="display:none;" class="attempt-banner">★ &nbsp; 500 lb Deadlift Attempt &nbsp; ★</div>
+  <div id="bannerMax" style="display:none;" class="attempt-banner">★ &nbsp; Max Attempts &nbsp; ★</div>
+  <div class="day-grid" id="dayGrid"></div>
+</div>
+
+</main>
+
+<script>
+const START = new Date(2025,2,23);
+const WK = {
+  1: {i:'185',iR:'4×5',d:'355',dR:'4×4',o:'135',oR:'4×6',p:'BW+55',pR:'4×5',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  2: {i:'195',iR:'4×5',d:'370',dR:'4×4',o:'137',oR:'4×6',p:'BW+60',pR:'4×5',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  3: {i:'200',iR:'4×5',d:'390',dR:'3×4',o:'140',oR:'4×5',p:'BW+65',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  4: {i:'175',iR:'3×4',d:'330',dR:'3×3',o:'120',oR:'3×4',p:'BW+45',pR:'3×4',t:'deload',ph:1,lbl:'Phase 1 — Deload'},
+  5: {i:'205',iR:'4×5',d:'405',dR:'3×4',o:'142',oR:'4×5',p:'BW+68',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  6: {i:'210',iR:'4×4',d:'425',dR:'3×3',o:'145',oR:'4×4',p:'BW+72',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  7: {i:'215',iR:'3×4',d:'455',dR:'2×3',o:'147',oR:'3×4',p:'BW+77',pR:'3×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
+  8: {i:'220',iR:'3×3',d:'500',dR:'ATTEMPT',o:'150',oR:'3×3',p:'BW+80',pR:'3×3',t:'attempt',ph:1,lbl:'500 lb Attempt'},
+  9: {i:'220',iR:'4×5',d:'390',dR:'3×3',o:'150',oR:'4×5',p:'BW+80',pR:'4×5',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  10:{i:'228',iR:'4×4',d:'395',dR:'3×3',o:'152',oR:'4×4',p:'BW+83',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  11:{i:'233',iR:'4×4',d:'400',dR:'3×3',o:'155',oR:'4×4',p:'BW+88',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  12:{i:'200',iR:'3×4',d:'340',dR:'3×3',o:'135',oR:'3×4',p:'BW+65',pR:'3×4',t:'deload',ph:2,lbl:'Phase 2 — Deload'},
+  13:{i:'238',iR:'4×4',d:'405',dR:'3×3',o:'157',oR:'4×4',p:'BW+90',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  14:{i:'245',iR:'3×4',d:'410',dR:'3×3',o:'160',oR:'3×4',p:'BW+93',pR:'3×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  15:{i:'253',iR:'3×3',d:'415',dR:'2×3',o:'163',oR:'3×3',p:'BW+97',pR:'3×3',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
+  16:{i:'258',iR:'2×3',d:'415',dR:'2×2',o:'165',oR:'2×3',p:'BW+100',pR:'2×3',t:'deload',ph:2,lbl:'Phase 2 — Deload'},
+  17:{i:'265',iR:'2×3',d:'M',dR:'',o:'168',oR:'3×2',p:'BW+105',pR:'3×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
+  18:{i:'275',iR:'2×2',d:'M',dR:'',o:'172',oR:'2×2',p:'BW+112',pR:'2×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
+  19:{i:'285',iR:'1×3',d:'M',dR:'',o:'177',oR:'2×2',p:'BW+118',pR:'1×3',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
+  20:{i:'220',iR:'2×2',d:'M',dR:'',o:'140',oR:'2×2',p:'BW+75',pR:'2×2',t:'deload',ph:3,lbl:'Phase 3 — Full Deload'},
+  21:{i:'315MAX',iR:'',d:'M',dR:'',o:'225MAX',oR:'',p:'BW+135MAX',pR:'',t:'attempt21',ph:3,lbl:'MAX ATTEMPT WEEK'},
+};
+
+const fmtDate = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
+const dayDate = (wk,off) => { const d=new Date(START); d.setDate(d.getDate()+(wk-1)*7+off); return d.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'}); };
+const wkDates = wk => { const m=new Date(START); m.setDate(m.getDate()+(wk-1)*7); const s=new Date(m); s.setDate(s.getDate()+6); return `${fmtDate(m)} – ${fmtDate(s)}, ${s.getFullYear()}`; };
+
+function iLb(w){ return w.i.includes('MAX')||w.i==='M'?w.i.replace('MAX',' MAX'):w.i+' lb'; }
+function dDisp(w,wk){ return w.t==='attempt'?'500 ★':(w.d==='M'?'—':w.d+' lb'); }
+
+function buildRow(name,sets,weight,rest,isPri,isMut){
+  const wc = isMut?'m':isPri?'p':'';
+  return `<div class="ex-row${isPri?' ex-p':''}">
+    <div class="ex-dot${isPri?' p':''}"></div>
+    <div class="ex-left">
+      <div class="ex-name${isPri?' p':''}">${name}</div>
+      <div class="ex-sets">${sets}</div>
+    </div>
+    <div class="ex-right">
+      <span class="ex-w${wc?' '+wc:''}">${weight}</span>
+      <span class="ex-rest">${rest}</span>
+    </div>
+  </div>`;
+}
+
+function buildDays(wk){
+  const w=WK[wk], p2=w.ph>=2, p3=w.ph>=3;
+  const isPeak=w.t==='peak'||w.t==='attempt21';
+  const days=[];
+
+  // MON
+  if(isPeak){
+    days.push({n:'Monday',off:0,tp:'push',tl:'Push A',rows:[
+      buildRow('Barbell Incline Press',w.iR||'2–3×1–2',iLb(w),'4 min',1),
+      buildRow('Overhead Press (strict)',w.oR||'2–3×1–2',w.o+' lb','3.5 min',1),
+      buildRow('Incline DB Press (maintenance)','2×8','65 lb DBs','90 sec'),
+      buildRow('Rear Delt Fly (cable)','3×20','15 lb ea','60 sec'),
+    ]});
+  } else {
+    days.push({n:'Monday',off:0,tp:'push',tl:'Push A',rows:[
+      buildRow('Barbell Incline Press',w.iR,iLb(w),'3 min',1),
+      buildRow('Overhead Press (strict BB)',w.oR,w.o+' lb','2.5 min',1),
+      buildRow('Weighted Dip','3×8','+35 lb','90 sec'),
+      buildRow('Cable Lateral Raise','3×15','12 lb ea','60 sec'),
+      buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
+    ]});
+  }
+
+  // TUE
+  const tuRows=[buildRow('Conventional Deadlift',w.dR||'3×3',dDisp(w,wk),p2?'3 min':'3.5 min',1)];
+  if(wk>=11) tuRows.push(buildRow('Deficit Deadlift (2″ plates)','3×3','310 lb','2.5 min'));
+  tuRows.push(
+    buildRow('Romanian Deadlift','3×8',p2?'195 lb':'185 lb','90 sec'),
+    buildRow('Bulgarian Split Squat','4×10 ea',p2?'40 lb DBs':'30 lb DBs','90 sec'),
+    buildRow('Leg Curl (machine)','3×12','Moderate','60 sec',0,1),
+    buildRow('Standing Calf Raise','4×15','BW+load','60 sec',0,1),
+    buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1),
+  );
+  days.push({n:'Tuesday',off:1,tp:'lower',tl:'Lower Power',rows:tuRows});
+
+  // WED
+  days.push({n:'Wednesday',off:2,tp:'swim',tl:'Swim',rows:[
+    buildRow('Warm-up SKIPS','500m','Easy','—',0,1),
+    buildRow('10×100m','10×100m','','On 1:30',1),
+    buildRow('Cool-down','200m','Easy backstroke','—',0,1),
+  ]});
+
+  // THU
+  const thRows=[
+    buildRow('Weighted Pull-up',w.pR,w.p+' lb','3 min',1),
+    buildRow('Lat Pulldown (wide grip)','3×10',p2?'150 lb':'140 lb','90 sec'),
+    buildRow('Seated Cable Row','3×10',p2?'160 lb':'150 lb','90 sec'),
+    buildRow('Face Pull (rope)','4×20',p2?'45 lb':'40 lb','60 sec'),
+    buildRow('Rear Delt Fly (incline DB)','4×15',p2?'17 lb DBs':'15 lb DBs','60 sec'),
+  ];
+  if(p2) thRows.push(buildRow('Rear Delt Fly (cable)','4×15–20','12–15 lb ea','60 sec'));
+  else thRows.push(buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1));
+  days.push({n:'Thursday',off:3,tp:'pull',tl:'Pull',rows:thRows});
+
+  // FRI
+  const friI = !w.i.includes('MAX')&&w.i!=='M'?(parseInt(w.i)-10)+' lb':iLb(w);
+  const friR = (wk>=13&&p2)?'5×'+(w.iR.split('×')[1]||'5'):w.iR;
+  if(isPeak){
+    days.push({n:'Friday',off:4,tp:'push',tl:'Push B',rows:[
+      buildRow('Barbell Incline Press',w.iR||'2–3×1–2',iLb(w),'4 min',1),
+      buildRow('Overhead Press (strict)',w.oR||'2–3×1–2',w.o+' lb','3.5 min',1),
+      buildRow('Incline DB Press (maintenance)','2×8','65 lb DBs','90 sec'),
+      buildRow('Rear Delt Fly (cable)','3×20','15 lb ea','60 sec'),
+    ]});
+  } else {
+    days.push({n:'Friday',off:4,tp:'push',tl:'Push B',rows:[
+      buildRow('Barbell Incline Press (−10 lb)',friR,friI,'2.5 min',1),
+      buildRow('DB Overhead Press (seated)','3×8','55 lb DBs','2 min'),
+      buildRow('Incline DB Press (30°)','3×10','65 lb DBs','90 sec'),
+      buildRow('Tricep Overhead Extension','3×12','65 lb','60 sec'),
+      buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
+    ]});
+  }
+
+  // SAT
+  days.push({n:'Saturday',off:5,tp:'lower',tl:'Leg Density',rows:[
+    buildRow('Bulgarian Split Squat','4×12 ea',p2?'40 lb DBs':'35 lb DBs','2 min',1),
+    buildRow('Walking Lunges','3×15 ea','25 lb DBs','90 sec'),
+    buildRow('Single-Leg Leg Curl','3×12 ea','Moderate','60 sec',0,1),
+    buildRow('Leg Extension (machine)','3×15','Moderate','60 sec',0,1),
+    buildRow('Standing Calf Raise','4×20','BW+load','60 sec',0,1),
+    buildRow("Farmer's Walk",'3×50 yds','75 lb ea','90 sec'),
+  ]});
+
+  // SUN
+  days.push({n:'Sunday',off:6,tp:'swim',tl:'Swim',rows:[
+    buildRow('Option A: 10×100m on 1:30','10×100m','','On 1:30',1),
+    buildRow('Option B: Long easy swim','45 min','','',1),
+    buildRow('Drill set','200m','','',0,1),
+  ]});
+
+  return days;
+}
+
+const typeClass={push:'dct-push',pull:'dct-pull',lower:'dct-lower',swim:'dct-swim'};
+
+function renderWeek(wk){
+  const w=WK[wk];
+  document.getElementById('wkTitle').textContent='Week '+wk;
+  document.getElementById('wkDates').textContent=wkDates(wk);
+  const badge=document.getElementById('wkBadge');
+  badge.textContent=w.lbl;
+  badge.className='wk-badge ';
+  if(w.t==='deload') badge.className+='wb-deload';
+  else if(w.t==='peak') badge.className+='wb-peak';
+  else if(w.t==='attempt'||w.t==='attempt21') badge.className+='wb-attempt';
+  else badge.className+='wb-normal';
+
+  document.getElementById('pv-i').textContent=w.i.includes('MAX')?w.i.replace('MAX',' MAX'):w.i+' lb';
+  document.getElementById('ps-i').textContent=w.iR||'';
+  document.getElementById('pv-d').textContent=w.t==='attempt'?'500 ★':(w.d==='M'?'Maintain':w.d+' lb');
+  document.getElementById('ps-d').textContent=w.dR||'';
+  document.getElementById('pv-o').textContent=w.o.includes('MAX')?w.o.replace('MAX',' MAX'):w.o+' lb';
+  document.getElementById('ps-o').textContent=w.oR||'';
+  document.getElementById('pv-p').textContent=w.p.includes('MAX')?w.p.replace('MAX',' MAX'):w.p+' lb';
+  document.getElementById('ps-p').textContent=w.pR||'';
+
+  document.getElementById('bannerAttempt').style.display=w.t==='attempt'?'flex':'none';
+  document.getElementById('bannerMax').style.display=w.t==='attempt21'?'flex':'none';
+
+  const grid=document.getElementById('dayGrid');
+  grid.innerHTML='';
+  buildDays(wk).forEach(day=>{
+    const card=document.createElement('div');
+    card.className='day-card glass';
+    card.innerHTML=`
+      <div class="dc-header">
+        <div>
+          <div class="dc-name">${day.n}</div>
+          <div class="dc-date">${dayDate(wk,day.off)}</div>
+        </div>
+        <span class="dc-type ${typeClass[day.tp]}">${day.tl}</span>
+      </div>
+      <div class="ex-list">${day.rows.join('')}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+let curWk=1;
+function showPanel(name,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
+  document.querySelectorAll('.nav-pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const strip=document.getElementById('weekStrip');
+  if(name==='days'){ strip.classList.add('visible'); renderWeek(curWk); markWk(curWk); }
+  else strip.classList.remove('visible');
+}
+function markWk(wk){
+  document.querySelectorAll('.wk-btn').forEach(b=>{
+    b.classList.remove('active');
+    if(parseInt(b.dataset.wk)===wk) b.classList.add('active');
+  });
+}
+document.querySelectorAll('.wk-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{ curWk=parseInt(btn.dataset.wk); markWk(curWk); renderWeek(curWk); });
+});
+markWk(1);
+document.getElementById('weekStrip').classList.add('visible');
+renderWeek(1);
+</script>
+</body>
+</html>
