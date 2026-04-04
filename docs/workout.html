@@ -547,7 +547,10 @@ function renderWeek(wk){
   });
 }
 
-let curWk=1;
+date = new Date(2025,3,23)
+let curWk = Math.floor((Date.now() - date) / (1000 * 60 * 60 * 24)) % 7;
+
+
 function showPanel(name,btn){
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-'+name).classList.add('active');
@@ -566,9 +569,9 @@ function markWk(wk){
 document.querySelectorAll('.wk-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{ curWk=parseInt(btn.dataset.wk); markWk(curWk); renderWeek(curWk); });
 });
-markWk(1);
+markWk(curWk);
 document.getElementById('weekStrip').classList.add('visible');
-renderWeek(1);
+renderWeek(curWk);
 </script>
 </body>
 </html>
