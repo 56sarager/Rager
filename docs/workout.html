@@ -416,42 +416,40 @@ function buildDays(wk){
 
   // MON
   if(isPeak){
-    days.push({n:'Monday',off:0,tp:'push',tl:'Push A',rows:[
+    days.push({n:'Monday',off:0,tp:'push',tl:'Push',rows:[
       buildRow('Barbell Incline Press',w.iR||'2–3×1–2',iLb(w),'4 min',1),
       buildRow('Overhead Press (strict)',w.oR||'2–3×1–2',w.o+' lb','3.5 min',1),
       buildRow('Incline DB Press (maintenance)','2×8','65 lb DBs','90 sec'),
       buildRow('Rear Delt Fly (cable)','3×20','15 lb ea','60 sec'),
     ]});
   } else {
-    days.push({n:'Monday',off:0,tp:'push',tl:'Push A',rows:[
+    days.push({n:'Monday',off:0,tp:'push',tl:'Push',rows:[
       buildRow('Barbell Incline Press',w.iR,iLb(w),'3 min',1),
       buildRow('Overhead Press (strict BB)',w.oR,w.o+' lb','2.5 min',1),
-      buildRow('Weighted Dip','3×8','+35 lb','90 sec'),
+      buildRow('Incline DB Press','3×10','65 lb','90 sec'),
       buildRow('Cable Lateral Raise','3×15','12 lb ea','60 sec'),
       buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
     ]});
   }
 
   // TUE
-  const tuRows=[buildRow('Conventional Deadlift',w.dR||'3×3',dDisp(w,wk),p2?'3 min':'3.5 min',1)];
-  if(wk>=11) tuRows.push(buildRow('Deficit Deadlift (2″ plates)','3×3','310 lb','2.5 min'));
-  tuRows.push(
-    buildRow('Romanian Deadlift','3×8',p2?'195 lb':'185 lb','90 sec'),
-    buildRow('Bulgarian Split Squat','4×10 ea',p2?'40 lb DBs':'30 lb DBs','90 sec'),
-    buildRow('Leg Curl (machine)','3×12','Moderate','60 sec',0,1),
-    buildRow('Standing Calf Raise','4×15','BW+load','60 sec',0,1),
-    buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1),
-  );
-  days.push({n:'Tuesday',off:1,tp:'lower',tl:'Lower Power',rows:tuRows});
-
-  // WED
-  days.push({n:'Wednesday',off:2,tp:'swim',tl:'Swim',rows:[
-    buildRow('Warm-up SKIPS','500m','Easy','—',0,1),
-    buildRow('10×100m','10×100m','','On 1:30',1),
-    buildRow('Cool-down','200m','Easy backstroke','—',0,1),
+  days.push({n:'Tuesday',off:2,tp:'swim',tl:'Sprint',rows:[
+    buildRow('Warm-up Swim','200m','Easy','—',0,1),
+    buildRow('I.M. Kick','4×50m','On 1:00','',0,1),
+    buildRow('Reverse I.M.','4×50m','On 1:30','',0,1),
+    buildRow('Distance per Stroke','200m','Easy','—',0,1),
+    buildRow('Breath Hold','50m','Medium','—',0,1),
+    buildRow('Main','10x25m','On 30','—',0,1),
+    buildRow('Main','10x50m','On 1:00','—',0,1),
+    buildRow('Main','6x75m','Until heart rate goes down','—',0,1),
+    buildRow('Main','5x50m','On 1:00, 55, 50, 45, 40','—',0,1),
+    buildRow('Main','10x25m','On 45','No Board Kick',0,1),
+    buildRow('Cooldown','150m','Easy','Backstroke',0,1),
+    buildRow('Cooldown','150m','Power on Walls','Free',0,1),
+    buildRow('Cooldown','100m','Easy','—',0,1),
   ]});
 
-  // THU
+  // WED
   const thRows=[
     buildRow('Weighted Pull-up',w.pR,w.p+' lb','3 min',1),
     buildRow('Lat Pulldown (wide grip)','3×10',p2?'150 lb':'140 lb','90 sec'),
@@ -461,10 +459,28 @@ function buildDays(wk){
   ];
   if(p2) thRows.push(buildRow('Rear Delt Fly (cable)','4×15–20','12–15 lb ea','60 sec'));
   else thRows.push(buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1));
-  days.push({n:'Thursday',off:3,tp:'pull',tl:'Pull',rows:thRows});
+  days.push({n:'Wednesday',off:3,tp:'pull',tl:'Pull',rows:thRows});
+
+  // THU
+  days.push({n:'Thursday',off:2,tp:'swim',tl:'Middle Distance',rows:[
+    buildRow('Warm-up Swim','2x150m','Easy','—',0,1),
+    buildRow('Kick','3×100m','Easy','—',0,1),
+    buildRow('Warm-up Swim','6×50m','Easy','—',0,1),
+    buildRow('Main Reverse Pyramid (x2)','300m','On 4:30','—',0,1),
+    buildRow('','250m','On 4:00','—',0,1),
+    buildRow('','200m','On 3:30','—',0,1),
+    buildRow('','150m','On 3:00','—',0,1),
+    buildRow('','200m','On 3:30','—',0,1),
+    buildRow('','250m','On 4:00','—',0,1),
+    buildRow('','300m','On 4:30','—',0,1),
+    buildRow('Cooldown','200m','Easy','Backstroke',0,1),
+    buildRow('Cooldown','200m','Easy','Free',0,1),
+    buildRow('Cooldown','200m','Easy','Backstroke',0,1),
+    buildRow('Cooldown','500m','Easy','—',0,1),
+  ]});
 
   // FRI
-  const friI = !w.i.includes('MAX')&&w.i!=='M'?(parseInt(w.i)-10)+' lb':iLb(w);
+  /*const friI = !w.i.includes('MAX')&&w.i!=='M'?(parseInt(w.i)-10)+' lb':iLb(w);
   const friR = (wk>=13&&p2)?'5×'+(w.iR.split('×')[1]||'5'):w.iR;
   if(isPeak){
     days.push({n:'Friday',off:4,tp:'push',tl:'Push B',rows:[
@@ -481,23 +497,35 @@ function buildDays(wk){
       buildRow('Tricep Overhead Extension','3×12','65 lb','60 sec'),
       buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
     ]});
-  }
+  }*/
+
+  const tuRows=[buildRow('Conventional Deadlift',w.dR||'3×3',dDisp(w,wk),p2?'3 min':'3.5 min',1)];
+  if(wk>=11) tuRows.push(buildRow('Deficit Deadlift (2″ plates)','3×3','310 lb','2.5 min'));
+  tuRows.push(
+    buildRow('Romanian Deadlift','3×8',p2?'195 lb':'185 lb','90 sec'),
+    buildRow('Bulgarian Split Squat','4×10 ea',p2?'40 lb DBs':'30 lb DBs','90 sec'),
+    buildRow('Leg Curl (machine)','3×12','Moderate','60 sec',0,1),
+    buildRow('Walking Lunges','4×15','BW+load','60 sec',0,1),
+    buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1),
+  );
+  days.push({n:'Friday',off:1,tp:'lower',tl:'Legs',rows:tuRows});
 
   // SAT
-  days.push({n:'Saturday',off:5,tp:'lower',tl:'Leg Density',rows:[
+  /*days.push({n:'Saturday',off:5,tp:'lower',tl:'Leg Density',rows:[
     buildRow('Bulgarian Split Squat','4×12 ea',p2?'40 lb DBs':'35 lb DBs','2 min',1),
     buildRow('Walking Lunges','3×15 ea','25 lb DBs','90 sec'),
     buildRow('Single-Leg Leg Curl','3×12 ea','Moderate','60 sec',0,1),
     buildRow('Leg Extension (machine)','3×15','Moderate','60 sec',0,1),
     buildRow('Standing Calf Raise','4×20','BW+load','60 sec',0,1),
     buildRow("Farmer's Walk",'3×50 yds','75 lb ea','90 sec'),
-  ]});
+  ]});*/
 
-  // SUN
-  days.push({n:'Sunday',off:6,tp:'swim',tl:'Swim',rows:[
-    buildRow('Option A: 10×100m on 1:30','10×100m','','On 1:30',1),
-    buildRow('Option B: Long easy swim','45 min','','',1),
-    buildRow('Drill set','200m','','',0,1),
+  // SAT
+  days.push({n:'Saturday',off:2,tp:'swim',tl:'Distance',rows:[
+    buildRow('Warm-up (50 Kick, 50 Swim)','10x100m','On 2:00','—',0,1),
+    buildRow('Main (x5)','500m','Anaerobic Max','—',0,1),
+    buildRow('','200m','Easy','Backstroke',0,1),
+    buildRow('Cooldown','150m','Easy','—',0,1),
   ]});
 
   return days;
