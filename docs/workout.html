@@ -69,13 +69,6 @@ html, body {
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow-lg), var(--inset-top), var(--inset-bot);
 }
-.glass-subtle {
-  background: var(--glass-bg-subtle);
-  backdrop-filter: var(--glass-blur-sm);
-  -webkit-backdrop-filter: var(--glass-blur-sm);
-  border: 1px solid var(--glass-border-subtle);
-  box-shadow: var(--glass-shadow), var(--inset-top);
-}
 
 /* NAV */
 .nav-island {
@@ -96,23 +89,31 @@ html, body {
   opacity: 0.75; letter-spacing: 0.01em;
 }
 .nav-sep { width:1px; height:18px; background: linear-gradient(180deg,transparent,rgba(100,120,200,0.2),transparent); flex-shrink:0; margin:0 2px; }
-.nav-pill {
-  font-size: 13px; font-weight: 500; padding: 7px 18px;
+
+/* swim toggle button in nav */
+.swim-toggle {
+  font-size: 13px; font-weight: 500; padding: 7px 16px;
   border-radius: 999px; border: none; background: transparent;
   color: var(--text-sec); cursor: pointer; font-family: 'Outfit', sans-serif;
   transition: all 0.18s ease; letter-spacing: 0.01em;
+  display: flex; align-items: center; gap: 6px;
 }
-.nav-pill:hover { background: rgba(59,130,246,0.08); color: #1d4ed8; }
-.nav-pill.active {
-  background: white; color: var(--text);
-  box-shadow: 0 2px 10px rgba(80,120,200,0.18), inset 0 1px 0 rgba(255,255,255,1);
+.swim-toggle:hover { background: rgba(59,130,246,0.08); color: #1d4ed8; }
+.swim-toggle.on {
+  background: rgba(59,130,246,0.12); color: #1d4ed8;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,1);
 }
+.swim-toggle .swim-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: currentColor; opacity: 0.5; transition: opacity 0.18s;
+}
+.swim-toggle.on .swim-dot { opacity: 1; }
 
 /* WEEK STRIP */
 .week-strip {
   position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-  z-index: 200; display: none; align-items: center; gap: 4px;
-  padding: 7px 12px; border-radius: 999px;
+  z-index: 200; display: none; align-items: center; gap: 3px;
+  padding: 7px 10px; border-radius: 999px;
   background: rgba(255,255,255,0.68);
   backdrop-filter: blur(32px) saturate(180%);
   -webkit-backdrop-filter: blur(32px) saturate(180%);
@@ -124,96 +125,43 @@ html, body {
 .week-strip.visible { display: flex; }
 
 .wk-plabel {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--text-ter);
-  padding: 0 6px; flex-shrink: 0;
+  padding: 0 5px; flex-shrink: 0;
 }
-.wk-sep { width:1px; height:16px; background: rgba(100,120,200,0.15); flex-shrink:0; margin:0 4px; }
+/* Phase label color hints */
+.wk-plabel.ph0 { color: #7c3aed; }
+.wk-plabel.ph1 { color: #0e7490; }
+.wk-plabel.ph2 { color: #065f46; }
+.wk-plabel.ph3 { color: #991b1b; }
+
+.wk-sep { width:1px; height:14px; background: rgba(100,120,200,0.15); flex-shrink:0; margin:0 3px; }
+
 .wk-btn {
-  font-size: 12px; font-weight: 500; padding: 5px 13px;
+  font-size: 11.5px; font-weight: 500; padding: 5px 11px;
   border-radius: 999px; border: none; background: transparent;
   color: var(--text-sec); cursor: pointer; flex-shrink: 0;
   transition: all 0.18s ease; font-family: 'Outfit', sans-serif; white-space: nowrap;
 }
 .wk-btn:hover { background: rgba(59,130,246,0.07); color: #1d4ed8; }
 .wk-btn.active { background: white; color: var(--text); box-shadow: 0 2px 8px rgba(80,120,200,0.15), inset 0 1px 0 rgba(255,255,255,1); }
-.wk-btn.deload { color: #b45309; }
-.wk-btn.deload.active { color: #78350f; background: #fef3c7; box-shadow: 0 2px 8px rgba(217,119,6,0.15); }
-.wk-btn.peak { color: #dc2626; }
-.wk-btn.peak.active { color: #7f1d1d; background: #fee2e2; box-shadow: 0 2px 8px rgba(220,38,38,0.15); }
-.wk-btn.attempt { color: #dc2626; font-weight: 700; }
+
+/* per-phase button colors when active */
+.wk-btn.ph0 { color: rgba(109,40,217,0.7); }
+.wk-btn.ph0.active { color: #5b21b6; background: #ede9fe; box-shadow: 0 2px 8px rgba(109,40,217,0.15); }
+.wk-btn.ph1 { color: rgba(14,116,144,0.75); }
+.wk-btn.ph1.active { color: #0e7490; background: #cffafe; box-shadow: 0 2px 8px rgba(14,116,144,0.15); }
+.wk-btn.ph2 { color: rgba(6,95,70,0.75); }
+.wk-btn.ph2.active { color: #065f46; background: #d1fae5; box-shadow: 0 2px 8px rgba(6,95,70,0.15); }
+.wk-btn.ph3 { color: rgba(153,27,27,0.75); }
+.wk-btn.ph3.active { color: #991b1b; background: #fee2e2; box-shadow: 0 2px 8px rgba(220,38,38,0.15); }
+.wk-btn.deload { opacity: 0.65; font-style: italic; }
+.wk-btn.attempt { font-weight: 700; }
 
 /* MAIN */
-main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 1280px; margin: 0 auto; }
+main { position: relative; z-index: 10; padding: 100px 24px 100px; max-width: 1280px; margin: 0 auto; }
 
-/* OVERVIEW */
-.ov-hero { text-align: center; margin-bottom: 52px; padding-top: 20px; }
-.ov-title {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(52px, 9vw, 96px);
-  font-weight: 400; line-height: 1.0; color: var(--text);
-  margin-bottom: 14px; letter-spacing: -0.02em;
-}
-.ov-title em {
-  font-style: italic;
-  background: linear-gradient(135deg,#3b82f6 0%,#06b6d4 50%,#6366f1 100%);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-}
-.ov-sub { font-size: 15px; color: var(--text-sec); font-weight: 400; }
-
-.pill-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 52px; }
-.pill-tag {
-  font-size: 12.5px; font-weight: 500; padding: 7px 18px; border-radius: 999px;
-  letter-spacing: 0.02em; display: inline-flex; align-items: center; gap: 6px;
-  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-}
-.pt-blue  { background: rgba(59,130,246,0.1); color: #1d4ed8; border: 1px solid rgba(59,130,246,0.22); }
-.pt-teal  { background: rgba(6,182,212,0.1); color: #0e7490; border: 1px solid rgba(6,182,212,0.22); }
-.pt-amber { background: rgba(245,158,11,0.12); color: #92400e; border: 1px solid rgba(245,158,11,0.25); }
-.pt-purple{ background: rgba(99,102,241,0.1); color: #3730a3; border: 1px solid rgba(99,102,241,0.2); }
-.pt-green { background: rgba(16,185,129,0.1); color: #065f46; border: 1px solid rgba(16,185,129,0.2); }
-
-.sec-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--text-ter);
-  margin-bottom: 14px; margin-top: 44px;
-  display: flex; align-items: center; gap: 12px;
-}
-.sec-label::after { content:''; flex:1; height:1px; background: linear-gradient(90deg,rgba(100,120,200,0.15),transparent); }
-
-.goals-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(190px,1fr)); gap: 10px; margin-bottom: 0; }
-.goal-card {
-  border-radius: 20px; padding: 20px 18px; position: relative; overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s; cursor: default;
-}
-.goal-card:hover { transform: translateY(-3px); box-shadow: var(--glass-shadow-lg), var(--inset-top); }
-.goal-card::before { content:''; position:absolute; top:0;left:0;right:0; height:1px; background: linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent); }
-.goal-lift { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-ter); margin-bottom:10px; }
-.goal-current { font-family:'DM Serif Display',serif; font-size:34px; line-height:1; color:var(--text); margin-bottom:6px; }
-.goal-arrow { font-size:13px; font-weight:600; color:var(--accent); }
-
-.phase-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
-.phase-card {
-  border-radius: 20px; padding: 22px 20px; position: relative; overflow: hidden;
-  transition: transform 0.2s; cursor: default;
-}
-.phase-card:hover { transform: translateY(-2px); }
-.phase-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.9),transparent); }
-.ph-num { font-size:10.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:8px; }
-.ph-name { font-family:'DM Serif Display',serif; font-size:22px; margin-bottom:3px; line-height:1.2; }
-.ph-weeks { font-size:12px; color:var(--text-ter); margin-bottom:12px; }
-.ph-desc { font-size:13px; color:var(--text-sec); line-height:1.65; }
-
-.weekly-row { display: grid; grid-template-columns: repeat(7,1fr); gap: 8px; }
-.dm { border-radius:16px; padding:14px 10px; text-align:center; cursor:default; }
-.dm-name { font-size:10.5px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:7px; }
-.dm-title { font-size:12.5px; font-weight:500; color:var(--text); margin-bottom:3px; line-height:1.3; }
-.dm-sub { font-size:11px; color:var(--text-ter); line-height:1.3; }
-
-/* DAYS PANEL */
-.panel { display:none; }
-.panel.active { display:block; }
-
+/* WEEK HEADER */
 .wk-header {
   border-radius: 22px; padding: 22px 26px;
   margin-bottom: 14px; display: flex; align-items: center;
@@ -225,12 +173,38 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
   font-size:12px; font-weight:600; padding:7px 20px; border-radius:999px;
   letter-spacing:0.03em; backdrop-filter:blur(12px);
 }
-.wb-normal  { background:rgba(59,130,246,0.1); color:#1d4ed8; border:1px solid rgba(59,130,246,0.22); }
-.wb-deload  { background:rgba(245,158,11,0.12); color:#92400e; border:1px solid rgba(245,158,11,0.25); }
-.wb-peak    { background:rgba(239,68,68,0.1); color:#991b1b; border:1px solid rgba(239,68,68,0.22); }
+.wb-hyp    { background:rgba(109,40,217,0.10); color:#5b21b6; border:1px solid rgba(109,40,217,0.22); }
+.wb-normal { background:rgba(6,182,212,0.10); color:#0e7490; border:1px solid rgba(6,182,212,0.22); }
+.wb-str2   { background:rgba(16,185,129,0.10); color:#065f46; border:1px solid rgba(16,185,129,0.20); }
+.wb-deload { background:rgba(245,158,11,0.12); color:#92400e; border:1px solid rgba(245,158,11,0.25); }
+.wb-peak   { background:rgba(239,68,68,0.10); color:#991b1b; border:1px solid rgba(239,68,68,0.22); }
 .wb-attempt { background:rgba(239,68,68,0.12); color:#991b1b; border:1px solid rgba(239,68,68,0.3);
               animation: apulse 2s ease-in-out infinite; }
 @keyframes apulse { 0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0);} 50%{box-shadow:0 0 0 5px rgba(239,68,68,0.08);} }
+
+/* phase note bar */
+.ph-note {
+  font-size: 13px; color: var(--text-sec); margin-bottom: 14px;
+  padding: 10px 18px; border-radius: 12px;
+  background: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.7);
+  display: none;
+}
+.ph-note.visible { display: block; }
+
+.wk-note {
+  font-size: 13px; font-style: italic; color: var(--text-sec); margin-bottom: 14px;
+  padding: 10px 18px; border-radius: 12px;
+  background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.15);
+  display: none;
+}
+.wk-note.visible { display: block; }
+
+.attempt-banner {
+  border-radius:14px; padding:13px 18px; margin-bottom:14px;
+  font-size:13px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase;
+  text-align:center; background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.2);
+  color:#991b1b; display:none; align-items:center; justify-content:center; gap:12px;
+}
 
 .prog-strip { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:14px; }
 .pc { border-radius:18px; padding:18px 18px 15px; position:relative; overflow:hidden; }
@@ -238,13 +212,6 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
 .pc-label { font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-ter); margin-bottom:8px; }
 .pc-val { font-family:'DM Serif Display',serif; font-size:26px; line-height:1; color:var(--accent); margin-bottom:3px; }
 .pc-sr { font-size:11px; color:var(--text-ter); }
-
-.attempt-banner {
-  border-radius:14px; padding:13px 18px; margin-bottom:14px;
-  font-size:13px; font-weight:600; letter-spacing:0.07em; text-transform:uppercase;
-  text-align:center; background:rgba(239,68,68,0.07); border:1px solid rgba(239,68,68,0.2);
-  color:#991b1b; display:flex; align-items:center; justify-content:center; gap:12px;
-}
 
 .day-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:12px; }
 .day-card {
@@ -254,6 +221,8 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
 .day-card:hover { transform:translateY(-3px); box-shadow:var(--glass-shadow-lg), var(--inset-top); }
 .day-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,0.95),transparent); z-index:1; }
+.day-card.swim-card { transition: transform 0.2s, box-shadow 0.2s, opacity 0.3s, max-height 0.3s; }
+.day-card.swim-hidden { display: none; }
 
 .dc-header {
   padding:17px 20px 14px; display:flex; align-items:flex-start;
@@ -273,10 +242,9 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
 .ex-list { padding:6px 0; }
 .ex-row {
   display:flex; align-items:center; padding:9px 20px; gap:10px;
-  transition:background 0.14s; border-radius:0;
+  transition:background 0.14s;
 }
 .ex-row:hover { background:rgba(59,130,246,0.04); }
-.ex-row.ex-p { padding:11px 20px; }
 .ex-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; background:rgba(100,130,200,0.2); }
 .ex-dot.p { background:var(--accent); width:7px; height:7px; box-shadow:0 0 6px rgba(59,130,246,0.35); }
 .ex-left { flex:1; min-width:0; }
@@ -286,16 +254,13 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
 .ex-right { text-align:right; flex-shrink:0; }
 .ex-w { font-family:'DM Serif Display',serif; font-size:17px; color:var(--accent); line-height:1; display:block; }
 .ex-w.p { font-size:20px; }
-.ex-w.m { font-family:'Outfit',sans-serif; font-size:12.5px; color:var(--text-ter); }
 .ex-rest { font-size:10.5px; color:var(--text-ter); display:block; margin-top:2px; }
 
 @media(max-width:700px){
-  main{padding:86px 12px 90px;}
-  .phase-row{grid-template-columns:1fr;}
-  .weekly-row{grid-template-columns:repeat(4,1fr);}
+  main{padding:86px 12px 100px;}
   .prog-strip{grid-template-columns:repeat(2,1fr);}
   .day-grid{grid-template-columns:1fr;}
-  .ov-title{font-size:44px;}
+  .nav-island { gap: 2px; }
 }
 </style>
 </head>
@@ -303,265 +268,289 @@ main { position: relative; z-index: 10; padding: 100px 24px 96px; max-width: 128
 <div class="mesh-bg"></div>
 
 <nav class="nav-island">
-  <a href="./"><div class="nav-logo"><img src="./public/Subtract.png" alt="Rager logo" height="26"></div></a>
+  <a href="./"><div class="nav-logo"><img src="./public/Subtract.png" alt="Rager logo" height="26" onerror="this.parentNode.innerHTML='Rager'"></div></a>
   <div class="nav-sep"></div>
-  <button class="nav-pill active" onclick="showPanel('days',this)">Schedule</button>
+  <button class="swim-toggle on" id="swimToggle" onclick="toggleSwim(this)">
+    <span class="swim-dot"></span> Swim
+  </button>
 </nav>
 
-<div class="week-strip" id="weekStrip">
-  <span class="wk-plabel">P1</span>
-  <button class="wk-btn" data-wk="1">Wk 1</button>
-  <button class="wk-btn" data-wk="2">Wk 2</button>
-  <button class="wk-btn" data-wk="3">Wk 3</button>
-  <button class="wk-btn deload" data-wk="4">Wk 4 ↓</button>
-  <button class="wk-btn" data-wk="5">Wk 5</button>
-  <button class="wk-btn" data-wk="6">Wk 6</button>
-  <button class="wk-btn" data-wk="7">Wk 7</button>
-  <button class="wk-btn attempt" data-wk="8">Wk 8 ★</button>
+<!-- WEEK STRIP — all 33 weeks, grouped by correct phase -->
+<div class="week-strip visible" id="weekStrip">
+
+  <!-- Phase 0: Hypertrophy Reset (wks 1–9) -->
+  <span class="wk-plabel ph0">Ph0</span>
+  <button class="wk-btn ph0" data-wk="1">Wk 1</button>
+  <button class="wk-btn ph0" data-wk="2">Wk 2</button>
+  <button class="wk-btn ph0" data-wk="3">Wk 3</button>
+  <button class="wk-btn ph0 deload" data-wk="4">Wk 4</button>
+  <button class="wk-btn ph0" data-wk="5">Wk 5</button>
+  <button class="wk-btn ph0" data-wk="6">Wk 6</button>
+  <button class="wk-btn ph0" data-wk="7">Wk 7</button>
+  <button class="wk-btn ph0 deload" data-wk="8">Wk 8</button>
+  <button class="wk-btn ph0" data-wk="9">Wk 9</button>
   <div class="wk-sep"></div>
-  <span class="wk-plabel">P2</span>
-  <button class="wk-btn" data-wk="9">Wk 9</button>
-  <button class="wk-btn" data-wk="10">Wk 10</button>
-  <button class="wk-btn" data-wk="11">Wk 11</button>
-  <button class="wk-btn deload" data-wk="12">Wk 12 ↓</button>
-  <button class="wk-btn" data-wk="13">Wk 13</button>
-  <button class="wk-btn" data-wk="14">Wk 14</button>
-  <button class="wk-btn" data-wk="15">Wk 15</button>
-  <button class="wk-btn deload" data-wk="16">Wk 16 ↓</button>
+
+  <!-- Phase 1: Strength (wks 10–16) -->
+  <span class="wk-plabel ph1">Ph1</span>
+  <button class="wk-btn ph1" data-wk="10">Wk 10</button>
+  <button class="wk-btn ph1" data-wk="11">Wk 11</button>
+  <button class="wk-btn ph1 deload" data-wk="12">Wk 12</button>
+  <button class="wk-btn ph1" data-wk="13">Wk 13</button>
+  <button class="wk-btn ph1" data-wk="14">Wk 14</button>
+  <button class="wk-btn ph1" data-wk="15">Wk 15</button>
+  <button class="wk-btn ph1 deload" data-wk="16">Wk 16</button>
   <div class="wk-sep"></div>
-  <span class="wk-plabel">P3</span>
-  <button class="wk-btn peak" data-wk="17">Wk 17</button>
-  <button class="wk-btn peak" data-wk="18">Wk 18</button>
-  <button class="wk-btn peak" data-wk="19">Wk 19</button>
-  <button class="wk-btn deload" data-wk="20">Wk 20 ↓</button>
-  <button class="wk-btn attempt" data-wk="21">Wk 21 ★</button>
+
+  <!-- Phase 2: Strength+ (wks 17–24) -->
+  <span class="wk-plabel ph2">Ph2</span>
+  <button class="wk-btn ph2" data-wk="17">Wk 17</button>
+  <button class="wk-btn ph2" data-wk="18">Wk 18</button>
+  <button class="wk-btn ph2" data-wk="19">Wk 19</button>
+  <button class="wk-btn ph2 deload" data-wk="20">Wk 20</button>
+  <button class="wk-btn ph2" data-wk="21">Wk 21</button>
+  <button class="wk-btn ph2" data-wk="22">Wk 22</button>
+  <button class="wk-btn ph2" data-wk="23">Wk 23</button>
+  <button class="wk-btn ph2 deload" data-wk="24">Wk 24</button>
+  <div class="wk-sep"></div>
+
+  <!-- Phase 3: Peaking (wks 25–33) -->
+  <span class="wk-plabel ph3">Ph3</span>
+  <button class="wk-btn ph3" data-wk="25">Wk 25</button>
+  <button class="wk-btn ph3" data-wk="26">Wk 26</button>
+  <button class="wk-btn ph3" data-wk="27">Wk 27</button>
+  <button class="wk-btn ph3 deload" data-wk="28">Wk 28</button>
+  <button class="wk-btn ph3" data-wk="29">Wk 29</button>
+  <button class="wk-btn ph3" data-wk="30">Wk 30</button>
+  <button class="wk-btn ph3" data-wk="31">Wk 31</button>
+  <button class="wk-btn ph3 deload" data-wk="32">Wk 32</button>
+  <button class="wk-btn ph3 attempt" data-wk="33">Wk 33 ★</button>
 </div>
 
 <main>
-
-<!-- SCHEDULE -->
-<div class="panel active" id="panel-days">
   <div class="wk-header glass-strong">
     <div>
       <div class="wk-title" id="wkTitle">Week 1</div>
       <div class="wk-dates" id="wkDates"></div>
     </div>
-    <span class="wk-badge wb-normal" id="wkBadge">Phase 1 — Foundation</span>
+    <span class="wk-badge" id="wkBadge">Phase 0 — Hypertrophy Reset</span>
   </div>
+
   <div class="prog-strip">
     <div class="pc glass"><div class="pc-label">Incline Press</div><div class="pc-val" id="pv-i">—</div><div class="pc-sr" id="ps-i"></div></div>
-    <div class="pc glass"><div class="pc-label">Deadlift</div><div class="pc-val" id="pv-d">—</div><div class="pc-sr" id="ps-d"></div></div>
     <div class="pc glass"><div class="pc-label">Overhead Press</div><div class="pc-val" id="pv-o">—</div><div class="pc-sr" id="ps-o"></div></div>
+    <div class="pc glass"><div class="pc-label">Deadlift</div><div class="pc-val" id="pv-d">—</div><div class="pc-sr" id="ps-d"></div></div>
     <div class="pc glass"><div class="pc-label">Weighted Pull-up</div><div class="pc-val" id="pv-p">—</div><div class="pc-sr" id="ps-p"></div></div>
   </div>
-  <div id="bannerAttempt" style="display:none;" class="attempt-banner">★ &nbsp; 500 lb Deadlift Attempt &nbsp; ★</div>
-  <div id="bannerMax" style="display:none;" class="attempt-banner">★ &nbsp; Max Attempts &nbsp; ★</div>
-  <div class="day-grid" id="dayGrid"></div>
-</div>
 
+  <div class="day-grid" id="dayGrid"></div>
 </main>
 
 <script>
-const START = new Date(2025,2,23);
+const START = new Date(2026,3,23);
+
 const WK = {
-  1: {i:'185',iR:'4×5',d:'355',dR:'4×4',o:'135',oR:'4×6',p:'BW+55',pR:'4×5',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  2: {i:'195',iR:'4×5',d:'370',dR:'4×4',o:'137',oR:'4×6',p:'BW+60',pR:'4×5',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  3: {i:'200',iR:'4×5',d:'390',dR:'3×4',o:'140',oR:'4×5',p:'BW+65',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  4: {i:'175',iR:'3×4',d:'330',dR:'3×3',o:'120',oR:'3×4',p:'BW+45',pR:'3×4',t:'deload',ph:1,lbl:'Phase 1 — Deload'},
-  5: {i:'205',iR:'4×5',d:'405',dR:'3×4',o:'142',oR:'4×5',p:'BW+68',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  6: {i:'210',iR:'4×4',d:'425',dR:'3×3',o:'145',oR:'4×4',p:'BW+72',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  7: {i:'215',iR:'3×4',d:'455',dR:'2×3',o:'147',oR:'3×4',p:'BW+77',pR:'3×4',t:'normal',ph:1,lbl:'Phase 1 — Foundation'},
-  8: {i:'220',iR:'3×3',d:'500',dR:'ATTEMPT',o:'150',oR:'3×3',p:'BW+80',pR:'3×3',t:'attempt',ph:1,lbl:'500 lb Attempt'},
-  9: {i:'220',iR:'4×5',d:'390',dR:'3×3',o:'150',oR:'4×5',p:'BW+80',pR:'4×5',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  10:{i:'228',iR:'4×4',d:'395',dR:'3×3',o:'152',oR:'4×4',p:'BW+83',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  11:{i:'233',iR:'4×4',d:'400',dR:'3×3',o:'155',oR:'4×4',p:'BW+88',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  12:{i:'200',iR:'3×4',d:'340',dR:'3×3',o:'135',oR:'3×4',p:'BW+65',pR:'3×4',t:'deload',ph:2,lbl:'Phase 2 — Deload'},
-  13:{i:'238',iR:'4×4',d:'405',dR:'3×3',o:'157',oR:'4×4',p:'BW+90',pR:'4×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  14:{i:'245',iR:'3×4',d:'410',dR:'3×3',o:'160',oR:'3×4',p:'BW+93',pR:'3×4',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  15:{i:'253',iR:'3×3',d:'415',dR:'2×3',o:'163',oR:'3×3',p:'BW+97',pR:'3×3',t:'normal',ph:2,lbl:'Phase 2 — Strength'},
-  16:{i:'258',iR:'2×3',d:'415',dR:'2×2',o:'165',oR:'2×3',p:'BW+100',pR:'2×3',t:'deload',ph:2,lbl:'Phase 2 — Deload'},
-  17:{i:'265',iR:'2×3',d:'M',dR:'',o:'168',oR:'3×2',p:'BW+105',pR:'3×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
-  18:{i:'275',iR:'2×2',d:'M',dR:'',o:'172',oR:'2×2',p:'BW+112',pR:'2×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
-  19:{i:'285',iR:'1×3',d:'M',dR:'',o:'177',oR:'2×2',p:'BW+118',pR:'1×3',t:'peak',ph:3,lbl:'Phase 3 — Peaking'},
-  20:{i:'220',iR:'2×2',d:'M',dR:'',o:'140',oR:'2×2',p:'BW+75',pR:'2×2',t:'deload',ph:3,lbl:'Phase 3 — Full Deload'},
-  21:{i:'315MAX',iR:'',d:'M',dR:'',o:'225MAX',oR:'',p:'BW+135MAX',pR:'',t:'attempt21',ph:3,lbl:'MAX ATTEMPT WEEK'},
+  1: {i:'165',iR:'4×8',d:'355',dR:'4×5',o:'115',oR:'4×8',p:'BW+55',pR:'4×6',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:'Bench stall reset: drop weight, add reps. Pause 1 sec at chest each rep. OHP volume block.'},
+  2: {i:'170',iR:'4×8',d:'370',dR:'4×5',o:'118',oR:'4×8',p:'BW+58',pR:'4×6',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:''},
+  3: {i:'175',iR:'4×8',d:'385',dR:'4×5',o:'120',oR:'4×8',p:'BW+62',pR:'4×6',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:''},
+  4: {i:'155',iR:'3×5',d:'320',dR:'3×4',o:'105',oR:'3×5',p:'BW+45',pR:'3×5',t:'deload',ph:0,lbl:'Phase 0 — Deload',note:''},
+  5: {i:'180',iR:'4×8',d:'400',dR:'4×4',o:'123',oR:'4×7',p:'BW+65',pR:'4×5',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:''},
+  6: {i:'185',iR:'4×7',d:'415',dR:'4×4',o:'125',oR:'4×7',p:'BW+68',pR:'4×5',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:''},
+  7: {i:'190',iR:'4×6',d:'430',dR:'3×4',o:'128',oR:'4×6',p:'BW+72',pR:'4×4',t:'hyp',ph:0,lbl:'Phase 0 — Hypertrophy Reset',note:''},
+  8: {i:'160',iR:'3×5',d:'345',dR:'3×3',o:'110',oR:'3×5',p:'BW+55',pR:'3×4',t:'deload',ph:0,lbl:'Phase 0 — Deload',note:''},
+  9: {i:'195',iR:'4×6',d:'445',dR:'3×4',o:'130',oR:'4×6',p:'BW+75',pR:'4×4',t:'hyp',ph:0,lbl:'Phase 0 — Strength Bridge',note:'Transitioning from volume to intensity. Incline sets drop in reps, weight climbs.'},
+  10:{i:'200',iR:'4×5',d:'460',dR:'3×4',o:'133',oR:'4×5',p:'BW+78',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Strength',note:''},
+  11:{i:'205',iR:'4×5',d:'470',dR:'3×4',o:'136',oR:'4×5',p:'BW+82',pR:'4×4',t:'normal',ph:1,lbl:'Phase 1 — Strength',note:''},
+  12:{i:'165',iR:'3×4',d:'360',dR:'3×3',o:'115',oR:'3×4',p:'BW+60',pR:'3×4',t:'deload',ph:1,lbl:'Phase 1 — Deload',note:''},
+  13:{i:'210',iR:'4×5',d:'475',dR:'3×3',o:'138',oR:'4×5',p:'BW+85',pR:'4×3',t:'normal',ph:1,lbl:'Phase 1 — Strength',note:''},
+  14:{i:'215',iR:'4×4',d:'480',dR:'3×3',o:'142',oR:'4×4',p:'BW+88',pR:'4×3',t:'normal',ph:1,lbl:'Phase 1 — Strength',note:''},
+  15:{i:'220',iR:'3×4',d:'485',dR:'2×3',o:'145',oR:'3×4',p:'BW+92',pR:'3×3',t:'normal',ph:1,lbl:'Phase 1 — Strength',note:''},
+  16:{i:'170',iR:'3×4',d:'365',dR:'3×3',o:'120',oR:'3×4',p:'BW+65',pR:'3×4',t:'deload',ph:1,lbl:'Phase 1 — Deload',note:''},
+  17:{i:'225',iR:'4×4',d:'490',dR:'3×3',o:'148',oR:'4×4',p:'BW+95',pR:'3×3',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:''},
+  18:{i:'232',iR:'4×4',d:'495',dR:'3×3',o:'152',oR:'4×3',p:'BW+98',pR:'3×3',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:''},
+  19:{i:'238',iR:'3×4',d:'500',dR:'2×2',o:'155',oR:'3×3',p:'BW+102',pR:'3×3',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:'Deadlift hits 500. Keep it crisp — working set, not a max attempt.'},
+  20:{i:'185',iR:'3×4',d:'370',dR:'3×3',o:'130',oR:'3×4',p:'BW+72',pR:'3×4',t:'deload',ph:2,lbl:'Phase 2 — Deload',note:''},
+  21:{i:'245',iR:'3×3',d:'500',dR:'2×2',o:'158',oR:'3×3',p:'BW+105',pR:'3×2',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:''},
+  22:{i:'252',iR:'3×3',d:'500',dR:'2×2',o:'162',oR:'3×3',p:'BW+108',pR:'3×2',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:''},
+  23:{i:'258',iR:'2×3',d:'500',dR:'2×2',o:'165',oR:'2×3',p:'BW+112',pR:'2×2',t:'normal',ph:2,lbl:'Phase 2 — Strength+',note:''},
+  24:{i:'195',iR:'3×3',d:'380',dR:'3×2',o:'135',oR:'3×3',p:'BW+80',pR:'3×3',t:'deload',ph:2,lbl:'Phase 2 — Deload',note:''},
+  25:{i:'265',iR:'3×3',d:'500',dR:'2×1',o:'168',oR:'3×3',p:'BW+115',pR:'2×2',t:'normal',ph:3,lbl:'Phase 3 — Peaking',note:'Peaking block. Volume drops sharply. Everything sharpens toward max attempt.'},
+  26:{i:'272',iR:'2×3',d:'500',dR:'1×2',o:'172',oR:'2×3',p:'BW+118',pR:'2×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking',note:''},
+  27:{i:'278',iR:'2×2',d:'M',dR:'',o:'176',oR:'2×2',p:'BW+122',pR:'2×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking',note:''},
+  28:{i:'200',iR:'2×3',d:'M',dR:'',o:'140',oR:'2×3',p:'BW+90',pR:'2×3',t:'deload',ph:3,lbl:'Phase 3 — Full Deload',note:''},
+  29:{i:'285',iR:'2×2',d:'M',dR:'',o:'180',oR:'2×2',p:'BW+125',pR:'2×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking',note:''},
+  30:{i:'292',iR:'1×2',d:'M',dR:'',o:'185',oR:'1×2',p:'BW+128',pR:'1×2',t:'peak',ph:3,lbl:'Phase 3 — Peaking',note:''},
+  31:{i:'300',iR:'1×1',d:'M',dR:'',o:'192',oR:'1×1',p:'BW+132',pR:'1×1',t:'peak',ph:3,lbl:'Phase 3 — Peaking',note:'Singles week. Hit these clean. Everything should feel hard but not impossible.'},
+  32:{i:'215',iR:'2×2',d:'M',dR:'',o:'150',oR:'2×2',p:'BW+100',pR:'2×2',t:'deload',ph:3,lbl:'Phase 3 — Full Deload',note:''},
+  33:{i:'315',iR:'1×1',d:'500',dR:'1×1',o:'225',oR:'1×1',p:'BW+135',pR:'1×1',t:'attempt',ph:3,lbl:'MAX ATTEMPT WEEK',note:'All four goals attempted this week. Peak performance day — schedule mid-week, fully rested.'},
+};
+
+const phNotes = {
+  0:'Hypertrophy reset: rebuild incline volume at sub-max loads with paused reps to break the stall. Deadlift and OHP continue progressing normally.',
+  1:'Strength phase: transition to heavier loads, lower reps. Incline should feel controlled and re-established. Deficit deadlifts added at week 13.',
+  2:'Advanced strength: deadlift holds at 500 lb as a working weight. Press and pull-up targets push toward elite numbers.',
+  3:'Peaking: volume drops sharply each week. Singles and doubles only. Body is being primed for the max attempt at week 33.',
 };
 
 const fmtDate = d => d.toLocaleDateString('en-US',{month:'short',day:'numeric'});
 const dayDate = (wk,off) => { const d=new Date(START); d.setDate(d.getDate()+(wk-1)*7+off); return d.toLocaleDateString('en-US',{weekday:'long',month:'short',day:'numeric'}); };
 const wkDates = wk => { const m=new Date(START); m.setDate(m.getDate()+(wk-1)*7); const s=new Date(m); s.setDate(s.getDate()+6); return `${fmtDate(m)} – ${fmtDate(s)}, ${s.getFullYear()}`; };
 
-function iLb(w){ return w.i.includes('MAX')||w.i==='M'?w.i.replace('MAX',' MAX'):w.i+' lb'; }
-function dDisp(w,wk){ return w.t==='attempt'?'500 ★':(w.d==='M'?'—':w.d+' lb'); }
+function iLb(w){ return w.i+' lb'; }
+function oLb(w){ return w.o+' lb'; }
+function dDisp(w){ return w.t==='attempt' ? '500 lb' : (w.d==='M' ? '—' : w.d+' lb'); }
 
-function buildRow(name,sets,weight,rest,isPri,isMut){
-  const wc = isMut?'m':isPri?'p':'';
-  return `<div class="ex-row${isPri?' ex-p':''}">
+function buildRow(name,sets,weight,rest,isPri){
+  return `<div class="ex-row">
     <div class="ex-dot${isPri?' p':''}"></div>
     <div class="ex-left">
       <div class="ex-name${isPri?' p':''}">${name}</div>
       <div class="ex-sets">${sets}</div>
     </div>
     <div class="ex-right">
-      <span class="ex-w${wc?' '+wc:''}">${weight}</span>
+      <span class="ex-w">${weight}</span>
       <span class="ex-rest">${rest}</span>
     </div>
   </div>`;
 }
 
 function buildDays(wk){
-  const w=WK[wk], p2=w.ph>=2, p3=w.ph>=3;
-  const isPeak=w.t==='peak'||w.t==='attempt21';
+  const w=WK[wk], p2=w.ph>=2;
+  const isHyp=w.ph===0;
+  const isPeak=w.t==='peak'||w.t==='attempt';
   const days=[];
 
-  // MON
+  // MON — Push
+  const monRows=[];
   if(isPeak){
-    days.push({n:'Monday',off:0,tp:'push',tl:'Push',rows:[
-      buildRow('Barbell Incline Press',w.iR||'2–3×1–2',iLb(w),'4 min',1),
-      buildRow('Overhead Press (strict)',w.oR||'2–3×1–2',w.o+' lb','3.5 min',1),
+    monRows.push(
+      buildRow('Barbell Incline Press',w.iR||'1–2×1–2',iLb(w),'4 min',true),
+      buildRow('Overhead Press (strict BB)',w.oR||'1–2×1–2',oLb(w),'3.5 min',true),
       buildRow('Incline DB Press (maintenance)','2×8','65 lb DBs','90 sec'),
       buildRow('Rear Delt Fly (cable)','3×20','15 lb ea','60 sec'),
-    ]});
+    );
   } else {
-    days.push({n:'Monday',off:0,tp:'push',tl:'Push',rows:[
-      buildRow('Barbell Incline Press',w.iR,iLb(w),'3 min',1),
-      buildRow('Overhead Press (strict BB)',w.oR,w.o+' lb','2.5 min',1),
-      buildRow('Incline DB Press','3×10','65 lb','90 sec'),
+    monRows.push(
+      buildRow('Barbell Incline Press (paused)',w.iR,iLb(w),'3 min',true),
+      buildRow('Overhead Press (strict BB)',w.oR,oLb(w),'2.5 min',true),
+    );
+    if(isHyp) monRows.push(buildRow('Close-grip Incline Press (paused)','3×8',(parseInt(w.i)-20)+' lb','2 min'));
+    monRows.push(
+      buildRow('Incline DB Press','3×'+(isHyp?'12':'10'),'65 lb DBs','90 sec'),
       buildRow('Cable Lateral Raise','3×15','12 lb ea','60 sec'),
       buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
-    ]});
+    );
   }
+  days.push({n:'Monday',off:0,tp:'push',tl:'Push',swim:false,rows:monRows});
 
-  // TUE
-  days.push({n:'Tuesday',off:2,tp:'swim',tl:'Sprint',rows:[
-    buildRow('Warm-up Swim','200m','Easy','—',0,1),
-    buildRow('I.M. Kick','4×50m','On 1:00','',0,1),
-    buildRow('Reverse I.M.','4×50m','On 1:30','',0,1),
-    buildRow('Distance per Stroke','200m','Easy','—',0,1),
-    buildRow('Breath Hold','50m','Medium','—',0,1),
-    buildRow('Main','10x25m','On 30','—',0,1),
-    buildRow('Main','10x50m','On 1:00','—',0,1),
-    buildRow('Main','6x75m','Until heart rate goes down','—',0,1),
-    buildRow('Main','5x50m','On 1:00, 55, 50, 45, 40','—',0,1),
-    buildRow('Main','10x25m','On 45','No Board Kick',0,1),
-    buildRow('Cooldown','150m','Easy','Backstroke',0,1),
-    buildRow('Cooldown','150m','Power on Walls','Free',0,1),
-    buildRow('Cooldown','100m','Easy','—',0,1),
+  // TUE — Swim Sprint
+  days.push({n:'Tuesday',off:1,tp:'swim',tl:'Sprint',swim:true,rows:[
+    buildRow('Warm-up','200m','Easy','—'),
+    buildRow('I.M. Kick','4×50m','On 1:00',''),
+    buildRow('Reverse I.M.','4×50m','On 1:30',''),
+    buildRow('Distance per Stroke','200m','Easy','—'),
+    buildRow('Breath Hold','50m','Medium','—'),
+    buildRow('Main','10×25m','On :30','—'),
+    buildRow('Main','10×50m','On 1:00','—'),
+    buildRow('Main','6×75m','Until HR recovers','—'),
+    buildRow('Main','5×50m','On 1:00→:40 descending','—'),
+    buildRow('Main','10×25m','On :45, no board kick','—'),
+    buildRow('Cooldown','400m','Easy','Backstroke / free'),
   ]});
 
-  // WED
-  const thRows=[
-    buildRow('Weighted Pull-up',w.pR,w.p+' lb','3 min',1),
-    buildRow('Lat Pulldown (wide grip)','3×10',p2?'150 lb':'140 lb','90 sec'),
-    buildRow('Seated Cable Row','3×10',p2?'160 lb':'150 lb','90 sec'),
-    buildRow('Face Pull (rope)','4×20',p2?'45 lb':'40 lb','60 sec'),
-    buildRow('Rear Delt Fly (incline DB)','4×15',p2?'17 lb DBs':'15 lb DBs','60 sec'),
+  // WED — Pull
+  const wedRows=[
+    buildRow('Weighted Pull-up',w.pR,w.p,'3 min',true),
+    buildRow('Lat Pulldown (wide grip)','3×10',p2?'155 lb':'140 lb','90 sec'),
+    buildRow('Seated Cable Row','3×10',p2?'165 lb':'150 lb','90 sec'),
+    buildRow('Face Pull (rope)','4×20','45 lb','60 sec'),
+    buildRow('Rear Delt Fly (incline DB)','4×15','17 lb DBs','60 sec'),
+    isHyp ? buildRow('Chest-supported Row','3×12','Light','60 sec') : buildRow('Dragon Flag','3×5','BW','60 sec'),
   ];
-  if(p2) thRows.push(buildRow('Rear Delt Fly (cable)','4×15–20','12–15 lb ea','60 sec'));
-  else thRows.push(buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1));
-  days.push({n:'Wednesday',off:3,tp:'pull',tl:'Pull',rows:thRows});
+  days.push({n:'Wednesday',off:2,tp:'pull',tl:'Pull',swim:false,rows:wedRows});
 
-  // THU
-  days.push({n:'Thursday',off:2,tp:'swim',tl:'Middle Distance',rows:[
-    buildRow('Warm-up Swim','2x150m','Easy','—',0,1),
-    buildRow('Kick','3×100m','Easy','—',0,1),
-    buildRow('Warm-up Swim','6×50m','Easy','—',0,1),
-    buildRow('Main Reverse Pyramid (x2)','300m','On 4:30','—',0,1),
-    buildRow('','250m','On 4:00','—',0,1),
-    buildRow('','200m','On 3:30','—',0,1),
-    buildRow('','150m','On 3:00','—',0,1),
-    buildRow('','200m','On 3:30','—',0,1),
-    buildRow('','250m','On 4:00','—',0,1),
-    buildRow('','300m','On 4:30','—',0,1),
-    buildRow('Cooldown','200m','Easy','Backstroke',0,1),
-    buildRow('Cooldown','200m','Easy','Free',0,1),
-    buildRow('Cooldown','200m','Easy','Backstroke',0,1),
-    buildRow('Cooldown','500m','Easy','—',0,1),
+  // THU — Swim Middle Distance
+  days.push({n:'Thursday',off:3,tp:'swim',tl:'Middle Distance',swim:true,rows:[
+    buildRow('Warm-up','2×150m','Easy','—'),
+    buildRow('Kick','3×100m','Easy','—'),
+    buildRow('Warm-up','6×50m','Easy','—'),
+    buildRow('Main — reverse pyramid (×2)','300m','On 4:30','—'),
+    buildRow('','250m','On 4:00','—'),
+    buildRow('','200m','On 3:30','—'),
+    buildRow('','150m','On 3:00','—'),
+    buildRow('','200m','On 3:30','—'),
+    buildRow('','250m','On 4:00','—'),
+    buildRow('','300m','On 4:30','—'),
+    buildRow('Cooldown','1100m','Easy','Backstroke / free'),
   ]});
 
-  // FRI
-  /*const friI = !w.i.includes('MAX')&&w.i!=='M'?(parseInt(w.i)-10)+' lb':iLb(w);
-  const friR = (wk>=13&&p2)?'5×'+(w.iR.split('×')[1]||'5'):w.iR;
-  if(isPeak){
-    days.push({n:'Friday',off:4,tp:'push',tl:'Push B',rows:[
-      buildRow('Barbell Incline Press',w.iR||'2–3×1–2',iLb(w),'4 min',1),
-      buildRow('Overhead Press (strict)',w.oR||'2–3×1–2',w.o+' lb','3.5 min',1),
-      buildRow('Incline DB Press (maintenance)','2×8','65 lb DBs','90 sec'),
-      buildRow('Rear Delt Fly (cable)','3×20','15 lb ea','60 sec'),
-    ]});
-  } else {
-    days.push({n:'Friday',off:4,tp:'push',tl:'Push B',rows:[
-      buildRow('Barbell Incline Press (−10 lb)',friR,friI,'2.5 min',1),
-      buildRow('DB Overhead Press (seated)','3×8','55 lb DBs','2 min'),
-      buildRow('Incline DB Press (30°)','3×10','65 lb DBs','90 sec'),
-      buildRow('Tricep Overhead Extension','3×12','65 lb','60 sec'),
-      buildRow('Rear Delt Fly (cable)','3×20',p2?'12.5 lb ea':'10 lb ea','60 sec'),
-    ]});
-  }*/
-
-  const tuRows=[buildRow('Conventional Deadlift',w.dR||'3×3',dDisp(w,wk),p2?'3 min':'3.5 min',1)];
-  if(wk>=11) tuRows.push(buildRow('Deficit Deadlift (2″ plates)','3×3','310 lb','2.5 min'));
-  tuRows.push(
+  // FRI — Lower
+  const friRows=[buildRow('Conventional Deadlift',w.dR||'1×1',dDisp(w),p2?'3 min':'3.5 min',true)];
+  if(wk>=13) friRows.push(buildRow('Deficit Deadlift (2″ plates)','3×3','310 lb','2.5 min'));
+  friRows.push(
     buildRow('Romanian Deadlift','3×8',p2?'195 lb':'185 lb','90 sec'),
     buildRow('Bulgarian Split Squat','4×10 ea',p2?'40 lb DBs':'30 lb DBs','90 sec'),
-    buildRow('Leg Curl (machine)','3×12','Moderate','60 sec',0,1),
-    buildRow('Walking Lunges','4×15','BW+load','60 sec',0,1),
-    buildRow('Dragon Flag','3×5','Bodyweight','60 sec',0,1),
+    buildRow('Leg Curl (machine)','3×12','Moderate','60 sec'),
+    buildRow('Walking Lunges','4×15','BW+load','60 sec'),
+    buildRow('Dragon Flag','3×5','BW','60 sec'),
   );
-  days.push({n:'Friday',off:1,tp:'lower',tl:'Legs',rows:tuRows});
+  days.push({n:'Friday',off:4,tp:'lower',tl:'Legs',swim:false,rows:friRows});
 
-  // SAT
-  /*days.push({n:'Saturday',off:5,tp:'lower',tl:'Leg Density',rows:[
-    buildRow('Bulgarian Split Squat','4×12 ea',p2?'40 lb DBs':'35 lb DBs','2 min',1),
-    buildRow('Walking Lunges','3×15 ea','25 lb DBs','90 sec'),
-    buildRow('Single-Leg Leg Curl','3×12 ea','Moderate','60 sec',0,1),
-    buildRow('Leg Extension (machine)','3×15','Moderate','60 sec',0,1),
-    buildRow('Standing Calf Raise','4×20','BW+load','60 sec',0,1),
-    buildRow("Farmer's Walk",'3×50 yds','75 lb ea','90 sec'),
-  ]});*/
-
-  // SAT
-  days.push({n:'Saturday',off:2,tp:'swim',tl:'Distance',rows:[
-    buildRow('Warm-up (50 Kick, 50 Swim)','10x100m','On 2:00','—',0,1),
-    buildRow('Main (x5)','500m','Anaerobic Max','—',0,1),
-    buildRow('','200m','Easy','Backstroke',0,1),
-    buildRow('Cooldown','150m','Easy','—',0,1),
+  // SAT — Swim Distance
+  days.push({n:'Saturday',off:5,tp:'swim',tl:'Distance',swim:true,rows:[
+    buildRow('Warm-up (50 kick, 50 swim)','10×100m','On 2:00','—'),
+    buildRow('Main','5×500m','Anaerobic max','—'),
+    buildRow('Recovery between sets','200m','Easy','Backstroke'),
+    buildRow('Cooldown','150m','Easy','—'),
   ]});
 
   return days;
 }
 
 const typeClass={push:'dct-push',pull:'dct-pull',lower:'dct-lower',swim:'dct-swim'};
+let showSwim = true;
+
+function toggleSwim(btn){
+  showSwim = !showSwim;
+  btn.classList.toggle('on', showSwim);
+  document.querySelectorAll('.swim-card').forEach(c=>{
+    c.classList.toggle('swim-hidden', !showSwim);
+  });
+}
 
 function renderWeek(wk){
   const w=WK[wk];
   document.getElementById('wkTitle').textContent='Week '+wk;
   document.getElementById('wkDates').textContent=wkDates(wk);
+
   const badge=document.getElementById('wkBadge');
   badge.textContent=w.lbl;
-  badge.className='wk-badge ';
-  if(w.t==='deload') badge.className+='wb-deload';
-  else if(w.t==='peak') badge.className+='wb-peak';
-  else if(w.t==='attempt'||w.t==='attempt21') badge.className+='wb-attempt';
-  else badge.className+='wb-normal';
+  badge.className='wk-badge';
+  if(w.t==='deload')       badge.className+=' wb-deload';
+  else if(w.t==='attempt') badge.className+=' wb-attempt';
+  else if(w.t==='peak')    badge.className+=' wb-peak';
+  else if(w.ph===0)        badge.className+=' wb-hyp';
+  else if(w.ph===1)        badge.className+=' wb-normal';
+  else if(w.ph===2)        badge.className+=' wb-str2';
+  else                     badge.className+=' wb-peak';
 
-  document.getElementById('pv-i').textContent=w.i.includes('MAX')?w.i.replace('MAX',' MAX'):w.i+' lb';
+  document.getElementById('pv-i').textContent=iLb(w);
   document.getElementById('ps-i').textContent=w.iR||'';
-  document.getElementById('pv-d').textContent=w.t==='attempt'?'500 ★':(w.d==='M'?'Maintain':w.d+' lb');
-  document.getElementById('ps-d').textContent=w.dR||'';
-  document.getElementById('pv-o').textContent=w.o.includes('MAX')?w.o.replace('MAX',' MAX'):w.o+' lb';
+  document.getElementById('pv-o').textContent=oLb(w);
   document.getElementById('ps-o').textContent=w.oR||'';
-  document.getElementById('pv-p').textContent=w.p.includes('MAX')?w.p.replace('MAX',' MAX'):w.p+' lb';
+  document.getElementById('pv-d').textContent=dDisp(w);
+  document.getElementById('ps-d').textContent=w.dR||'';
+  document.getElementById('pv-p').textContent=w.p;
   document.getElementById('ps-p').textContent=w.pR||'';
-
-  document.getElementById('bannerAttempt').style.display=w.t==='attempt'?'flex':'none';
-  document.getElementById('bannerMax').style.display=w.t==='attempt21'?'flex':'none';
 
   const grid=document.getElementById('dayGrid');
   grid.innerHTML='';
   buildDays(wk).forEach(day=>{
     const card=document.createElement('div');
-    card.className='day-card glass';
+    const classes=['day-card','glass'];
+    if(day.swim) classes.push('swim-card');
+    if(day.swim && !showSwim) classes.push('swim-hidden');
+    card.className=classes.join(' ');
     card.innerHTML=`
       <div class="dc-header">
         <div>
@@ -575,30 +564,29 @@ function renderWeek(wk){
   });
 }
 
-date = new Date(2025,3,23)
-let curWk = Math.floor((Date.now() - date) / (1000 * 60 * 60 * 24)) % 7;
-
-
-function showPanel(name,btn){
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
-  document.getElementById('panel-'+name).classList.add('active');
-  document.querySelectorAll('.nav-pill').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  const strip=document.getElementById('weekStrip');
-  if(name==='days'){ strip.classList.add('visible'); renderWeek(curWk); markWk(curWk); }
-  else strip.classList.remove('visible');
-}
 function markWk(wk){
   document.querySelectorAll('.wk-btn').forEach(b=>{
-    b.classList.remove('active');
-    if(parseInt(b.dataset.wk)===wk) b.classList.add('active');
+    b.classList.toggle('active', parseInt(b.dataset.wk)===wk);
   });
+  // scroll active button into view
+  const activeBtn=document.querySelector('.wk-btn.active');
+  if(activeBtn) activeBtn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
 }
+
 document.querySelectorAll('.wk-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{ curWk=parseInt(btn.dataset.wk); markWk(curWk); renderWeek(curWk); });
+  btn.addEventListener('click',()=>{
+    curWk=parseInt(btn.dataset.wk);
+    markWk(curWk);
+    renderWeek(curWk);
+  });
 });
+
+try {
+  const elapsed=Math.floor((Date.now()-START.getTime())/(1000*60*60*24*7))+1;
+  curWk=Math.max(1,Math.min(elapsed,Object.keys(WK).length));
+} catch(e){}
+
 markWk(curWk);
-document.getElementById('weekStrip').classList.add('visible');
 renderWeek(curWk);
 </script>
 </body>

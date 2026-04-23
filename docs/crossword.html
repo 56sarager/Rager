@@ -41,7 +41,6 @@
     padding: 0 20px 60px;
   }
 
-  /* ── Header ── */
   header {
     display: flex; align-items: flex-start;
     justify-content: space-between;
@@ -65,7 +64,6 @@
   }
   .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
 
-  /* ── Date pill ── */
   .date-pill {
     font-family: 'DM Mono', monospace;
     font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
@@ -73,7 +71,6 @@
     padding: 5px 12px; border-radius: 3px;
   }
 
-  /* ── Mode toggle ── */
   .mode-toggle {
     display: flex; background: var(--ink);
     border-radius: 4px; padding: 4px; gap: 4px;
@@ -87,7 +84,6 @@
   }
   .mode-btn.active { background: var(--accent); color: #fff; font-weight: 500; }
 
-  /* ── Controls ── */
   .controls {
     display: flex; align-items: center; gap: 10px;
     margin-bottom: 20px; flex-wrap: wrap;
@@ -109,7 +105,6 @@
     color: var(--muted); margin-left: auto;
   }
 
-  /* ── Win banner ── */
   .win-banner {
     display: none; background: var(--correct); color: #fff;
     padding: 12px 24px; border-radius: 4px;
@@ -120,14 +115,12 @@
   .win-banner.show { display: block; }
   @keyframes slideDown { from{opacity:0;transform:translateY(-12px)} to{opacity:1;transform:translateY(0)} }
 
-  /* ── Game area ── */
   .game-area {
     display: grid; grid-template-columns: auto 1fr;
     gap: 24px; align-items: start;
   }
   @media (max-width: 880px) { .game-area { grid-template-columns: 1fr; } }
 
-  /* ── Grid ── */
   .grid-wrap { flex-shrink: 0; }
   .crossword-grid {
     display: grid;
@@ -160,7 +153,6 @@
   .cell-letter.ok  { color: var(--correct); }
   .cell-letter.err { color: #c0392b; }
 
-  /* ── Clues ── */
   .clues-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; min-width: 0; }
   @media (max-width: 520px) { .clues-panel { grid-template-columns: 1fr; } }
   .clue-section h3 {
@@ -199,7 +191,6 @@
     color: var(--muted); margin-top: 2px;
   }
 
-  /* ── Empty / loading states ── */
   .empty-state {
     text-align: center; padding: 60px 20px;
     color: var(--muted); font-family: 'DM Mono', monospace;
@@ -227,7 +218,6 @@
     letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
   }
 
-  /* ── Confirm modal ── */
   .modal-backdrop {
     display: none; position: fixed; inset: 0;
     background: rgba(26,18,9,0.45);
@@ -253,7 +243,6 @@
   .modal-btns { display: flex; gap: 10px; justify-content: center; }
   .modal-btns .btn { min-width: 100px; }
 
-  /* ── Error banner ── */
   .error-banner {
     display: none; background: #fde0dc; color: #a02010;
     padding: 10px 18px; border-radius: 4px;
@@ -262,7 +251,6 @@
   }
   .error-banner.show { display: block; }
 
-  /* ── Bottom bar ── */
   .bottom-bar {
     display: flex;
     align-items: center;
@@ -362,7 +350,6 @@
     </div>
   </div>
 
-  <!-- Bottom bar: links + app store download -->
   <div class="bottom-bar">
     <div class="bottom-links">
       <p>Apple requires a privacy policy to publish on the App Store, but there are no logins, so there's no way to track user data anyway. Questions? <a href="56sarager@gmail.com">56sarager@gmail.com</a></p>
@@ -372,7 +359,6 @@
 
 </div>
 
-<!-- Reveal-all confirm modal -->
 <div class="modal-backdrop" id="revealModal">
   <div class="modal">
     <div class="modal-title">Reveal all answers?</div>
@@ -392,27 +378,24 @@
 <script>
 'use strict';
 
-// ─── Config ────────────────────────────────────────────────────────────────────
 const GRID_SIZE   = 15;
 const MAX_WORDS   = 30;
-const BUILD_TRIES = 10;          // attempts per seed to maximise word count
-const CSV_PATH    = './public/word_bank.csv';   // served from the same folder
+const BUILD_TRIES = 10;          
+const CSV_PATH    = './public/word_bank.csv'; 
 
-// ─── State ─────────────────────────────────────────────────────────────────────
-let rawBank  = [];   // [{ en, es, enHint, esHint }]  – cleaned, single variants
-let mode     = 'EN'; // 'EN' → EN hints, ES answers; 'ES' → ES hints, EN answers
+let rawBank  = [];  
+let mode     = 'EN';
 let puzzle   = null;
 let userGrid = [];
 let selCell  = null;
 let dir      = 'across';
 
-// ─── Date helpers ──────────────────────────────────────────────────────────────
 function todayString() {
   const d = new Date();
   return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 }
 
-/** Simple seeded PRNG (mulberry32) */
+//Mulberry 32
 function makePRNG(seed) {
   let s = seed >>> 0;
   return () => {
@@ -424,7 +407,6 @@ function makePRNG(seed) {
 }
 
 function dateToSeed(str) {
-  // e.g. "2025-06-15" → deterministic integer
   let h = 0x811c9dc5;
   for (const c of str) { h ^= c.charCodeAt(0); h = Math.imul(h, 0x01000193); }
   return h >>> 0;
@@ -439,19 +421,9 @@ function seededShuffle(arr, rng) {
   return a;
 }
 
-// ─── CSV parsing & cleaning ────────────────────────────────────────────────────
-/**
- * Pick one variant from a cell value:
- *   "jugo/zumo"   → "jugo"   (take first)
- *   "maestro/a"   → "maestro" (drop /a suffix)
- *   "rojo/a"      → "rojo"
- *   "el niño/la niña" → "el niño" (split on / take first word-group)
- * Also strips accents and uppercases for the crossword answer.
- */
 function pickVariant(raw) {
   if (!raw) return '';
   let s = raw.trim();
-  // If there's a slash, pick the first token
   if (s.includes('/')) {
     s = s.split('/')[0].trim();
   }
@@ -463,7 +435,6 @@ function stripAccents(s) {
 }
 
 function toAnswer(s) {
-  // keep only A-Z after stripping accents and uppercasing; remove spaces/hyphens
   return stripAccents(s).toUpperCase().replace(/[^A-Z]/g, '');
 }
 
@@ -473,8 +444,7 @@ function parseCSV(text) {
   const seenEN = new Set();
   const seenES = new Set();
 
-  for (let i = 1; i < lines.length; i++) {   // skip header row
-    // Simple CSV split – handles quoted fields too
+  for (let i = 1; i < lines.length; i++) {
     const cols = splitCSVLine(lines[i]);
     if (cols.length < 2) continue;
 
@@ -524,7 +494,6 @@ function splitCSVLine(line) {
 
 // ─── Crossword engine ──────────────────────────────────────────────────────────
 function buildPuzzle(bank, rng) {
-  // Prepare word list for current mode
   const words = bank.map(w => ({
     answer: mode === 'EN' ? w.es : w.en,
     hint:   mode === 'EN' ? w.enHint : w.esHint,
@@ -547,7 +516,6 @@ function attempt(words) {
   const grid   = emptyGrid();
   const placed = [];
 
-  // First word: longest 7-12 char word, placed horizontally at centre
   const anchor = words.find(w => w.answer.length >= 7 && w.answer.length <= 12) || words[0];
   const r0 = Math.floor(GRID_SIZE / 2);
   const c0 = Math.floor((GRID_SIZE - anchor.answer.length) / 2);
@@ -590,7 +558,6 @@ function canPlace(grid, word, r, c, dir) {
   const endC = dir === 'across' ? c + word.length - 1 : c;
   if (endR >= GRID_SIZE || endC >= GRID_SIZE) return false;
 
-  // Cell immediately before/after word must be empty
   if (dir === 'across') {
     if (c > 0 && grid[r][c-1] !== null) return false;
     if (endC < GRID_SIZE-1 && grid[r][endC+1] !== null) return false;
@@ -608,7 +575,6 @@ function canPlace(grid, word, r, c, dir) {
       if (cell !== word[i]) return false;
       intersections++;
     } else {
-      // No parallel neighbours on blank cells
       if (dir === 'across') {
         if (rr > 0 && grid[rr-1][cc] !== null) return false;
         if (rr < GRID_SIZE-1 && grid[rr+1][cc] !== null) return false;
@@ -665,7 +631,6 @@ function finalize(grid, placed) {
   return { grid, cellNums, clues, placedWords: placed };
 }
 
-// ─── Render ────────────────────────────────────────────────────────────────────
 function renderAll() {
   userGrid = Array.from({ length: GRID_SIZE }, () => Array(GRID_SIZE).fill(''));
   renderGrid();
@@ -724,7 +689,6 @@ function escapeHTML(s) {
   return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ─── Interaction ───────────────────────────────────────────────────────────────
 function onCellClick(r, c) {
   if (selCell && selCell.r === r && selCell.c === c)
     dir = dir === 'across' ? 'down' : 'across';
@@ -826,7 +790,6 @@ function cycleWord(delta) {
   if (nxt) { dir = nxt.dir; selectCell(nxt.row, nxt.col); }
 }
 
-// ─── Check / Reveal / Clear ────────────────────────────────────────────────────
 function checkAnswers() {
   for (let r=0;r<GRID_SIZE;r++) for (let c=0;c<GRID_SIZE;c++) {
     if (puzzle.grid[r][c]===null || !userGrid[r][c]) continue;
@@ -836,10 +799,9 @@ function checkAnswers() {
   }
 }
 
-let wasRevealed = false;   // track if reveal-all was used
+let wasRevealed = false;
 
 function revealAll() {
-  // Show styled confirmation modal instead of revealing immediately
   document.getElementById('revealModal').classList.add('show');
 }
 
@@ -856,7 +818,6 @@ function confirmReveal() {
     setLetter(r, c, puzzle.grid[r][c], 'revealed');
   }
   updateStatus();
-  // Deliberately do NOT call checkWin() — no congratulations after reveal
 }
 
 function clearGrid() {
@@ -879,13 +840,12 @@ function updateStatus() {
 }
 
 function checkWin() {
-  if (wasRevealed) return;   // no congratulations if answers were revealed
+  if (wasRevealed) return; 
   for (let r=0;r<GRID_SIZE;r++) for (let c=0;c<GRID_SIZE;c++)
     if (puzzle.grid[r][c]!==null && userGrid[r][c]!==puzzle.grid[r][c]) return;
   document.getElementById('winBanner').classList.add('show');
 }
 
-// ─── Mode toggle ───────────────────────────────────────────────────────────────
 function setMode(m) {
   if (m === mode) return;
   mode = m;
@@ -894,7 +854,6 @@ function setMode(m) {
   if (rawBank.length) rebuildFromBank();
 }
 
-// ─── Overlay helpers ───────────────────────────────────────────────────────────
 function showOverlay(msg) {
   document.getElementById('overlayMsg').textContent = msg;
   document.getElementById('overlay').classList.add('show');
@@ -906,13 +865,12 @@ function showError(msg) {
   el.textContent = msg; el.classList.add('show');
 }
 
-// ─── Main build flow ───────────────────────────────────────────────────────────
 function rebuildFromBank() {
   wasRevealed = false;
   showOverlay('Building puzzle…');
   setTimeout(() => {
     const today = todayString();
-    const seed  = dateToSeed(today + mode);   // different seed per mode so puzzles differ
+    const seed  = dateToSeed(today + mode);  
     const rng   = makePRNG(seed);
     puzzle      = buildPuzzle(rawBank, rng);
     renderAll();
@@ -932,7 +890,7 @@ async function loadCSVAndBuild() {
 
   try {
     const res = await fetch(CSV_PATH);
-    if (!res.ok) throw new Error(`HTTP ${res.status} — make sure word_bank.csv is in the same folder as this HTML file.`);
+    if (!res.ok) throw new Error(`HTTP ${res.status} - make sure word_bank.csv is in the same folder as this HTML file.`);
     const text = await res.text();
     rawBank = parseCSV(text);
     if (rawBank.length < 10) throw new Error(`Only ${rawBank.length} valid word pairs found. Check the CSV format: english_word,spanish_word,english_hint,spanish_hint`);
@@ -941,13 +899,11 @@ async function loadCSVAndBuild() {
     hideOverlay();
     document.getElementById('emptyState').style.display = 'none';
     showError(`⚠ Could not load word_bank.csv: ${err.message}`);
-    // ── DEMO MODE: tiny built-in bank so the UI is still visible ──────────────
     rawBank = DEMO_BANK;
     rebuildFromBank();
   }
 }
 
-// ── Boot ───────────────────────────────────────────────────────────────────────
 loadCSVAndBuild();
 </script>
 </body>
