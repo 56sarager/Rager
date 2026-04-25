@@ -1,280 +1,545 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Rager</title>
-  <link rel="icon" href="./public/Just R Black Background.png" type="image/png">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
-
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --orange: #FF6B00;
       --yellow: #FFD700;
+      --blood: #3a0000;
+      --crimson:#e23232;
       --glass-bg: rgba(255,255,255,0.55);
       --glass-border: rgba(255,255,255,0.75);
-      --glass-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.06);
       --glass-blur: blur(18px) saturate(180%);
     }
-
     html, body {
-      width: 100%; height: 100%;
-      overflow: hidden;
+      width: 100%; min-height: 100%;
       font-family: 'Outfit', sans-serif;
-      background: #FFF;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
     }
 
+    /* ── HERO ── */
+    .hero-section {
+      position: relative;
+      width: 100%; height: 100vh;
+      overflow: hidden;
+    }
     .bg-video {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
       object-fit: contain;
-      z-index: 0;
+      background: #000;
       pointer-events: none;
-      background: black; /* fills letterbox/pillarbox bars */
     }
-
     .vignette {
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.55) 100%);
-      z-index: 1;
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.6) 100%);
       pointer-events: none;
     }
-
     .nav-island {
-      position: fixed;
-      top: 22px;
-      left: 22px;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      padding: 10px 22px 10px 14px;
-      border-radius: 999px;
-      background: var(--glass-bg);
+      position: absolute; top: 22px; left: 22px; z-index: 100;
+      display: flex; align-items: center; gap: 28px;
+      padding: 10px 22px 10px 14px; border-radius: 999px;
+      background: #0d0d0d;
       backdrop-filter: var(--glass-blur);
       -webkit-backdrop-filter: var(--glass-blur);
       border: 1px solid var(--glass-border);
-      box-shadow:
-        var(--glass-shadow),
-        inset 0 1px 0 rgba(160, 200, 255, 0.25),
-        inset 0 -1px 0 rgba(80, 140, 255, 0.08);
-      overflow: visible;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(160,200,255,0.25);
     }
-
-    .nav-logo { display: flex; align-items: center; flex-shrink: 0; }
     .nav-logo img { height: 30px; width: auto; display: block; }
+    .nav-divider { width: 1px; height: 20px; background: linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent); }
+    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
+    .nav-links a {
+      font-family: 'Outfit', sans-serif; font-weight: 500; font-size: 0.88rem;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.25s;
+    }
+    .nav-links a:hover { color: #fff; }
 
-    .nav-divider {
-      width: 1px; height: 20px;
-      background: linear-gradient(180deg, transparent, rgba(255,255,255,0.3), transparent);
-      flex-shrink: 0;
+    /* ── SWIPE INDICATOR ── */
+    .swipe-indicator {
+      position: absolute; bottom: 20px; left: 0; right: 0;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      z-index: 20; pointer-events: none;
+    }
+    .swipe-chevron {
+      width: 26px; height: 26px;
+      border-left: 2.5px solid rgba(255,255,255,0.55);
+      border-top: 2.5px solid rgba(255,255,255,0.55);
+      transform: rotate(45deg);
+      animation: chevronUp 2s ease-in-out infinite;
+    }
+    @keyframes chevronUp {
+      0%   { transform: rotate(45deg) translate(5px, 5px); opacity: 0; }
+      35%  { opacity: 1; }
+      85%  { transform: rotate(45deg) translate(-6px, -6px); opacity: 0.85; }
+      100% { transform: rotate(45deg) translate(-9px, -9px); opacity: 0; }
     }
 
-    .nav-links { display: flex; align-items: center; gap: 24px; list-style: none; }
-    .nav-links li { position: relative; }
+    @keyframes swipePulse {
+      0%   { transform: translateX(-110%); opacity: 0; }
+      15%  { opacity: 1; }
+      80%  { opacity: 1; }
+      100% { transform: translateX(280%); opacity: 0; }
+    }
+    @keyframes fadeFloat { 0%,100%{opacity:0.25} 50%{opacity:0.6} }
 
-    .nav-links a {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 500;
-      font-size: 0.88rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      padding: 4px 0;
-      display: inline-block;
-      transition: color 0.25s ease;
+    /* ── CONTENT SECTION — layered card on black ── */
+    .content-section {
       position: relative;
+      width: 100%;
+      background: #000;
+      /* the "card" that lifts off */
       z-index: 1;
     }
-    .nav-links a:hover { color: rgba(255,255,255,1); }
-    .nav-links a::after { display: none; }
-    .nav-links a.active { color: #fff; }
 
-    .shoot-line {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      pointer-events: none;
-      z-index: 299;
-      background: linear-gradient(90deg, var(--orange) 0%, var(--yellow) 60%, transparent 100%);
-      box-shadow: 0 0 10px 2px rgba(255,160,0,0.6);
-      width: 0;
-      opacity: 0;
+    /* the white-edged raised slab */
+    .content-slab {
+      position: relative;
+      background: #0d0d0d;
+      border-radius: 28px 28px;
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 -2px 0 rgba(255,255,255,0.06),
+        0 -20px 60px rgba(0,0,0,0.8),
+        0 -60px 120px rgba(0,0,0,0.6);
+      margin-top: -10px;
+      padding: 56px 52px 56px 52px;
+      overflow: hidden;
     }
 
-    .link-underline {
-      position: fixed;
-      height: 2px;
-      border-radius: 2px;
-      pointer-events: none;
-      z-index: 300;
-      background: linear-gradient(90deg, var(--orange), var(--yellow));
-      box-shadow: 0 0 8px 1px rgba(255,160,0,0.5);
-      opacity: 0;
+    .content-row {
+      display: flex;
+      gap: 0;
+      align-items: flex-start;
     }
 
-    .hero {
-      position: fixed;
-      inset: 0;
+    /* ── LEFT COPY — 50% ── */
+    .copy-col {
+      width: 50%;
+      flex-shrink: 0;
+      padding-right: 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 10;
-      pointer-events: none;
-      user-select: none;
+      justify-content: flex-start;
     }
-
-    .hero-wordmark {
+    .copy-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(4rem, 12vw, 11rem);
-      letter-spacing: 0.08em;
-      line-height: 1;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.15);
-      background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.08) 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      text-shadow: 0 0 80px rgba(255,140,0,0.18);
+      font-size: clamp(4.5rem, 7vw, 7.5rem);
+      letter-spacing: 0.03em;
+      line-height: 0.95;
+      color: var(--blood);
+      margin-bottom: 28px;
+    }
+    .typed-word { color: var(--glass-border); }
+    .type-cursor {
+      display: inline-block; width: 5px;
+      background: var(--blood); margin-left: 3px;
+      animation: blink 0.85s step-end infinite;
+      vertical-align: baseline; height: 0.75em;
+      position: relative; top: 0.06em;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+    .copy-body {
+      font-weight: 300; font-size: 0.95rem; line-height: 1.8;
+      color: var(--glass-border); max-width: 380px;
     }
 
-    .hero-tagline {
-      margin-top: 12px;
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
-      font-size: clamp(0.75rem, 1.5vw, 1rem);
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.35);
+    /* ── RIGHT CARDS — 50%, bleeds off right edge ── */
+    .cards-col {
+      width: 50%;
+      flex-shrink: 0;
+      position: relative;
+      /* overflow visible so cards bleed off screen */
+      overflow: visible;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 8px;
+    }
+
+    .cards-stack {
+      position: relative;
+      width: 760px;   /* intentionally wider than column — bleeds right */
+      height: 760px;
+    }
+
+    .product-card {
+      position: absolute;
+      width: 760px;
+      height: 760px;
+      background: #181818;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 22px;
+      overflow: hidden;
+      cursor: pointer;
+      transform-origin: center center;
+      transition: transform 0.52s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease;
+      user-select: none;
+      will-change: transform, opacity;
+    }
+
+    .card-image {
+      width: 100%; height: 560px;
+      background: #1a1a1a;
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .card-image-bg { position: absolute; inset: 0; }
+    .card-img-icon { width: 100px; height: 100px; opacity: 0.09; position: relative; z-index: 1; }
+    .card-badge {
+      position: absolute; top: 18px; right: 18px;
+      background: rgba(0,0,0,0.55);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 999px; padding: 5px 16px;
+      font-size: 0.67rem; font-weight: 500;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,0.65); z-index: 2;
+    }
+    .card-body { padding: 24px 28px 28px; }
+    .card-tag {
+      font-size: 0.67rem; font-weight: 500; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--crimson); margin-bottom: 8px;
+    }
+    .card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.2rem; letter-spacing: 0.06em;
+      color: #fff; margin-bottom: 6px;
+    }
+    .card-desc {
+      font-size: 0.88rem; font-weight: 300;
+      color: rgba(255,255,255,0.38); line-height: 1.55; margin-bottom: 20px;
+    }
+    .card-price-row { display: flex; align-items: center; justify-content: space-between; }
+    .card-price { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.06em; }
+    .card-btn {
+      background: var(--blood); color: #fff; border: none;
+      border-radius: 999px; padding: 11px 28px;
+      font-size: 0.82rem; font-weight: 500;
+      letter-spacing: 0.09em; text-transform: uppercase;
+      cursor: pointer; transition: background 0.2s;
+    }
+    .card-btn:hover { background: crimson; }
+
+    /* dots */
+    .card-dots {
+      display: flex; gap: 8px; margin-top: 18px; padding-left: 4px;
+    }
+    .card-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(255,255,255,0.18); cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .card-dot.active { background: var(--blood); transform: scale(1.3); }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-brand {
+      font-family: 'Outfit', sans-serif; font-size: 1.2rem;
+      letter-spacing: 0.15em; color: rgba(255,255,255,0.2);
+    }
+    .footer-links { display: flex; gap: 12px; }
+    .footer-link {
+      display: flex; align-items: center; gap: 8px; text-decoration: none;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.07em; text-transform: uppercase;
+      color: rgba(255,255,255,0.3); padding: 7px 16px;
+      border-radius: 999px; transition: color 0.2s, border-color 0.2s;
+    }
+    .footer-link:hover { color: #fff; border-color: rgba(255,255,255,0.22); }
+    .footer-link svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
+    .footer-copy { font-size: 0.68rem; color: rgba(255,255,255,0.14); letter-spacing: 0.06em; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      .nav-island { gap: 16px; padding: 8px 16px 8px 10px; }
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 0.75rem; }
+
+      .content-slab { padding: 40px 24px 48px; border-radius: 20px 20px }
+
+      .content-row {
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      .copy-col {
+        width: 100%;
+        padding-right: 0;
+      }
+      .copy-title {
+        font-size: clamp(3.8rem, 14vw, 5.5rem);
+      }
+
+      .cards-col {
+        width: 100%;
+        padding-left: 0;
+        align-items: center;
+      }
+
+      .cards-stack {
+        width: calc(100vw - 48px);
+        height: calc(100vw - 48px);
+        max-width: 480px;
+        max-height: 480px;
+      }
+
+      .product-card {
+        width: calc(100vw - 48px);
+        height: calc(100vw - 48px);
+        max-width: 480px;
+        max-height: 480px;
+      }
+
+      .card-image {
+        height: 55%;
+      }
+
+      .card-name { font-size: 1.7rem; }
+      .card-price { font-size: 1.5rem; }
+      .card-btn { padding: 9px 20px; font-size: 0.75rem; }
+
+      .footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
-  <video class="bg-video" autoplay muted playsinline>
-    <source src="./public/Short_Intro.mp4" type="video/mp4" />
-  </video>
-  <div class="vignette"></div>
+  <!-- HERO -->
+  <section class="hero-section">
+    <video class="bg-video" autoplay muted playsinline>
+      <source src="./public/Short_Intro.mp4" type="video/mp4"/>
+    </video>
+    <div class="vignette"></div>
 
-  <nav class="nav-island" id="navIsland">
-    <div class="nav-logo">
-      <img src="./public/Subtract.png" id="LightRager" alt="Rager logo" height="30" />
+    <nav class="nav-island">
+      <div class="nav-logo">
+        <img src="./public/Subtract.png" alt="Rager logo" height="30"/>
+      </div>
+      <div class="nav-divider"></div>
+      <ul class="nav-links">
+        <li><a href="./travel">Explore</a></li>
+        <li><a href="./workout">Workout</a></li>
+        <li><a href="https://reclaimrevenue.co">Reclaim Revenue</a></li>
+        <li><a href="./aburri">Aburrí</a></li>
+      </ul>
+    </nav>
+
+    <div class="swipe-indicator">
+      <div class="swipe-chevron"></div>
     </div>
-    <div class="nav-divider"></div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="./travel" class="nav-link" data-label="Explore">Explore</a></li>
-      <li><a href="./workout" class="nav-link" data-label="Workout">Workout</a></li>
-      <li><a href="https://reclaimrevenue.co" class="nav-link">Reclaim Revenue</a></li>
-      <li><a href="./aburri" class="nav-link">Aburrí</a></li>
-    </ul>
-  </nav>
+  </section>
+
+  <!-- CONTENT — raised slab layered on black -->
+  <section class="content-section">
+    <div class="content-slab">
+      <div class="content-row">
+
+        <!-- LEFT: title flush to cards -->
+        <div class="copy-col">
+          <h1 class="copy-title">
+            Gear Built For <br>
+            <span class="typed-word" id="typed-word"></span><span class="type-cursor"></span>
+          </h1>
+          <p class="copy-body">
+            Rager is built for people who don't stop. Whether you're chasing peaks, logging miles, or recovering hard — every product is engineered for the relentless pursuit of more.
+          </p>
+        </div>
+
+        <!-- RIGHT: stacked cards bleeding off screen -->
+        <div class="cards-col">
+          <div class="cards-stack" id="cardsStack">
+
+            <div class="product-card" data-index="0" onclick="window.location.href='https://rager-s.com/aburri'" style="cursor:pointer;">
+              <div class="card-image">
+                <img src="./public/Aburri.png" style="width:100%; height:100%; object-fit:cover; display:block;">
+              </div>
+              <div class="card-body">
+                <div class="card-tag">unobstreperous App Series</div>
+                <div class="card-name">Aburri Crossword</div>
+                <div class="card-desc">The daily bilingual crossword for actually learning a language.</div>
+                <div class="card-price-row">
+                  <span class="card-price"></span>
+                  <button class="card-btn" onclick="event.stopPropagation(); window.location.href='https://apps.apple.com/us/app/aburri/id6760615776'">
+                    Start Learning
+                  </button>
+                </div>
+              </div>
+
+            <!--<div class="product-card" data-index="1">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:radial-gradient(circle at 42% 58%, rgba(90,0,0,0.5), transparent 62%)"></div>
+                <svg class="card-img-icon" viewBox="0 0 100 100"><rect x="18" y="28" width="64" height="44" rx="9" fill="white"/><rect x="29" y="17" width="16" height="16" rx="5" fill="white"/><rect x="55" y="17" width="16" height="16" rx="5" fill="white"/></svg>
+                <div class="card-badge" style="background:rgba(90,0,0,0.65);border-color:rgba(255,80,80,0.18);color:rgba(255,190,190,0.9);">Limited</div>
+              </div>
+              <div class="card-body">
+                <div class="card-tag">Carry</div>
+                <div class="card-name">Rager Duffel Pro</div>
+                <div class="card-desc">Separate wet/dry compartments. Reinforced base. From gym to trail without complaint.</div>
+                <div class="card-price-row">
+                  <span class="card-price">$124</span>
+                  <button class="card-btn">Shop Now</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="product-card" data-index="2">
+              <div class="card-image">
+                <div class="card-image-bg" style="background:radial-gradient(circle at 50% 50%, rgba(255,215,0,0.16), transparent 58%)"></div>
+                <svg class="card-img-icon" viewBox="0 0 100 100"><ellipse cx="50" cy="50" rx="32" ry="23" fill="white"/><rect x="34" y="34" width="32" height="9" rx="4" fill="#111"/></svg>
+                <div class="card-badge" style="background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.26);color:#FFD700;">Bestseller</div>
+              </div>
+              <div class="card-body">
+                <div class="card-tag">Headwear</div>
+                <div class="card-name">Storm Cap</div>
+                <div class="card-desc">Lightweight structured brim. UV-blocking fabric. Goes every distance with you.</div>
+                <div class="card-price-row">
+                  <span class="card-price">$36</span>
+                  <button class="card-btn">Shop Now</button>
+                </div>
+              </div>
+            </div>-->
+
+          </div>
+
+          <div class="card-dots" id="cardDots">
+            <!--<div class="card-dot active" data-index="0"></div>
+            <div class="card-dot" data-index="1"></div>
+            <div class="card-dot" data-index="2"></div>-->
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </div>
+
+          <!-- FOOTER -->
+      <footer class="footer">
+        <span class="footer-brand"><div class="nav-logo">
+        <img src="./public/Subtract.png" alt="Rager logo" height="30"/>
+      </div></span>
+        <div class="footer-links">
+          <a class="footer-link" href="./workout" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M20.5 10H20V7.5A1.5 1.5 0 0 0 18.5 6h-1A1.5 1.5 0 0 0 16 7.5V10H8V7.5A1.5 1.5 0 0 0 6.5 6h-1A1.5 1.5 0 0 0 4 7.5V10h-.5a1.5 1.5 0 0 0 0 3H4v2.5A1.5 1.5 0 0 0 5.5 17h1A1.5 1.5 0 0 0 8 15.5V13h8v2.5a1.5 1.5 0 0 0 1.5 1.5h1a1.5 1.5 0 0 0 1.5-1.5V13h.5a1.5 1.5 0 0 0 0-3z"/>
+</svg>
+            Workout
+          </a>
+          <a class="footer-link" href="./travel" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 2c.844 0 1.669.123 2.452.35-.28.4-.565.83-.847 1.3-.782 1.348-1.47 3.02-1.955 5.016C9.498 10.48 7.788 10.1 6.32 9.54c.874-3.047 3.245-5.274 5.68-5.54zM4.05 13h2.753c.072 1.308.27 2.542.573 3.644C5.63 15.756 4.477 14.487 4.05 13zm0-2c.427-1.487 1.58-2.756 3.326-3.644-.303 1.102-.501 2.336-.573 3.644H4.05zm7.95 9c-.844 0-1.669-.123-2.452-.35.28-.4.565-.83.847-1.3.782-1.348 1.47-3.02 1.955-5.016 2.152.186 3.862.566 5.33 1.126C16.756 18.507 14.385 20.734 12 21zm2.198-8.334c-.07-1.22-.25-2.37-.52-3.38 1.115.277 2.1.65 2.926 1.1.14.73.224 1.48.247 2.244l-2.653.036zm-4.396 0L7.15 12.63c.023-.764.107-1.514.247-2.244.826-.45 1.811-.823 2.926-1.1-.27 1.01-.45 2.16-.52 3.38zm.248 2H12.9c-.07 1.22-.25 2.37-.52 3.38-1.115-.277-2.1-.65-2.926-1.1-.14-.73-.224-1.48-.247-2.244l-.157-.036zm4.9.036c-.023.764-.107 1.514-.247 2.244-.826.45-1.811.823-2.926 1.1.27-1.01.45-2.16.52-3.38l2.653.036zm.198-2.036c-.023-.764-.107-1.514-.247-2.244.826-.45 1.811-.823 2.926-1.1.27 1.01.45 2.16.52 3.38l-3.199-.036zm.248 2H19.95c-.427 1.487-1.58 2.756-3.326 3.644.303-1.102.501-2.336.573-3.644zm.573-7.644C17.52 7.244 18.673 8.513 19.1 10h-2.753c-.072-1.308-.27-2.542-.573-3.644zM19.95 11H17.2c-.072-1.308-.27-2.542-.573-3.644C18.37 8.244 19.523 9.513 19.95 11z"/>
+</svg>
+            Explore
+          </a>
+          <a class="footer-link" href="https://instagram.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            @ragerindustries
+          </a>
+          <a class="footer-link" href="https://youtube.com" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            @ragerindustries
+          </a>
+        </div>
+      </footer>
+  </section>
 
   <script>
-    const links = document.querySelectorAll('.nav-link');
-    let activeLink = null;
-
-    const shootLine = document.createElement('div');
-    shootLine.className = 'shoot-line';
-    document.body.appendChild(shootLine);
-
-    const underlineEl = document.createElement('div');
-    underlineEl.className = 'link-underline';
-    document.body.appendChild(underlineEl);
-
-    let shootTimer = null;
-
-    function activate(link) {
-      if (link === activeLink) return;
-
-      if (activeLink) activeLink.classList.remove('active');
-      link.classList.add('active');
-      activeLink = link;
-
-      const rect = link.getBoundingClientRect();
-      const lineY = rect.bottom + 3;
-      const linkLeft  = rect.left;
-      const linkWidth = rect.width;
-
-      underlineEl.style.opacity = '0';
-      underlineEl.style.transition = 'none';
-      underlineEl.style.left  = linkLeft + 'px';
-      underlineEl.style.width = linkWidth + 'px';
-      underlineEl.style.top   = lineY + 'px';
-
-      if (shootTimer) clearTimeout(shootTimer);
-      shootLine.style.transition = 'none';
-      shootLine.style.top    = lineY + 'px';
-      shootLine.style.left   = '0px';
-      shootLine.style.width  = '0px';
-      shootLine.style.opacity = '1';
-
-      void shootLine.offsetWidth;
-
-      const targetWidth = linkLeft + linkWidth;
-      const duration = 320 + targetWidth * 0.18;
-      shootLine.style.transition = `width ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
-      shootLine.style.width = targetWidth + 'px';
-
-      shootTimer = setTimeout(() => {
-        shootLine.style.transition = 'opacity 120ms ease';
-        shootLine.style.opacity = '0';
-        underlineEl.style.transition = 'opacity 100ms ease';
-        underlineEl.style.opacity = '1';
-      }, duration);
+    /* video scrub */
+    const video = document.querySelector('video');
+    if (video) {
+      let dir = 1, paused = false;
+      const step = 1/30, pauseMs = 1000;
+      setInterval(() => {
+        if (paused || !video.duration) return;
+        video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + dir * step));
+        if (video.currentTime >= video.duration) { paused = true; setTimeout(() => { dir = -1; paused = false; }, pauseMs); }
+        else if (video.currentTime <= 0) { paused = true; setTimeout(() => { dir = 1; paused = false; }, pauseMs); }
+      }, 1000/30);
     }
 
-    links.forEach(link => {
-      link.addEventListener('click', e => {
-        const href = link.getAttribute('href');
-        const isExternal = href && href.startsWith('http');
+    /* typewriter */
+    const words = ['Champions.','Obsessives.','Runners.','Ragers.','Survivors.','The Relentless.'];
+    let wIdx = 0, cIdx = 0, deleting = false;
+    const el = document.getElementById('typed-word');
+    function type() {
+      const w = words[wIdx];
+      if (!deleting) {
+        el.textContent = w.slice(0, ++cIdx);
+        if (cIdx === w.length) { deleting = true; setTimeout(type, 1900); return; }
+        setTimeout(type, 72 + Math.random()*42);
+      } else {
+        el.textContent = w.slice(0, --cIdx);
+        if (cIdx === 0) { deleting = false; wIdx = (wIdx+1) % words.length; setTimeout(type, 380); return; }
+        setTimeout(type, 38 + Math.random()*24);
+      }
+    }
+    setTimeout(type, 800);
 
-        if (isExternal) {
-          activate(link);
-          return; // allow default — browser opens the link
+    /* stacked carousel */
+    const cards = Array.from(document.querySelectorAll('.product-card'));
+    const dots  = Array.from(document.querySelectorAll('.card-dot'));
+    let current = 0;
+    const total = cards.length;
+
+    function layOut(active) {
+      cards.forEach((card, i) => {
+        const off = (i - active + total) % total;
+        if (off === 0) {
+          card.style.transform = 'translateX(0) translateY(0) rotate(0deg) scale(1)';
+          card.style.zIndex = 30; card.style.opacity = '1';
+          card.style.pointerEvents = 'auto';
+        } else if (off === 1) {
+          card.style.transform = 'translateX(22px) translateY(16px) rotate(3deg) scale(0.96)';
+          card.style.zIndex = 20; card.style.opacity = '0.65';
+          card.style.pointerEvents = 'none';
+        } else {
+          card.style.transform = 'translateX(40px) translateY(30px) rotate(5.5deg) scale(0.92)';
+          card.style.zIndex = 10; card.style.opacity = '0.35';
+          card.style.pointerEvents = 'none';
         }
-
-        // Internal: animate then navigate
-        e.preventDefault();
-        activate(link);
-        const rect = link.getBoundingClientRect();
-        const duration = 320 + (rect.left + rect.width) * 0.18;
-        setTimeout(() => { window.location.href = href; }, duration + 80);
       });
+      dots.forEach((d,i) => d.classList.toggle('active', i === active));
+    }
+
+    function next() { current = (current+1) % total; layOut(current); }
+    function prev() { current = (current-1+total) % total; layOut(current); }
+
+    layOut(0);
+
+    cards.forEach(c => c.addEventListener('click', () => { if (parseInt(c.dataset.index) === current) next(); }));
+    dots.forEach(d => d.addEventListener('click', () => { current = parseInt(d.dataset.index); layOut(current); }));
+
+    /* touch + mouse drag */
+    let startX = 0, dragging = false;
+    const stack = document.getElementById('cardsStack');
+    stack.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    stack.addEventListener('touchend', e => {
+      const dx = startX - e.changedTouches[0].clientX;
+      if (Math.abs(dx) > 35) dx > 0 ? next() : prev();
+    }, { passive: true });
+    stack.addEventListener('mousedown', e => { dragging = true; startX = e.clientX; });
+    window.addEventListener('mouseup', e => {
+      if (!dragging) return; dragging = false;
+      const dx = startX - e.clientX;
+      if (Math.abs(dx) > 35) dx > 0 ? next() : prev();
     });
-
-    const video = document.querySelector('video');
-let direction = 1;
-let isPaused = false;
-const step = 1 / 30;
-const pauseDuration = 1000; // ms to pause at each end
-
-setInterval(() => {
-  if (isPaused) return;
-
-  video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + direction * step));
-
-  if (video.currentTime >= video.duration) {
-    isPaused = true;
-    setTimeout(() => {
-      direction = -1;
-      isPaused = false;
-    }, pauseDuration);
-  } else if (video.currentTime <= 0) {
-    isPaused = true;
-    setTimeout(() => {
-      direction = 1;
-      isPaused = false;
-    }, pauseDuration);
-  }
-}, 1000 / 30);
   </script>
 </body>
 </html>
+
