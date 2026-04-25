@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rager</title>
-  <link rel="icon" href="./public/Just R White Background.png" type="image/png">
+  <link rel="icon" href="./public/Just R Black Background.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -30,13 +30,13 @@
 
     .bg-video {
       position: fixed;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -35%) scale(1.55);
-      min-width: 100%; min-height: 100%;
-      width: auto; height: auto;
-      object-fit: cover;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: contain;
       z-index: 0;
       pointer-events: none;
+      background: black; /* fills letterbox/pillarbox bars */
     }
 
     .vignette {
@@ -159,8 +159,8 @@
 </head>
 <body>
 
-  <video class="bg-video" autoplay muted loop playsinline>
-    <source src="./public/LightRager.mp4" type="video/mp4" />
+  <video class="bg-video" autoplay muted playsinline>
+    <source src="./public/Short_Intro.mp4" type="video/mp4" />
   </video>
   <div class="vignette"></div>
 
@@ -173,7 +173,7 @@
       <li><a href="./travel" class="nav-link" data-label="Explore">Explore</a></li>
       <li><a href="./workout" class="nav-link" data-label="Workout">Workout</a></li>
       <li><a href="https://reclaimrevenue.co" class="nav-link">Reclaim Revenue</a></li>
-      <li><a href="./crossword" class="nav-link">Aburrí</a></li>
+      <li><a href="./aburri" class="nav-link">Aburrí</a></li>
     </ul>
   </nav>
 
@@ -249,6 +249,32 @@
         setTimeout(() => { window.location.href = href; }, duration + 80);
       });
     });
+
+    const video = document.querySelector('video');
+let direction = 1;
+let isPaused = false;
+const step = 1 / 30;
+const pauseDuration = 1000; // ms to pause at each end
+
+setInterval(() => {
+  if (isPaused) return;
+
+  video.currentTime = Math.max(0, Math.min(video.duration, video.currentTime + direction * step));
+
+  if (video.currentTime >= video.duration) {
+    isPaused = true;
+    setTimeout(() => {
+      direction = -1;
+      isPaused = false;
+    }, pauseDuration);
+  } else if (video.currentTime <= 0) {
+    isPaused = true;
+    setTimeout(() => {
+      direction = 1;
+      isPaused = false;
+    }, pauseDuration);
+  }
+}, 1000 / 30);
   </script>
 </body>
 </html>
