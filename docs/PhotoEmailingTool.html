@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Emailing Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #F0F3F7;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header floats over hero */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            box-sizing: border-box;
+        }
+
+        nav {
+            background: #344F72;
+            padding: 8px 16px;
+            border-radius: 24px;
+            display: flex;
+            gap: 20px;
+            font-weight: bold;
+            max-width: calc(100% - 260px);
+            overflow-x: auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #F0F3F7;
+            background-color: rgba(64, 74, 86, 0.88);
+            padding: 8px 16px;
+            border-radius: 12px;
+        }
+
+        nav a {
+            color: #C8D4E5;
+        }
+
+        nav a:hover {
+            color: #F0F3F7;
+        }
+
+        /* Top row grid */
+        .top-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            min-height: 100vh;
+        }
+
+        .app-image {
+            background-color: #344F72;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .app-image img {
+            width: 100%;
+            max-width: 350px;
+            border-radius: 60px;
+        }
+
+        .hero-text {
+            background-color: #404A56;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 60px 40px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 60px;
+            line-height: 1.1;
+            margin: 0 0 20px 0;
+            color: #F0F3F7;
+        }
+
+        .hero-text p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            color: #C8D4E5;
+            max-width: 560px;
+            line-height: 1.6;
+        }
+
+        .download-ios {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .download-ios img {
+            height: 60px;
+            max-width: 100%;
+        }
+
+        /* Bottom row */
+        .what-is {
+            background: #717C8B;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .what-is h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #F0F3F7;
+        }
+
+        .what-is p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #F0F3F7;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+            .top-row { grid-template-columns: 1fr; }
+            .hero-text { padding: 40px; }
+            .hero-text h1 { font-size: 42px; }
+            .hero-text p { font-size: 18px; }
+            nav { font-size: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            📷 Photo Emailing Tool
+        </div>
+        <nav>
+            <a href="support.html">Support</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </nav>
+    </header>
+
+    <div class="top-row">
+        <div class="app-image">
+            <img src="./app-screenshot.png" alt="Photo Emailing Tool app on phone">
+        </div>
+        <div class="hero-text">
+            <h1>Snap.</h1>
+            <h1>Number.</h1>
+            <h1>Send.</h1>
+            <p>
+                No sharing sheets. No hunting for email addresses. Just open the app, take your photos,
+                and hit send — they go straight to your recipient through your own Mail app,
+                with your reference number in the subject line. Every photo saved to your Camera Roll too.
+            </p>
+            <a href="https://apps.apple.com/app" class="download-ios">
+                <img src="App_Store.svg" alt="Download on the App Store">
+            </a>
+        </div>
+    </div>
+
+    <div class="what-is">
+        <h2>What is Photo Emailing Tool?</h2>
+        <p>
+            Photo Emailing Tool is a no-fuss iOS utility for anyone who regularly needs to send photos by email.
+            Enter your destination address once — it's saved. Pick a reference number for the subject line.
+            Take your photos. Tap send. The app hands off a pre-addressed, pre-numbered email to your Mail app
+            with everything attached, and steps out of the way. Simple, fast, and stays out of your way.
+        </p>
+    </div>
+
+</body>
+</html>

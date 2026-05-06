@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Photo Emailing Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            color: #F0F3F7;
+            background-color: #404A56;
+        }
+
+        a { text-decoration: none; color: inherit; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #344F72;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'Syne', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: #F0F3F7;
+        }
+
+        nav {
+            background: #404A56;
+            padding: 8px 16px;
+            border-radius: 24px;
+            display: flex;
+            gap: 20px;
+            font-weight: bold;
+        }
+
+        nav a { color: #C8D4E5; }
+        nav a:hover { color: #F0F3F7; }
+
+        .content {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 60px 40px 100px;
+        }
+
+        h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: 48px;
+            margin-bottom: 12px;
+            color: #F0F3F7;
+        }
+
+        .intro {
+            font-size: 20px;
+            color: #C8D4E5;
+            line-height: 1.6;
+            margin-bottom: 56px;
+            max-width: 600px;
+        }
+
+        h2 {
+            font-family: 'Syne', sans-serif;
+            font-size: 22px;
+            margin: 48px 0 20px;
+            color: #6396D8;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #717C8B;
+            padding: 24px 0;
+        }
+
+        .faq-item:first-of-type { padding-top: 0; }
+
+        .faq-q {
+            font-size: 18px;
+            font-weight: 700;
+            color: #F0F3F7;
+            margin-bottom: 10px;
+        }
+
+        .faq-a {
+            font-size: 16px;
+            color: #C8D4E5;
+            line-height: 1.75;
+        }
+
+        .contact-block {
+            background: #344F72;
+            border-radius: 16px;
+            padding: 48px 40px;
+            text-align: center;
+            margin-top: 64px;
+        }
+
+        .contact-block h2 {
+            margin-top: 0;
+            color: #F0F3F7;
+        }
+
+        .contact-block p {
+            font-size: 18px;
+            color: #C8D4E5;
+            margin-bottom: 28px;
+            line-height: 1.6;
+        }
+
+        .contact-link {
+            display: inline-block;
+            background: #6396D8;
+            color: #F0F3F7;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 14px 32px;
+            border-radius: 24px;
+            transition: background 0.2s;
+        }
+
+        .contact-link:hover { background: #344F72; }
+
+        footer {
+            background: #344F72;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            color: #C8D4E5;
+        }
+
+        .footer-links { display: flex; gap: 24px; }
+        .footer-links a { color: #C8D4E5; }
+        .footer-links a:hover { color: #F0F3F7; }
+
+        @media (max-width: 700px) {
+            header { padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+            .content { padding: 40px 24px 60px; }
+            h1 { font-size: 36px; }
+            .contact-block { padding: 32px 24px; }
+            footer { flex-direction: column; gap: 16px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">📷 Photo Emailing Tool</a>
+    <nav>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </nav>
+</header>
+
+<div class="content">
+    <h1>Support</h1>
+    <p class="intro">Answers to common questions below. If you need something else, email us directly — we're happy to help.</p>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <div class="faq-q">How do I set my email address?</div>
+        <div class="faq-a">Open the app and tap the email field. Type in the address you want photos sent to and tap Done. The app saves it automatically — it'll be there the next time you open the app.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">What is the subject number for?</div>
+        <div class="faq-a">The number you enter appears in the email's subject line. It's useful for keeping your inbox organized — for example, entering a job number, batch number, or any reference you want to appear on the email.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Are my photos saved to my phone?</div>
+        <div class="faq-a">Yes. Every photo you take in the app is automatically saved to your Camera Roll. You don't need to do anything extra.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Why does sending open the Mail app?</div>
+        <div class="faq-a">The app sends through iOS's built-in Mail composer using your own email account. This means your photos go through your own account — not a third-party server. We never touch your credentials or messages.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">What if I don't have Mail set up on my phone?</div>
+        <div class="faq-a">You'll need at least one email account configured in the iOS Mail app. Go to Settings → Mail → Accounts to add one. Gmail, Outlook, iCloud, and most standard providers work.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">How many photos can I send at once?</div>
+        <div class="faq-a">You can take as many photos as you like before sending. Keep in mind that large batches of full-resolution images may exceed your email provider's attachment limit. If that happens, try sending in two smaller batches.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Can I change the saved email address?</div>
+        <div class="faq-a">Yes — just tap the email field and type a new address. The app will save the updated one going forward.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">Does the app collect any of my data?</div>
+        <div class="faq-a">No. Your email address is stored locally on your device only and never sent anywhere. We collect nothing. See the <a href="privacy.html" style="color: #6396D8;">Privacy Policy</a> for full details.</div>
+    </div>
+
+    <div class="contact-block">
+        <h2>Still need help?</h2>
+        <p>Drop us an email and we'll get back to you.</p>
+        <a href="mailto:support@photoemailingtool.com" class="contact-link">support@photoemailingtool.com</a>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-logo">📷 Photo Emailing Tool</div>
+    <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="support.html">Support</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+</footer>
+
+</body>
+</html>
