@@ -1,195 +1,453 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Emailing Tool</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Lato', sans-serif;
-            color: #F0F3F7;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signed Photo Emailing Tool</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* Header floats over hero */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            box-sizing: border-box;
-        }
+    :root {
+      --bg:        #0c0c0c;
+      --surface:   #141414;
+      --border:    #232323;
+      --muted:     #444;
+      --body:      #a8a8a8;
+      --light:     #d6d6d6;
+      --white:     #f0ede8;
+      --accent:    #6396D8;
+      --font-serif: 'Instrument Serif', Georgia, serif;
+      --font-mono:  'DM Mono', 'Courier New', monospace;
+    }
 
-        nav {
-            background: #344F72;
-            padding: 8px 16px;
-            border-radius: 24px;
-            display: flex;
-            gap: 20px;
-            font-weight: bold;
-            max-width: calc(100% - 260px);
-            overflow-x: auto;
-        }
+    html { scroll-behavior: smooth; }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-family: 'Syne', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
-            color: #F0F3F7;
-            background-color: rgba(64, 74, 86, 0.88);
-            padding: 8px 16px;
-            border-radius: 12px;
-        }
+    body {
+      background: var(--bg);
+      color: var(--body);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
 
-        nav a {
-            color: #C8D4E5;
-        }
+    /* HEADER */
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 36px 48px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
 
-        nav a:hover {
-            color: #F0F3F7;
-        }
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-        /* Top row grid */
-        .top-row {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            min-height: 100vh;
-        }
+    .logo-placeholder {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.4;
+    }
 
-        .app-image {
-            background-color: #344F72;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
+    .app-name {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--white);
+      letter-spacing: -0.01em;
+    }
 
-        .app-image img {
-            width: 100%;
-            max-width: 350px;
-            border-radius: 60px;
-        }
+    .app-name span {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      font-style: normal;
+      margin-top: 2px;
+    }
 
-        .hero-text {
-            background-color: #404A56;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 60px 40px;
-        }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--white); }
 
-        .hero-text h1 {
-            font-family: 'Syne', sans-serif;
-            font-size: 60px;
-            line-height: 1.1;
-            margin: 0 0 20px 0;
-            color: #F0F3F7;
-        }
+    /* HERO */
+    .hero {
+      padding: 80px 48px 64px;
+      border-bottom: 1px solid var(--border);
+      max-width: 860px;
+    }
 
-        .hero-text p {
-            font-size: 22px;
-            margin-bottom: 30px;
-            color: #C8D4E5;
-            max-width: 560px;
-            line-height: 1.6;
-        }
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+    }
 
-        .download-ios {
-            display: flex;
-            justify-content: flex-start;
-            margin-top: 20px;
-        }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 5vw, 62px);
+      color: var(--white);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
 
-        .download-ios img {
-            height: 60px;
-            max-width: 100%;
-        }
+    .hero h1 em { color: var(--accent); font-style: italic; }
 
-        /* Bottom row */
-        .what-is {
-            background: #717C8B;
-            padding: 80px 40px;
-            text-align: center;
-        }
+    .hero p {
+      font-size: 15px;
+      color: var(--light);
+      max-width: 560px;
+      line-height: 1.8;
+    }
 
-        .what-is h2 {
-            font-family: 'Syne', sans-serif;
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #F0F3F7;
-        }
+    /* LAYOUT */
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
 
-        .what-is p {
-            font-size: 20px;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #F0F3F7;
-            line-height: 1.6;
-        }
+    @media (max-width: 760px) {
+      header { padding: 24px 24px 20px; }
+      nav { display: none; }
+      .hero { padding: 48px 24px 40px; }
+      main { grid-template-columns: 1fr; }
+    }
 
-        @media (max-width: 900px) {
-            .top-row { grid-template-columns: 1fr; }
-            .hero-text { padding: 40px; }
-            .hero-text h1 { font-size: 42px; }
-            .hero-text p { font-size: 18px; }
-            nav { font-size: 14px; }
-        }
-    </style>
+    /* SECTIONS */
+    section {
+      padding: 56px 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    section:nth-child(odd) { border-right: 1px solid var(--border); }
+
+    section.full {
+      grid-column: 1 / -1;
+      border-right: none;
+    }
+
+    @media (max-width: 760px) {
+      section { padding: 40px 24px; border-right: none !important; }
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 26px;
+      color: var(--white);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      margin-bottom: 16px;
+    }
+
+    p { margin-bottom: 14px; }
+    p:last-child { margin-bottom: 0; }
+
+    /* FAQ */
+    .faq-item {
+      border-top: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .faq-q {
+      color: var(--light);
+      font-size: 13.5px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .faq-q::before {
+      content: 'Q';
+      color: var(--accent);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      flex-shrink: 0;
+    }
+    .faq-a { padding-left: 22px; font-size: 13.5px; }
+
+    /* CONTACT */
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px 36px;
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .contact-email {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .contact-email:hover { color: var(--accent); }
+
+    .btn {
+      display: inline-block;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 11px 22px;
+      border-radius: 2px;
+      transition: background 0.18s, color 0.18s;
+      white-space: nowrap;
+    }
+    .btn:hover { background: var(--accent); color: #0c0c0c; }
+
+    /* PRIVACY */
+    .privacy-block {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 36px 40px;
+      margin-top: 16px;
+    }
+
+    .privacy-block h3 {
+      color: var(--light);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin: 32px 0 10px;
+    }
+    .privacy-block h3:first-child { margin-top: 0; }
+    .privacy-block p { font-size: 13px; line-height: 1.85; }
+
+    /* SCREENSHOTS */
+    .screenshots-placeholder {
+      display: flex;
+      gap: 16px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .screenshot-slot {
+      width: 120px;
+      height: 220px;
+      border: 1px dashed var(--border);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    /* VERIFY BOX */
+    .verify-box {
+      border-left: 2px solid var(--accent);
+      padding: 16px 20px;
+      margin: 20px 0;
+      background: rgba(200, 240, 78, 0.04);
+    }
+    .verify-box p { font-size: 13px; }
+    .verify-box a { color: var(--accent); text-underline-offset: 3px; }
+
+    /* FOOTER */
+    footer {
+      grid-column: 1 / -1;
+      padding: 36px 48px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer p { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; margin: 0; }
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 760px) {
+      footer { padding: 28px 24px; }
+      .privacy-block { padding: 24px 20px; }
+      .contact-card { padding: 24px 20px; }
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    header { animation: fadeUp 0.5s ease both; }
+    .hero  { animation: fadeUp 0.6s ease 0.08s both; }
+    section { animation: fadeUp 0.6s ease both; }
+    section:nth-child(1) { animation-delay: 0.12s; }
+    section:nth-child(2) { animation-delay: 0.18s; }
+    section:nth-child(3) { animation-delay: 0.22s; }
+    section:nth-child(4) { animation-delay: 0.26s; }
+    section:nth-child(5) { animation-delay: 0.30s; }
+    section:nth-child(6) { animation-delay: 0.34s; }
+  </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            📷 Photo Emailing Tool
-        </div>
-        <nav>
-            <a href="support.html">Support</a>
-            <a href="privacy.html">Privacy Policy</a>
-        </nav>
-    </header>
+<header>
+  <div class="logo-area">
+ <img src="./public/Group 34 (1).png" height="60">
+    <div class="app-name">
+      Signed Photo Emailing Tool
+      <span>Privacy Statement & Support</span>
+    </div>
+  </div>
+  <nav>
+    <a href="#faq">Support</a>
+    <a href="#privacy">Privacy</a>
+  </nav>
+</header>
 
-    <div class="top-row">
-        <div class="app-image">
-            <img src="./app-screenshot.png" alt="Photo Emailing Tool app on phone">
-        </div>
-        <div class="hero-text">
-            <h1>Snap.</h1>
-            <h1>Number.</h1>
-            <h1>Send.</h1>
-            <p>
-                No sharing sheets. No hunting for email addresses. Just open the app, take your photos,
-                and hit send — they go straight to your recipient through your own Mail app,
-                with your reference number in the subject line. Every photo saved to your Camera Roll too.
-            </p>
-            <a href="https://apps.apple.com/app" class="download-ios">
-                <img src="App_Store.svg" alt="Download on the App Store">
-            </a>
-        </div>
+
+<main>
+
+  <section class="full" id="faq">
+    <h2>Common questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">What is C2PA and why does it matter?</div>
+      <div class="faq-a">C2PA (Coalition for Content Provenance and Authenticity) is the open standard backed by Adobe, Microsoft, Google, and the BBC for verifying digital media. Until now it has only been available in professional desktop tools. Signed Photo brings it to your iPhone camera automatically, every time you take a photo.</div>
     </div>
 
-    <div class="what-is">
-        <h2>What is Photo Emailing Tool?</h2>
-        <p>
-            Photo Emailing Tool is a no-fuss iOS utility for anyone who regularly needs to send photos by email.
-            Enter your destination address once — it's saved. Pick a reference number for the subject line.
-            Take your photos. Tap send. The app hands off a pre-addressed, pre-numbered email to your Mail app
-            with everything attached, and steps out of the way. Simple, fast, and stays out of your way.
-        </p>
+    <div class="faq-item">
+      <div class="faq-q">Where is the credential stored?</div>
+      <div class="faq-a">The credential is embedded invisibly inside the JPEG file itself. There is no external database, no blockchain, and no third-party server involved. The proof travels with the photo.</div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-q">What happens if someone edits the photo?</div>
+      <div class="faq-a">Any modification to the image breaks the cryptographic credential. When someone verifies the photo at verify.contentauthenticity.org, they will see that the credential is invalid and the image has been altered.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How does the email sending work?</div>
+      <div class="faq-a">Everything sends through your own iOS Mail app. You enter your destination email address once and it persists. Set a custom subject line number for batch and ticket reference. Multiple photos captured in a session can be sent together.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Are my photos saved to my Camera Roll?</div>
+      <div class="faq-a">Yes. Every photo is automatically saved to your Camera Roll in addition to being sent by email.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Do I need an account?</div>
+      <div class="faq-a">No. There are no accounts, no cloud service, no sign-up, and no subscription. The app works entirely on your device using your iOS Mail app.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">How do I contact support?</div>
+      <div class="faq-a">Support email: <a href="mailto:56sarager@gmail.com" style="color:var(--accent);text-underline-offset:3px;">56sarager@gmail.com</a></div>
+    </div>
+  </section>
+
+  <section class="full" id="privacy">
+
+    <h2>Privacy Statement</h2>
+    <p>Effective date: May 19th, 2026. This statement applies to the Signed Photo Emailing Tool iOS application.</p>
+
+    <div class="privacy-block">
+
+      <h3>What We Collect</h3>
+      <p>We collect nothing. The Signed Photo Emailing Tool does not collect, transmit, store, or share any personal data, photos, or usage information. The app has no analytics, no crash reporting that leaves your device, and no backend servers of any kind.</p>
+
+      <h3>Photos and Camera</h3>
+      <p>Photos are captured using your iPhone camera and processed entirely on your device. The C2PA content credential is generated and embedded locally. Photos are saved to your Camera Roll (with your permission) and sent via your own iOS Mail app. At no point do photos pass through our servers because we have no servers.</p>
+
+      <h3>Email Address</h3>
+      <p>The destination email address you enter is stored locally on your device using standard iOS secure storage. It is never transmitted to us or any third party. It exists solely so the app can pre-fill your iOS Mail compose sheet.</p>
+
+      <h3>Third-Party Services</h3>
+      <p>The app does not integrate with any third-party analytics, advertising, or data collection services. Sending email uses your own iOS Mail app and your own email provider governed by their respective privacy policies, not ours.</p>
+
+      <h3>Verification</h3>
+      <p>Photo verification is performed at <a href="https://verify.contentauthenticity.org" target="_blank" style="color:var(--accent);text-underline-offset:3px;">verify.contentauthenticity.org</a>, a service operated by the Content Authenticity Initiative. When a recipient chooses to verify a photo there, that interaction is between them and that service. We have no involvement or visibility into it.</p>
+
+      <h3>Children's Privacy</h3>
+      <p>The app does not knowingly collect any information from anyone, including children under 13. No data is collected from any user of any age.</p>
+
+      <h3>Changes to This Statement</h3>
+      <p>If this privacy statement is ever updated, the new version will be posted here with a revised effective date. Given the nature of the app - no data collection, no servers - material changes are unlikely.</p>
+
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Signed Photo Emailing Tool &middot; <a href="mailto:56sarager@gmail.com">56sarager@gmail.com</a></p>
+    <p><a href="#privacy">Privacy Statement</a></p>
+  </footer>
+
+</main>
 
 </body>
 </html>
